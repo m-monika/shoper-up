@@ -1,11 +1,15 @@
 # shoper-up
 
-## Wymagania
+1. [Wymagania](#wymagania)
+    1. [GIT](#git)
+    2. [GitHub](#github)
+    3. [Visual Studio Code](#visual-studio-code)
+    4. [Docker](#docker)
+2. [Zadania](#zadania)
 
-1. [GIT](#git)
-2. [GitHub](#github)
-3. [Visual Studio Code](#visual-studio-code)
-4. [Docker](#docker)
+------------------
+
+## Wymagania
 
 ### GIT
 
@@ -51,3 +55,13 @@ Darmowe narzędzie do edytowania kodu
 ### Docker
 
 [Instalacja](https://www.docker.com/products/docker-desktop/)
+
+## Zadania
+
+Zadania umieszczamy w katalogu `tasks` pod nazwą `zadanie_NUMER_ZADANIA.php`.
+
+Weryfikujemy zadanie poprzez uruchomienie Docker'a, a następnie sprawdzenie zadania poprzez wpisanie:
+
+```bash
+docker exec -it php-shoper-up php tests.php NUMER_ZADANIA
+```
