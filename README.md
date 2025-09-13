@@ -2,6 +2,11 @@
 
 ## Wymagania
 
+1. [GIT](#git)
+2. [GitHub](#github)
+3. [Visual Studio Code](#visual-studio-code)
+4. [Docker](#docker)
+
 ### GIT
 
 [Instalacja](https://git-scm.com/downloads)
