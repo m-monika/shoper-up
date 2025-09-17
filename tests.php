@@ -13,6 +13,8 @@ if (!file_exists($filePath)) {
     die();
 }
 
+$newLine = PHP_EOL;
+
 $tasksResults = [
     0 => "Hello World!"
 ];
@@ -20,6 +22,7 @@ $tasksResults = [
 ob_start();
 include $filePath;
 $output = ob_get_clean();
+$output = preg_replace("/\r\n|\r|\n/", $newLine, $output);
 
 if (trim($output) === $tasksResults[$taskId]) {
     echo "BRAWO!" . PHP_EOL;
