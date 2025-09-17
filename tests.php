@@ -19,6 +19,11 @@ $tasksResults = [
     0 => "Hello World!"
 ];
 
+if (!array_key_exists($taskId, $tasksResults)) {
+    echo "Zadanie nie istnieje.";
+    die(255);
+}
+
 ob_start();
 include $filePath;
 $output = ob_get_clean();
@@ -26,6 +31,7 @@ $output = preg_replace("/\r\n|\r|\n/", $newLine, $output);
 
 if (trim($output) === $tasksResults[$taskId]) {
     echo "BRAWO!" . PHP_EOL;
+    exit(0);
 } else {
     echo "Oczekiwany wynik jest inny :("
         . PHP_EOL
@@ -39,4 +45,5 @@ if (trim($output) === $tasksResults[$taskId]) {
         . PHP_EOL
         . $output
         . PHP_EOL;
+    exit(255);
 }
