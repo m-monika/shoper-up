@@ -15,7 +15,6 @@ if (!file_exists($filePath)) {
 
 $newLine = PHP_EOL;
 
-$task_0 = "Hello World!";
 $task_1 = 'Piszę w języku PHP' . $newLine
     . 'To jest dolar: $' . $newLine
     . 'A to jest cudzysłów połączony z slashem: "\"';
@@ -26,11 +25,19 @@ $task_2 = '    *' . $newLine
     . ' *******' . $newLine
     . '*********';
 
+$task_4 = 'SHOPERUP! PROGRAMOWANIE PHP - LEKCJA 4' . $newLine
+    . 'shoperUp! Programowanie PHP - Lekcja 4' . $newLine
+    . 'Programowanie PHP' . $newLine
+    . 'ShoperUp!ProgramowaniePHP-Lekcja4' . $newLine
+    . '4 ajckeL - PHP einawomargorP !pUrepohS' . $newLine
+    . '38';
 
 $tasksResults = [
-    0 => $task_0,
+    0 => "Hello World!",
     1 => $task_1,
-    2 => $task_2
+    2 => $task_2,
+    3 => 'Kasia ma 25 lat.',
+    4 => $task_4
 ];
 
 if (!array_key_exists($taskId, $tasksResults)) {
