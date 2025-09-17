@@ -56,6 +56,8 @@ Darmowe narzędzie do edytowania kodu
 
 [Instalacja](https://www.docker.com/products/docker-desktop/)
 
+Po instalacji otwieramy `Terminal` / `PowerShell`
+
 ```bash
 cd shoper-up
 docker compose up
