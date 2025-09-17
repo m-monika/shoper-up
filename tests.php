@@ -15,8 +15,22 @@ if (!file_exists($filePath)) {
 
 $newLine = PHP_EOL;
 
+$task_0 = "Hello World!";
+$task_1 = 'Piszę w języku PHP' . $newLine
+    . 'To jest dolar: $' . $newLine
+    . 'A to jest cudzysłów połączony z slashem: "\"';
+
+$task_2 = '    *' . $newLine
+    . '   ***' . $newLine
+    . '  *****' . $newLine
+    . ' *******' . $newLine
+    . '*********';
+
+
 $tasksResults = [
-    0 => "Hello World!"
+    0 => $task_0,
+    1 => $task_1,
+    2 => $task_2
 ];
 
 if (!array_key_exists($taskId, $tasksResults)) {
@@ -28,8 +42,9 @@ ob_start();
 include $filePath;
 $output = ob_get_clean();
 $output = preg_replace("/\r\n|\r|\n/", $newLine, $output);
+$output = preg_replace("/\t/", "    ", $output);
 
-if (trim($output) === $tasksResults[$taskId]) {
+if (trim($output) === trim($tasksResults[$taskId])) {
     echo "BRAWO!" . PHP_EOL;
     exit(0);
 } else {
@@ -45,5 +60,6 @@ if (trim($output) === $tasksResults[$taskId]) {
         . PHP_EOL
         . $output
         . PHP_EOL;
+
     exit(255);
 }
