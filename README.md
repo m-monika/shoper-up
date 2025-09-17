@@ -56,6 +56,13 @@ Darmowe narzędzie do edytowania kodu
 
 [Instalacja](https://www.docker.com/products/docker-desktop/)
 
+```bash
+cd shoper-up
+docker compose up
+```
+
+[localhost:8000](http://localhost:8000)
+
 ## Zadania
 
 Zadania umieszczamy w katalogu `tasks` pod nazwą `zadanie_NUMER_ZADANIA.php`.
