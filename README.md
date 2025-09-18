@@ -6,6 +6,7 @@
     3. [Visual Studio Code](#visual-studio-code)
     4. [Docker](#docker)
 2. [Zadania](#zadania)
+3. [Materiały do lekcji](./lessons/lessons.md)
 
 ------------------
 
