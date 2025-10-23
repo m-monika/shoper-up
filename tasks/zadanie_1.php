@@ -9,3 +9,5 @@ To jest dolar: $
 A to jest cudzysłów połączony z slashem: "\"
 
 */
+
+echo "no nie udało się :(";
