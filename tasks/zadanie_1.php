@@ -10,5 +10,5 @@ A to jest cudzysłów połączony z slashem: "\"
 
 */
 
-$a = "Piszę w języku PHP \n To jest dolar: \$ \n A to jest cudzysłów połączony z slashem: \"\\\"";
+$a = "Piszę w języku PHP \nTo jest dolar: \$ \nA to jest cudzysłów połączony z slashem: \"\\\"";
 echo ($a);
