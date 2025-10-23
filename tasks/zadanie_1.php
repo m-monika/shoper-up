@@ -10,10 +10,8 @@ A to jest cudzysłów połączony z slashem: "\"
 
 */
 
-$a = "Pisze w języku PHP";
-$b = "To jest dolar: /$";
+$a = "Piszę w języku PHP \n";
+$b = "To jest dolar: /$ \n";
 $c = 'A to jest cudzysłów połączony z slashem: "\"';
 
-var_dump($a);
-var_dump($b);
-var_dump($c);
+echo($a.$b.$c);
