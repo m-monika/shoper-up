@@ -18,3 +18,13 @@ ShoperUp!ProgramowaniePHP-Lekcja3
 
 
 $text = "ShoperUp! Programowanie PHP - Lekcja 3";
+
+
+echo strtoupper(substr($text, 0,9));
+echo strtoupper(substr($text, 9,29)) . "<br>";
+echo strtolower(substr($text, 0,9));
+echo substr($text, 9,29) . "<br>";
+echo ucfirst(substr($text, 9,18)). "<br>";
+echo str_replace(" ", "", $text) . "<br>";
+echo strrev($text) ."<br>";
+echo strlen($text);
