@@ -30,7 +30,7 @@ $rest = $restPennies / 100;
 
 $restOfMoney = $rest;
 $rest = (int)$rest;
-$restPennies = $restOfMoney - $rest;
+$restPennies = ($restOfMoney - $rest) * 100;
 
 
 echo "Kasjerka powinna oddać klientowi: {$rest}zł {$restPennies} groszy.";
