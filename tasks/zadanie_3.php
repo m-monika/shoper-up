@@ -20,11 +20,10 @@ ShoperUp!ProgramowaniePHP-Lekcja3
 $text = "ShoperUp! Programowanie PHP - Lekcja 3";
 
 
-echo strtoupper(substr($text, 0,9));
-echo strtoupper(substr($text, 9,29)) . "\n";
+echo strtoupper(substr($text, 0,29)). "\n";
 echo strtolower(substr($text, 0,9));
 echo substr($text, 9,29) . "\n";
-echo ucfirst(substr($text, 9,18)). "\n";
+echo substr($text, 9,18) . "\n";
 echo str_replace(" ", "", $text) . "\n";
 echo strrev($text) ."\n";
 echo strlen($text);
