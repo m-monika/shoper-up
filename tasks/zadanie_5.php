@@ -22,7 +22,10 @@ która reprezentuje kwotę w złotówkach i $restPennies, która reprezentuje kw
 $givenMoneyByClient = 10000;
 $costOfProducts = 8515;
 
-$rest = 0; // TODO
-$restPennies = 0; // TODO
+$changeInPennies = $givenMoneyByClient - $costOfProducts;
+
+$rest = (int)($changeInPennies / 100);
+$restPennies = $changeInPennies % 100;
+
 
 echo "Kasjerka powinna oddać klientowi: {$rest}zł {$restPennies} groszy.";
