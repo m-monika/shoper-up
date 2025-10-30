@@ -25,4 +25,12 @@ $costOfProducts = 8515;
 $rest = 0; // TODO
 $restPennies = 0; // TODO
 
+$restPennies = $givenMoneyByClient - $costOfProducts;
+$rest = $restPennies / 100;
+
+$restOfMoney = $rest;
+$rest = (int)$rest;
+$restPennies = $restOfMoney - $rest;
+
+
 echo "Kasjerka powinna oddać klientowi: {$rest}zł {$restPennies} groszy.";
