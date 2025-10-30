@@ -11,5 +11,6 @@ $r = 5;
 const PI = 3.14;
 
 $result = 0; // TODO
+$result = PI * $r * $r;
 
 echo "Pole koła o promieniu $r wynosi $result";
