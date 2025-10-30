@@ -1,20 +1,26 @@
 <?php
+declare(strict_types=1);
+mb_internal_encoding('UTF-8');
 
-/*
+$s = "ShoperUp! Programowanie PHP – Lekcja 3";
 
-https://www.php.net/manual/en/book.strings.php
+echo mb_strtoupper($s) . PHP_EOL;
 
-Mamy do dyspozycji poniższą zmienną $text
-Używając poznanych funkcji operujących na stringach wyświetl na ekran poniższy tekst:
+function mb_lcfirst(string $str): string {
+    return mb_strtolower(mb_substr($str, 0, 1)) . mb_substr($str, 1);
+}
+echo mb_lcfirst($s) . PHP_EOL;
 
-SHOPERUP! PROGRAMOWANIE PHP - LEKCJA 3
-shoperUp! Programowanie PHP - Lekcja 3
-Programowanie PHP
-ShoperUp!ProgramowaniePHP-Lekcja3
-3 ajckeL - PHP einawomargorP !pUrepohS
-38
+$start = mb_strpos($s, '! ') + 2;
+$end   = mb_strpos($s, ' – ');
+echo mb_substr($s, $start, $end - $start) . PHP_EOL;
 
-*/
+echo str_replace(' ', '', $s) . PHP_EOL;
 
+function mb_strrev(string $str): string {
+    preg_match_all('/./u', $str, $m);
+    return implode('', array_reverse($m[0]));
+}
+echo mb_strrev($s) . PHP_EOL;
 
-$text = "ShoperUp! Programowanie PHP - Lekcja 3";
+echo mb_strlen($s) . PHP_EOL;
