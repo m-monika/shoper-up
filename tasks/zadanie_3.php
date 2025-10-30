@@ -1,11 +1,20 @@
 <?php
 
-$age = 25;
-
 /*
 
-Użyj zmiennej $age tak aby wyświetlić poniższy tekst:
+https://www.php.net/manual/en/book.strings.php
 
-Kasia ma 25 lat.
+Mamy do dyspozycji poniższą zmienną $text
+Używając poznanych funkcji operujących na stringach wyświetl na ekran poniższy tekst:
+
+SHOPERUP! PROGRAMOWANIE PHP - LEKCJA 3
+shoperUp! Programowanie PHP - Lekcja 3
+Programowanie PHP
+ShoperUp!ProgramowaniePHP-Lekcja3
+3 ajckeL - PHP einawomargorP !pUrepohS
+38
 
 */
+
+
+$text = "ShoperUp! Programowanie PHP - Lekcja 3";

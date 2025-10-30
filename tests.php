@@ -25,19 +25,23 @@ $task_2 = '    *' . $newLine
     . ' *******' . $newLine
     . '*********';
 
-$task_4 = 'SHOPERUP! PROGRAMOWANIE PHP - LEKCJA 4' . $newLine
-    . 'shoperUp! Programowanie PHP - Lekcja 4' . $newLine
+$task_3 = 'SHOPERUP! PROGRAMOWANIE PHP - LEKCJA 3' . $newLine
+    . 'shoperUp! Programowanie PHP - Lekcja 3' . $newLine
     . 'Programowanie PHP' . $newLine
-    . 'ShoperUp!ProgramowaniePHP-Lekcja4' . $newLine
-    . '4 ajckeL - PHP einawomargorP !pUrepohS' . $newLine
+    . 'ShoperUp!ProgramowaniePHP-Lekcja3' . $newLine
+    . '3 ajckeL - PHP einawomargorP !pUrepohS' . $newLine
     . '38';
+
+$task_4 = 'Pole koła o promieniu 5 wynosi 78.5';
 
 $tasksResults = [
     0 => "Hello World!",
     1 => $task_1,
     2 => $task_2,
-    3 => 'Kasia ma 25 lat.',
-    4 => $task_4
+    3 => $task_3,
+    4 => $task_4,
+    5 => "Kasjerka powinna oddać klientowi: 14zł 85 groszy.",
+    6 => "Suma brutto: 139\nSuma netto: 126"
 ];
 
 if (!array_key_exists($taskId, $tasksResults)) {
