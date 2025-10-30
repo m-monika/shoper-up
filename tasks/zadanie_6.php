@@ -27,17 +27,12 @@ $glovesCount = 5;
 $gloves = 13;
 $glovesVat = 7;
 
-$gross = 0;   // TODO
-$net = 0;     // TODO
-
 $gross = ($shirtCount * $shirt) + ($hatCount * $hat) + ($glovesCount * $gloves);
 
 $shirtNet = $shirt * $shirtCount / (1 + $shirtVat / 100);
 $hatNet = $hat * $hatCount / (1 + $hatVat / 100);
 $glovesNet = $gloves * $glovesCount / (1 + $glovesVat / 100);
 $net = $shirtNet + $hatNet + $glovesNet;
-
-echo $shirtVatAmount . PHP_EOL;
 
 $gross = round($gross);
 $net = round($net);
