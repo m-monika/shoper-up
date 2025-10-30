@@ -18,3 +18,11 @@ ShoperUp!ProgramowaniePHP-Lekcja3
 
 
 $text = "ShoperUp! Programowanie PHP - Lekcja 3";
+
+
+echo mb_strtoupper($text)  . "\n";  
+echo mb_lcfirst($text)  . "\n";
+echo mb_substr($text, 10, 26)  . "\n";  
+echo str_replace(" ","", $text)  . "\n";    
+echo strrev($text)  . "\n";         
+echo mb_strlen($text)  . "\n";         
