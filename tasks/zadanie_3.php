@@ -16,5 +16,11 @@ ShoperUp!ProgramowaniePHP-Lekcja3
 
 */
 
-
 $text = "ShoperUp! Programowanie PHP - Lekcja 3";
+
+echo strtoupper($text)  . "\n";                                                    // zamienia wszystkie litery w stringu na duże
+echo lcfirst($text)  . "\n";                                                              // zamienia pierwszą literę w stringu na małą
+echo substr($text, 10, -11)  . "\n";                                                                                 // zwraca fragment stringa
+echo str_replace(" ","", $text)  . "\n";                   // zamienia szukany fragment stringa 
+echo strrev($text)  . "\n";                                                                                                  // wyświetla string od tyłu
+echo strlen($text)  . "\n";                                                                                                  // zwraca długość stringa
