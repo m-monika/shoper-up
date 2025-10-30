@@ -1,20 +1,4 @@
 <?php
-
-/*
-
-Napisz kod, który ma za zadanie wygenerowanie sumy brutto oraz netto cen produktów znajdujących się w koszyku.
-
-W koszyku znajduje się:
-- 2 koszulki po 17zł brutto, VAT: 3%,
-- 1 czapka po 40zł brutto, VAT: 23%,
-- 5 par rękawiczek po 13zł brutto, VAT: 7%.
-
-Kwoty te zaokrąglimy sobie do pełnych złotówek za pomocą funkcji round().
-
-Do wyliczenia kwot wykorzystaj poniższe zmienne.
-
-*/
-
 $shirtCount = 2;
 $shirt = 17;
 $shirtVat = 3;
@@ -27,10 +11,12 @@ $glovesCount = 5;
 $gloves = 13;
 $glovesVat = 7;
 
-$gross = 0;   // TODO
-$net = 0;     // TODO
+$gross = ($shirtCount * $shirt) + ($hatCount * $hat) + ($glovesCount * $gloves);
+$net = $shirt / (1 + $shirtVat/100) * $shirtCount + $hat / (1 + $hatVat/100 * $hatCount) + $gloves / (1 + $glovesVat/100) * $glovesCount;
 
 $gross = round($gross);
 $net = round($net);
+
+
 
 echo "Suma brutto: $gross\nSuma netto: $net";
