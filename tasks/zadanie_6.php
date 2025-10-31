@@ -28,7 +28,13 @@ $gloves = 13;
 $glovesVat = 7;
 
 $gross = 0;   // TODO
+$gross = $shirt * $shirtCount + $hat * $hatCount + $gloves * $glovesCount;
 $net = 0;     // TODO
+// netto = brutto / (1 + vat/100)
+$netShirt = $shirt / (1 + $shirtVat/100);
+$netHat = $hat / (1 + $hatVat/100);
+$netGloves = $gloves / (1 + $glovesVat/100);
+$net = $netShirt * $shirtCount + $netHat * $hatCount + $netGloves * $glovesCount;
 
 $gross = round($gross);
 $net = round($net);
