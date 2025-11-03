@@ -42,10 +42,37 @@ class ShoperUpTests
                 "Klient B wydał więcej",
                 "Klient A wydał więcej",
                 "Klient A wydał tyle samo co klient B"
+            ],
+            8 => [
+                "Dostęp przyznany",
+                "Brak dostępu",
+                "Brak dostępu",
+                "Brak dostępu"
+            ],
+            9 => [
+                "Możesz wziąć udział",
+                "Możesz wziąć udział",
+                "Nie spełniasz warunków",
+                "Nie spełniasz warunków",
+                "Nie spełniasz warunków",
+                "Nie spełniasz warunków",
+            ],
+            10 => [
+                "Rabat wynosi: 40zł",
+                "Rabat wynosi: 0zł",
+                "Rabat wynosi: 0zł",
+                "Rabat wynosi: 20zł",
+                "Rabat wynosi: 11zł",
+                "Rabat wynosi: 0zł",
+                "Rabat wynosi: 0zł",
+                "Rabat wynosi: 0zł",
             ]
         ];
         $this->tasksParams = [
-            7 => [[100, 200], [200, 100], [100, 100]]
+            7 => [[100, 200], [200, 100], [100, 100]],
+            8 => [["admin", true], ["admin", false], ["user", true], ["user", false]],
+            9 => [[true, 19], [true, 18], [true, 17], [false, 19], [false, 18], [false, 15]],
+            10 => [[200, "gold"], [100, "gold"], [80, "gold"], [200, "silver"], [110, "silver"], [200, "none"], [100, "none"], [100, "silver"]]
         ];
     }
 
