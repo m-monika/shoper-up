@@ -75,6 +75,7 @@ class ShoperUpTests
                 'Poprawny',
                 'Niepoprawny',
                 'Niepoprawny',
+                'Niepoprawny',
                 'Niepoprawny'
             ]
         ];
@@ -91,7 +92,8 @@ class ShoperUpTests
                 ["+48123456789"],
                 ["+4812345678"],
                 ["+4812345678a"],
-                ["+as123456789"]
+                ["+as123456789"],
+                ["+49123456789"]
             ]
         ];
     }

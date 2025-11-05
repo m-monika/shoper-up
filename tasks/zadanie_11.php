@@ -25,6 +25,7 @@ Przykłady testowe:
 - "+4812345678" - Niepoprawny
 - "+4812345678a" - Niepoprawny
 - "+as123456789" - Niepoprawny
+- "+49123456789" - Niepoprawny
 
 */
 
