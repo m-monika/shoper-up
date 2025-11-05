@@ -66,13 +66,33 @@ class ShoperUpTests
                 "Rabat wynosi: 0zł",
                 "Rabat wynosi: 0zł",
                 "Rabat wynosi: 0zł",
+            ],
+            11 => [
+                'Poprawny',
+                'Poprawny',
+                'Niepoprawny',
+                'Niepoprawny',
+                'Poprawny',
+                'Niepoprawny',
+                'Niepoprawny',
+                'Niepoprawny'
             ]
         ];
         $this->tasksParams = [
             7 => [[100, 200], [200, 100], [100, 100]],
             8 => [["admin", true], ["admin", false], ["user", true], ["user", false]],
             9 => [[true, 19], [true, 18], [true, 17], [false, 19], [false, 18], [false, 15]],
-            10 => [[200, "gold"], [100, "gold"], [80, "gold"], [200, "silver"], [110, "silver"], [200, "none"], [100, "none"], [100, "silver"]]
+            10 => [[200, "gold"], [100, "gold"], [80, "gold"], [200, "silver"], [110, "silver"], [200, "none"], [100, "none"], [100, "silver"]],
+            11 => [
+                [123456789],
+                ["123456789"],
+                ["12345678a"],
+                [12345678],
+                ["+48123456789"],
+                ["+4812345678"],
+                ["+4812345678a"],
+                ["+as123456789"]
+            ]
         ];
     }
 
