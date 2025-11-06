@@ -17,5 +17,16 @@ $productsCost = $params[0]; // tej linijki nie ruszamy :)
 $type = $params[1]; // tej linijki nie ruszamy :)
 
 $discountAmount = 0;
-
+$discountPercentage = 0;
+if($productsCost > 100){
+    if ($type == "gold"){
+        $discountPercentage = 20;
+    }elseif ($type == "silver"){
+        $discountPercentage = 10;
+    }else{
+        $discountPercentage = 0;
+    }
+}
+$discountAmount = $productsCost * ($discountPercentage / 100);
 echo "Rabat wynosi: {$discountAmount}zł";
+
