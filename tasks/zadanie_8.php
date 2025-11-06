@@ -9,10 +9,22 @@ Jeśli rola jest równa "admin" oraz jest zalogowany to wyświetl na ekranie "Do
 W każdym innym przypadku wyświetl komunikat "Brak dostępu"
 
 */
-
+/*
 $role = $params[0]; // tej linijki nie ruszamy :)
 $isLogged = $params[1]; // tej linijki nie ruszamy :)
-
+*/
 // ...
 
-echo "Dostęp przyznany";
+$role = True;
+$isLogged = True;
+
+
+if ($role == TRUE) {
+    if ($isLogged == TRUE) {
+        echo "Dostęp przyznany";
+    } else {
+        echo "Brak dostępu";
+    }
+} else {
+    echo "Brak dostępu";
+}
