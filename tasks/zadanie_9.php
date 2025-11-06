@@ -17,4 +17,8 @@ $age = $params[1]; // tej linijki nie ruszamy :)
 
 // ...
 
-echo "Możesz wziąć udział";
+if ($consent == true && $age >= 18) {
+    echo "Możesz wziąć udział";
+} else {
+    echo "Nie spełniasz warunków";
+}
