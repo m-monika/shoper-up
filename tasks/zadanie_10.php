@@ -16,6 +16,17 @@ Pod zmienną $productsCost znajduje się cena w złotówkach.
 $productsCost = $params[0]; // tej linijki nie ruszamy :)
 $type = $params[1]; // tej linijki nie ruszamy :)
 
-$discountAmount = 0;
+if ($productsCost > 100){
+    if ($type == "silver"){
+        $discountAmount = $productsCost * (10/100);
+    }elseif ($type == "gold"){
+        $discountAmount = $productsCost * (20/100);
+    } else {
+        $discountAmount = 0;
+    }
+} else {
+    $discountAmount = 0;
+}
+
 
 echo "Rabat wynosi: {$discountAmount}zł";
