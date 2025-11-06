@@ -16,13 +16,13 @@ Pod zmienną $productsCost znajduje się cena w złotówkach.
 $productsCost = $params[0]; // tej linijki nie ruszamy :)
 $type = $params[1]; // tej linijki nie ruszamy :)
 
-if ($type == "gold" ) {
+if ($type == "gold" && $productsCost > 100) {
     $discountAmount = $productsCost * 0.2;
 }
-elseif ($type == "silver") {
+elseif ($type == "silver" && $productsCost > 100) {
     $discountAmount = $productsCost * 0.1;
 }
-elseif ($type == "none" || $productsCost <= 100) {
+else {
     $discountAmount = 0;
 }
 
