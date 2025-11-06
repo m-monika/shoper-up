@@ -12,6 +12,13 @@ Jeśli klient A wydał mniej niż klient B: "Klient B wydał więcej"
 $customerA = $params[0]; // tej linijki nie ruszamy :)
 $customerB = $params[1]; // tej linijki nie ruszamy :)
 
+
 // ...
 
-echo "Klient A wydał więcej";
+if ($customerA > $customerB) {
+    echo "Klient A wydał więcej";
+} elseif ($customerA === $customerB) {
+    echo "Klient A wydał tyle samo co klient B";
+} else {
+    echo "Klient B wydał więcej";
+}
