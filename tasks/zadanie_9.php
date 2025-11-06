@@ -15,6 +15,4 @@ Jeśli nie → "Nie spełniasz warunków"
 $consent = $params[0]; // tej linijki nie ruszamy :)
 $age = $params[1]; // tej linijki nie ruszamy :)
 
-// ...
-
-echo "Możesz wziąć udział";
+echo $age >= 18 && $consent ? "Możesz wziąć udział" : "Nie spełniasz warunków";
