@@ -14,5 +14,23 @@ $role = $params[0]; // tej linijki nie ruszamy :)
 $isLogged = $params[1]; // tej linijki nie ruszamy :)
 
 // ...
+$trigger = false;
 
-echo "Dostęp przyznany";
+if ($role === "admin"){
+    $trigger = true;
+}
+else {
+    $trigger = false;
+}
+if ($trigger === false){
+    echo "Brak dostępu";
+}
+else {
+    if ($isLogged === true){
+        echo "Dostęp przyznany";
+    }
+    else{
+        echo "Brak dostępu";
+    }
+}
+
