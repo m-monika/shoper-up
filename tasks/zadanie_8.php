@@ -19,4 +19,4 @@ if ($role === "admin" && $isLogged) {
     echo "Dostęp przyznany";
 } else {
     echo "Brak dostępu";
-};
+}
