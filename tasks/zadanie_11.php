@@ -30,6 +30,14 @@ Przykłady testowe:
 */
 
 $phoneNumber = $params[0]; // tej linijki nie ruszamy :)
+$phoneType = mb_strlen ($phoneNumber);
 
-echo "Poprawny";
+if ($phoneType == 9 && is_numeric ($phoneNumber)) {
+    echo "Poprawny";
+} elseif ($phoneType == 12 && substr($phoneNumber, 0, 3) == "+48" && is_numeric(substr($phoneNumber, 4, 9) )){
+    echo "Poprawny";
+} else {
+    echo "Niepoprawny";
+}
+
 
