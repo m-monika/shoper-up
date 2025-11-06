@@ -26,6 +26,6 @@ if ($productsCost > 100) {
     } else {
         $discountAmount = 0;
     }
-} else "Wydałeś za mało!";
+}
 
 echo "Rabat wynosi: {$discountAmount}zł";
