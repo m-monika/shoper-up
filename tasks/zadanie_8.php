@@ -13,6 +13,5 @@ W każdym innym przypadku wyświetl komunikat "Brak dostępu"
 $role = $params[0]; // tej linijki nie ruszamy :)
 $isLogged = $params[1]; // tej linijki nie ruszamy :)
 
-// ...
 
-echo "Dostęp przyznany";
+echo $role === "admin" && $isLogged ? "Dostęp przyznany" : "Brak dostępu";
