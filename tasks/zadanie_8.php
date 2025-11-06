@@ -15,10 +15,8 @@ $isLogged = $params[1]; // tej linijki nie ruszamy :)
 
 // ...
 
-echo "Dostęp przyznany";
-
-if ($role = "admin" && $isLogged) {
+if ($role = "admin" and $isLogged) {
     echo "Dostęp przyznany";
 } else{
     echo "Brak dostępu";
-}
+};
