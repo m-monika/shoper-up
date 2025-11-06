@@ -18,4 +18,14 @@ $type = $params[1]; // tej linijki nie ruszamy :)
 
 $discountAmount = 0;
 
-echo "Rabat wynosi: {$discountAmount}zł";
+if  (($type === "gold") && ($productsCost > 100)) {
+    $discount = 0.2;
+    $discountAmount = $productsCost * $discount;
+    echo "Rabat wynosi: {$discountAmount}zł";
+} elseif (($type === "silver") && ($productsCost > 100)) {
+    $discount = 0.1;
+    $discountAmount = $productsCost * $discount;
+    echo "Rabat wynosi: {$discountAmount}zł";
+} else {
+    echo "Rabat wynosi: {$discountAmount}zł";
+}
