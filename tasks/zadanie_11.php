@@ -30,6 +30,9 @@ Przykłady testowe:
 */
 
 $phoneNumber = $params[0]; // tej linijki nie ruszamy :)
+$phoneNumberWithout48 = substr($phoneNumber, 3);
 
-echo "Poprawny";
+$check_phoneNumber = is_numeric($phoneNumber) && strlen($phoneNumber) == 9;
+$check_phoneNumberWithAreaCode = is_numeric($phoneNumberWithout48) && strlen($phoneNumberWithout48) == 9 && $phoneNumber == "+48" . $phoneNumberWithout48;
 
+echo ($check_phoneNumber || $check_phoneNumberWithAreaCode) ? "Poprawny" : "Niepoprawny";
