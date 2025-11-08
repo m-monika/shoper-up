@@ -98,7 +98,12 @@ class ShoperUpTests
             ],
             12 => ['5 4 3 2 1', '3 2 1', '7 6 5 4 3 2 1', '1', '', ''],
             13 => $task_13,
-            14 => $task_14
+            14 => $task_14,
+            15 => [
+                "Najlepsza oferta: Sklep C — 1190 zł",
+                "Najlepsza oferta: Sklep A — 120 zł",
+                "Najlepsza oferta: Sklep B — 320 zł"
+            ]
         ];
         $task_14_1 = [
             ["name" => "Laptop", "price" => 3000, "qty" => 1, "vat" => 23],
@@ -108,6 +113,21 @@ class ShoperUpTests
             55 => ["name" => "Rękawiczki", "price" => 30, "qty" => 2, "vat" => 23],
             77 => ["name" => "Bluza", "price" => 100, "qty" => 3, "vat" => 7],
             34 => ["name" => "Koszulka", "price" => 50, "qty" => 2, "vat" => 22]
+        ];
+        $task_15_1 = [
+            ["store" => "Sklep A", "price" => 1200],
+            ["store" => "Sklep B", "price" => 1250],
+            ["store" => "Sklep C", "price" => 1190]
+        ];
+        $task_15_2 = [
+            ["store" => "Sklep A", "price" => 120],
+            ["store" => "Sklep B", "price" => 240],
+            ["store" => "Sklep C", "price" => 125]
+        ];
+        $task_15_3 = [
+            ["store" => "Sklep A", "price" => 380],
+            ["store" => "Sklep B", "price" => 320],
+            ["store" => "Sklep C", "price" => 350]
         ];
         $this->tasksParams = [
             7 => [[100, 200], [200, 100], [100, 100]],
@@ -127,7 +147,8 @@ class ShoperUpTests
             ],
             12 => [[5], [3], [7], [1], [0], [-5]],
             13 => [[3, 1], [4, 1], [4, 9], [5, 996], [5, 98]],
-            14 => [[$task_14_1], [$task_14_2]]
+            14 => [[$task_14_1], [$task_14_2]],
+            15 => [[$task_15_1], [$task_15_2], [$task_15_3]]
         ];
     }
 
