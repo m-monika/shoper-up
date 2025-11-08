@@ -37,6 +37,16 @@ class ShoperUpTests
             "ITEM-0098\nITEM-0099\nITEM-0100\nITEM-0101\nITEM-0102",
             "ITEM-0999\nITEM-1000\nITEM-1001\nITEM-1002\nITEM-1003"
         ];
+        $task_14 = [
+            "Lp. 1 | Laptop | 1 szt. | 3000 zł | VAT 23% | brutto: 3000 zł"
+            . "\nLp. 2 | Monitor | 2 szt. | 700 zł | VAT 23% | brutto: 1400 zł"
+            . "\n\nSUMA BRUTTO: 4400 zł",
+
+            "Lp. 1 | Rękawiczki | 2 szt. | 30 zł | VAT 23% | brutto: 60 zł"
+            . "\nLp. 2 | Bluza | 3 szt. | 100 zł | VAT 7% | brutto: 300 zł"
+            . "\nLp. 3 | Koszulka | 2 szt. | 50 zł | VAT 22% | brutto: 100 zł"
+            . "\n\nSUMA BRUTTO: 460 zł"
+        ];
 
         $this->tasksResults = [
             0 => "Hello World!",
@@ -87,7 +97,17 @@ class ShoperUpTests
                 'Niepoprawny'
             ],
             12 => ['5 4 3 2 1', '3 2 1', '7 6 5 4 3 2 1', '1', '', ''],
-            13 => $task_13
+            13 => $task_13,
+            14 => $task_14
+        ];
+        $task_14_1 = [
+            ["name" => "Laptop", "price" => 3000, "qty" => 1, "vat" => 23],
+            ["name" => "Monitor", "price" => 700, "qty" => 2, "vat" => 23]
+        ];
+        $task_14_2 = [
+            55 => ["name" => "Rękawiczki", "price" => 30, "qty" => 2, "vat" => 23],
+            77 => ["name" => "Bluza", "price" => 100, "qty" => 3, "vat" => 7],
+            34 => ["name" => "Koszulka", "price" => 50, "qty" => 2, "vat" => 22]
         ];
         $this->tasksParams = [
             7 => [[100, 200], [200, 100], [100, 100]],
@@ -106,7 +126,8 @@ class ShoperUpTests
                 ["+49123456789"]
             ],
             12 => [[5], [3], [7], [1], [0], [-5]],
-            13 => [[3, 1], [4, 1], [4, 9], [5, 996], [5, 98]]
+            13 => [[3, 1], [4, 1], [4, 9], [5, 996], [5, 98]],
+            14 => [[$task_14_1], [$task_14_2]]
         ];
     }
 
