@@ -29,6 +29,14 @@ class ShoperUpTests
             . '38';
 
         $task_4 = 'Pole koła o promieniu 5 wynosi 78.5';
+        $task_13 = [
+            "ITEM-0001\nITEM-0002\nITEM-0003",
+            "ITEM-0001\nITEM-0002\nITEM-0003\nITEM-0004",
+            "ITEM-0009\nITEM-0010\nITEM-0011\nITEM-0012",
+            "ITEM-0996\nITEM-0997\nITEM-0998\nITEM-0999\nITEM-1000",
+            "ITEM-0098\nITEM-0099\nITEM-0100\nITEM-0101\nITEM-0102",
+            "ITEM-0999\nITEM-1000\nITEM-1001\nITEM-1002\nITEM-1003"
+        ];
 
         $this->tasksResults = [
             0 => "Hello World!",
@@ -78,7 +86,8 @@ class ShoperUpTests
                 'Niepoprawny',
                 'Niepoprawny'
             ],
-            12 => ['5 4 3 2 1', '3 2 1', '7 6 5 4 3 2 1', '1', '', '']
+            12 => ['5 4 3 2 1', '3 2 1', '7 6 5 4 3 2 1', '1', '', ''],
+            13 => $task_13
         ];
         $this->tasksParams = [
             7 => [[100, 200], [200, 100], [100, 100]],
@@ -96,7 +105,8 @@ class ShoperUpTests
                 ["+as123456789"],
                 ["+49123456789"]
             ],
-            12 => [[5], [3], [7], [1], [0], [-5]]
+            12 => [[5], [3], [7], [1], [0], [-5]],
+            13 => [[3, 1], [4, 1], [4, 9], [5, 996], [5, 98]]
         ];
     }
 
