@@ -19,13 +19,13 @@ wartość brutto pozycji (qty * price)
 Przykład:
 
 $products = [
-    [
+    57 => [
         "name" => "Laptop",
         "price" => 3000,
         "qty" => 1,
         "vat" => 23
     ],
-    [
+    "test" => [
         "name" => "Monitor",
         "price" => 700,
         "qty" => 2,

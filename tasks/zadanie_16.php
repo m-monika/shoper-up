@@ -13,13 +13,13 @@ Wyświetl zawartość koszyka po operacjach.
 Przykład
 
 $products = [
-    [
+    56 => [
         "id" => 123,
         "name" => "Laptop",
         "price" => 3000,
         "qty" => 1
     ],
-    [
+    "test" => [
         "id" => 567,
         "name" => "Monitor",
         "price" => 700,
