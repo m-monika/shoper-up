@@ -31,5 +31,12 @@ Przykłady testowe:
 
 $phoneNumber = $params[0]; // tej linijki nie ruszamy :)
 
-echo "Poprawny";
+if (is_numeric($phoneNumber) && strlen($phoneNumber)==9) {
+    echo "Poprawny".PHP_EOL;
+}elseif (is_string($phoneNumber) && strlen($phoneNumber)==12 && substr($phoneNumber, 0, 3 ) == "+48" &&  is_numeric(substr($phoneNumber, 4, 9 ))){
+    echo "Poprawny".PHP_EOL;
+}else{
+    echo "Niepoprawny".PHP_EOL;
+}
+
 
