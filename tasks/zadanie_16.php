@@ -47,6 +47,6 @@ $id = $params[2]; // tej linijki nie ruszamy :)
 $qty = $params[3]; // tej linijki nie ruszamy :)
 
 
-echo "Lp. 1 | Laptop | 1 szt. | 3000 zł";
+echo "Lp. 1 | Laptop | 1 szt. | 3000 złTEST";
 echo "\nLp. 2 | Monitor | 4 szt. | 2800 zł";
 echo "\nLp. 3 | Klawiatura | 2 szt. | 100 zł";
