@@ -32,9 +32,28 @@ ITEM-1000
 $number = $params[0]; // tej linijki nie ruszamy :)
 $start = $params[1]; // tej linijki nie ruszamy :)
 
-echo "ITEM-0996
-ITEM-0997
-ITEM-0998
-ITEM-0999
-ITEM-1000";
+// echo "ITEM-0996
+// ITEM-0997
+// ITEM-0998
+// ITEM-0999
+// ITEM-1000";
+
+for ($i=$number; $i > 0 ; $i--) { 
+    if ($start > 999) {
+        echo "ITEM-$start" . PHP_EOL;
+        $start++;
+    }
+    if ($start > 99 && $start <= 999) {
+        echo "ITEM-0$start" . PHP_EOL;
+        $start++;
+    }
+    if ($start > 9 && $start <= 99) {
+        echo "ITEM-00$start" . PHP_EOL;
+        $start++;
+    }
+    if ($start < 10) {
+        echo "ITEM-000$start" . PHP_EOL;
+        $start++;
+    }
+}
 
