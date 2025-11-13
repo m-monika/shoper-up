@@ -14,8 +14,11 @@ Dla number = 5:
 $number = $params[0]; // tej linijki nie ruszamy :)
 
 for ($i = 1; $i <= 5; $i++) {
-    echo $number . PHP_EOL;
-    $number++;
     if ($number >= 2) {
+    echo '' . PHP_EOL;
     break;
-}}
+    } else {
+    echo $number . PHP_EOL;
+    }
+    $number++;
+}
