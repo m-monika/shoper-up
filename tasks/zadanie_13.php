@@ -32,9 +32,29 @@ ITEM-1000
 $number = $params[0]; // tej linijki nie ruszamy :)
 $start = $params[1]; // tej linijki nie ruszamy :)
 
-echo "ITEM-0996
-ITEM-0997
-ITEM-0998
-ITEM-0999
-ITEM-1000";
+$itemNumberLength = strlen ($start);
+$index = $start;
+
+for ($i = 1 ;$i <= $number; $i++){
+    if ($itemNumberLength < 4){
+        for ($j = $itemNumberLength; $j < 4; $j++){
+            $index = "0".$index ;
+        }
+            
+    } else{
+        $index = $start;
+    }  
+    
+    echo "ITEM-".$index."\n";
+    $start = $start + 1;
+    $itemNumberLength = strlen ($start);
+    $index = $start;
+    
+}
+
+//echo "ITEM-0996
+//ITEM-0997
+//ITEM-0998
+//ITEM-0999
+//ITEM-1000";
 
