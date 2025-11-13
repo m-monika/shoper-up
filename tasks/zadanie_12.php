@@ -13,12 +13,12 @@ Dla number = 5:
 
 $number = $params[0]; // tej linijki nie ruszamy :)
 
-for ($i = $number; $i <= 1; $i--) {
-    if ($number >= 2) {
-    echo '' . PHP_EOL;
-    break;
-    } else {
-    echo $number . ' ';
+if ($number > 0) {
+    for ($i = $number; $i >= 1; $i--) {
+        echo $i . ' ';
     }
-    $number++;
+} elseif ($number < 0) {
+    for ($i = $number; $i <= 1; $i++) {
+        echo $i . ' ';
+    }
 }
