@@ -13,5 +13,7 @@ Dla number = 5:
 
 $number = $params[0]; // tej linijki nie ruszamy :)
 
-echo "5 4 3 2 1";
-
+for ($i = 1; $i <= 5; $i++) {
+    echo $number . PHP_EOL;
+    $number++;
+}
