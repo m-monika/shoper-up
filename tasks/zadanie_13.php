@@ -36,5 +36,21 @@ echo "ITEM-0996
 ITEM-0997
 ITEM-0998
 ITEM-0999
-ITEM-1000";
+ITEM-1000" . "\n";
 
+for ($i = 0; $i < $number; $i++) {
+    $id = $start + $i;
+    
+    
+    if ($id < 10) {
+        $id_zera = "000" . $id;
+    } elseif ($id < 100) {
+        $id_zera = "00" . $id;
+    } elseif ($id < 1000) {
+        $id_zera = "0" . $id;
+    } else {
+        $id_zera = $id;
+    }
+    
+    echo "ITEM-" . $id_zera . "\n";
+}
