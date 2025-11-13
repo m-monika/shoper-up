@@ -42,8 +42,14 @@ SUMA BRUTTO: 4400 zł
 */
 
 $products = $params[0]; // tej linijki nie ruszamy :)
+$lp =1;
+$totalBrutto =0;
+foreach ($products as $product){
+    $brutto = $product["qty"] * $product["price"];
+    $totalBrutto = $totalBrutto + $brutto;
 
+    echo "Lp. " . $lp . " | " . $product["name"] . " | " . $product["qty"] . " szt." . " | " . $product["price"] . " zł" . " | " . "VAT " . $product["vat"] . "%" . " | " . "brutto: " . $brutto . " zł\n";
+    $lp++;
 
-echo "Lp. 1 | Laptop | 1 szt. | 3000 zł | VAT 23% | brutto: 3000 zł\n";
-echo "Lp. 2 | Monitor | 2 szt. | 700 zł | VAT 23% | brutto: 1400 zł\n";
-echo "\nSUMA BRUTTO: 4400 zł";
+}
+echo "\nSUMA BRUTTO: " . $totalBrutto . " zł";
