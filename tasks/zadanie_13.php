@@ -32,23 +32,25 @@ ITEM-1000
 $number = $params[0]; // tej linijki nie ruszamy :)
 $start = $params[1]; // tej linijki nie ruszamy :)
 
-$itemNumberLength = strlen ($start);
-$index = $start;
+$start2 = $start; //98
+$itemNumberLength = strlen ($start2); //2
+$index1 = $start2; //98
 
-for ($i = 1 ;$i <= $number; $i++){
+for ($i = 1 ;$i <= $number; $i++){ //1-5
+
     if ($itemNumberLength < 4){
         for ($j = $itemNumberLength; $j < 4; $j++){
-            $index = "0".$index ;
+            $index1 = "0".$index1 ;
         }
             
     } else{
-        $index = $start;
+        $index1 = $start2;
     }  
     
-    echo "ITEM-".$index."\n";
-    $start = $start + 1;
-    $itemNumberLength = strlen ($start);
-    $index = $start;
+    echo "ITEM-".$index1."\n";
+    $start2 = $start2 + 1;
+    $itemNumberLength = strlen ($start2);
+    $index1 = $start2;
     
 }
 
