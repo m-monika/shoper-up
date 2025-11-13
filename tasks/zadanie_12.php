@@ -16,4 +16,7 @@ $number = $params[0]; // tej linijki nie ruszamy :)
 for ($i = 1; $i <= 5; $i++) {
     echo $number . PHP_EOL;
     $number++;
+    if ($number >= 2) {
+    break;
+    }
 }
