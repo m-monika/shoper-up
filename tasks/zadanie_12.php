@@ -18,5 +18,4 @@ for ($i = 1; $i <= 5; $i++) {
     $number++;
     if ($number >= 2) {
     break;
-    }
-}
+}}
