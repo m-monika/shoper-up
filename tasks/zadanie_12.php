@@ -15,7 +15,7 @@ $number = $params[0]; // tej linijki nie ruszamy :)
 
 
 for ($i = $number; $i <= $number; $i--) {
-    echo PHP_EOL . $i
+    echo PHP_EOL . $i ;
 }
 
 
