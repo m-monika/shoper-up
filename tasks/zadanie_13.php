@@ -32,11 +32,6 @@ ITEM-1000
 $number = $params[0]; // tej linijki nie ruszamy :)
 $start = $params[1]; // tej linijki nie ruszamy :)
 
-echo "ITEM-0996
-ITEM-0997
-ITEM-0998
-ITEM-0999
-ITEM-1000" . "\n";
 
 for ($i = 0; $i < $number; $i++) {
     $id = $start + $i;
