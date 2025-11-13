@@ -33,7 +33,7 @@ $number = $params[0]; // tej linijki nie ruszamy :)
 $start = $params[1]; // tej linijki nie ruszamy :)
 
 
-for ($i = $start ; $i <= $number + $start ; $i++ ) {
+for ($i = $start ; $i < $number + $start ; $i++ ) {
     if ( 10 > $start && $start > 0 ) {
         echo "ITEM-000". $i . PHP_EOL;
     } elseif ( 100 > $start && $start > 9 ) {
