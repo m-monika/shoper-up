@@ -34,11 +34,11 @@ $start = $params[1]; // tej linijki nie ruszamy :)
 
 
 for ($i = $start ; $i < $number + $start ; $i++ ) {
-    if ( 10 > $start && $start > 0 ) {
+    if ( $i < 10 && $i > 0 ) {
         echo "ITEM-000". $i . PHP_EOL;
-    } elseif ( 100 > $start && $start > 9 ) {
+    } elseif ( $i > 9  &&  $i < 100) {
         echo "ITEM-00". $i . PHP_EOL;
-    } elseif ( 1000 > $start && $start > 99 ) {
+    } elseif ( $i > 99 && $i < 1000 ) {
         echo "ITEM-0". $i . PHP_EOL;
     } else {
         echo "ITEM-". $i . PHP_EOL;
