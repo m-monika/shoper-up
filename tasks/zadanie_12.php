@@ -11,10 +11,9 @@ Dla number = 5:
 
 */
 
-$number = $params[0]; // tej linijki nie ruszamy :)
+$number = $params[0]; // tej linnijki nie ruszamy :)
 
 for ($i = $number; $i >= 1; $i--) {
     echo $i . " ";
 }
 ?>
-
