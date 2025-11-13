@@ -13,5 +13,10 @@ Dla number = 5:
 
 $number = $params[0]; // tej linijki nie ruszamy :)
 
-echo "5 4 3 2 1";
+for ($i=0;$i < $number ; $i++){
+
+    $pom = $number - $i;
+    echo $pom." ";
+}
+//echo "5 4 3 2 1";
 
