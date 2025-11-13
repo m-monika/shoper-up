@@ -17,4 +17,4 @@ if ($role == "admin" && $isLogged == true) {
         echo "Dostęp przyznany".PHP_EOL;
 } else {
     echo "Brak dostępu".PHP_EOL;
-};
+}
