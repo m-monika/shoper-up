@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $number = $params[0]; // tej linijki nie ruszamy :)
 
 // upewniamy się, że $number jest integer
