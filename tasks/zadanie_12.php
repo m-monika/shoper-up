@@ -17,8 +17,4 @@ if ($number > 0) {
     for ($i = $number; $i >= 1; $i--) {
         echo $i . ' ';
     }
-} elseif ($number < 0) {
-    for ($i = $number; $i <= 1; $i++) {
-        echo ' ';
-    }
 }
