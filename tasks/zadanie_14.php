@@ -53,14 +53,15 @@ $grossSum = 0;
 foreach ($products as $basketSummary => $productValue) {
     $gross = $productValue['qty'] * $productValue['price'];
     $grossSum += $productValue['qty'] * $productValue['price'];
-    echo "Lp." . $lp . ' | ' . 
+    echo "Lp. " . $lp . ' | ' . 
     $productValue['name'] . " | " . 
     $productValue['qty'] . " szt." . " | " .
-    $productValue['price'] . " | " . ' ' . 
+    $productValue['price'] . " zł" . " | " . 
     'VAT ' . $productValue['vat'] . '%' . " | " .
-    'brutto: ' . $gross . 'zł' . PHP_EOL;
+    'brutto: ' . $gross . " zł" . PHP_EOL;
     $lp++;
+    
 };
 if ($grossSum > 0) {
-        echo 'SUMA BRUTTO: ' . $grossSum;
+        echo PHP_EOL . 'SUMA BRUTTO: ' . $grossSum . " zł";
 }
