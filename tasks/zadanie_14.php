@@ -44,6 +44,24 @@ SUMA BRUTTO: 4400 zł
 $products = $params[0]; // tej linijki nie ruszamy :)
 
 
-echo "Lp. 1 | Laptop | 1 szt. | 3000 zł | VAT 23% | brutto: 3000 zł\n";
-echo "Lp. 2 | Monitor | 2 szt. | 700 zł | VAT 23% | brutto: 1400 zł\n";
-echo "\nSUMA BRUTTO: 4400 zł";
+// echo "Lp. 1 | Laptop | 1 szt. | 3000 zł | VAT 23% | brutto: 3000 zł\n";
+// echo "Lp. 2 | Monitor | 2 szt. | 700 zł | VAT 23% | brutto: 1400 zł\n";
+// echo "\nSUMA BRUTTO: 4400 zł";
+
+$lp = 1;
+$grossSum = 0;
+foreach ($products as $basketSummary => $productValue) {
+    $gross = $productValue['qty'] * $productValue['price'];
+    $grossSum += $productValue['qty'] * $productValue['price'];
+    echo "Lp. " . $lp . ' | ' . 
+    $productValue['name'] . " | " . 
+    $productValue['qty'] . " szt." . " | " .
+    $productValue['price'] . " zł" . " | " . 
+    'VAT ' . $productValue['vat'] . '%' . " | " .
+    'brutto: ' . $gross . " zł" . PHP_EOL;
+    $lp++;
+    
+};
+if ($grossSum > 0) {
+        echo PHP_EOL . 'SUMA BRUTTO: ' . $grossSum . " zł";
+}
