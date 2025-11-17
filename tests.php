@@ -107,7 +107,37 @@ class ShoperUpTests
             16 => [
                 "Lp. 1 | Laptop | 1 szt. | 3000 zł\nLp. 2 | Monitor | 4 szt. | 2800 zł\nLp. 3 | Klawiatura | 2 szt. | 100 zł",
                 "Lp. 1 | Laptop | 3 szt. | 9000 zł\nLp. 2 | Monitor | 2 szt. | 1400 zł\nLp. 3 | Klawiatura | 2 szt. | 100 zł",
-            ]
+            ],
+            17 => [
+                "Produkt sprzedany, pozostało w magazynie: 3 szt.\nProdukt sprzedany, pozostało w magazynie: 2 szt.\nProdukt sprzedany, pozostało w magazynie: 1 szt.\nProdukt sprzedany, pozostało w magazynie: 0 szt.\nProdukt wyprzedany.",
+                "Produkt sprzedany, pozostało w magazynie: 0 szt.\nProdukt wyprzedany.",
+                "Produkt wyprzedany.",
+            ],
+            18 => [
+                "Produkt dodany do koszyka. Aktualna suma koszyka: 40 zł\nProdukt dodany do koszyka. Aktualna suma koszyka: 80 zł\nProdukt dodany do koszyka. Aktualna suma koszyka: 120 zł\nOsiągnięto darmową wysyłkę. Łączna wartość zamówienia: 120 zł",
+                "Produkt dodany do koszyka. Aktualna suma koszyka: 8 zł\nOsiągnięto darmową wysyłkę. Łączna wartość zamówienia: 8 zł",
+                "Produkt dodany do koszyka. Aktualna suma koszyka: 50 zł\nOsiągnięto darmową wysyłkę. Łączna wartość zamówienia: 50 zł",
+            ],
+            19 => [
+                "Koszt dostawy wynosi 9 zł.",
+                "Nieprawidłowa metoda dostawy.",
+                "Koszt dostawy wynosi 0 zł.",
+                "Koszt dostawy wynosi 0 zł.",
+            ],
+            20 => [
+                "Cena brutto wynosi 105 zł.",
+                "Cena brutto wynosi 610 zł.",
+                "Cena brutto wynosi 123000 zł.",
+                "Cena brutto wynosi 1.08 zł.",
+                "Cena brutto wynosi 0 zł.",
+            ],
+            21 => [
+                "Liczba produktów: 5\nKlawiatura | 300 zł\nLaptop | 3000 zł\nMonitor | 2500 zł\nMysz | 250 zł\nSłuchawki | 700 zł",
+                "Liczba produktów: 5\nHerbata | 12 zł\nChleb | 10 zł\nBanany | 8 zł\nMleko | 5 zł\nWoda | 3 zł",
+                "Liczba produktów: 4\nSpodnie | 120 zł\nKurtka | 300 zł\nCzapka | 14 zł\nButy | 250 zł",
+                "Liczba produktów: 4\nCzapka | 14 zł\nSpodnie | 120 zł\nButy | 250 zł\nKurtka | 300 zł",
+                "Nieprawidłowy parametr.",
+            ],
         ];
         $task_14_1 = [
             ["name" => "Laptop", "price" => 3000, "qty" => 1, "vat" => 23],
@@ -151,6 +181,58 @@ class ShoperUpTests
             111,
             2
         ];
+        $task_21_1 = [
+            [
+                'Laptop' => 3000,
+                'Monitor' => 2500,
+                'Klawiatura' => 300,
+                'Mysz' => 250,
+                'Słuchawki' => 700,
+            ],
+            'name',
+            'asc',
+        ];
+        $task_21_2 = [
+            [
+                'Chleb' => 10,
+                'Mleko' => 5,
+                'Banany' => 8,
+                'Herbata' => 12,
+                'Woda' => 3,
+            ],
+            'price',
+            'desc',
+        ];
+        $task_21_3 = [
+            [
+                'Czapka' => 14,
+                'Spodnie' => 120,
+                'Buty' => 250,
+                'Kurtka' => 300,
+            ],
+            'name',
+            'desc',
+        ];
+        $task_21_4 = [
+            [
+                'Czapka' => 14,
+                'Spodnie' => 120,
+                'Buty' => 250,
+                'Kurtka' => 300,
+            ],
+            null,
+            'desc',
+        ];
+        $task_21_5 = [
+            [
+                'Czapka' => 14,
+                'Spodnie' => 120,
+                'Buty' => 250,
+                'Kurtka' => 300,
+            ],
+            'category',
+            null,
+        ];
         $this->tasksParams = [
             7 => [[100, 200], [200, 100], [100, 100]],
             8 => [["admin", true], ["admin", false], ["user", true], ["user", false]],
@@ -171,7 +253,12 @@ class ShoperUpTests
             13 => [[3, 1], [4, 1], [4, 9], [5, 996], [5, 98]],
             14 => [[$task_14_1], [$task_14_2]],
             15 => [[$task_15_1], [$task_15_2], [$task_15_3]],
-            16 => [$task_16_1, $task_16_2]
+            16 => [$task_16_1, $task_16_2],
+            17 => [[4], [1], [0]],
+            18 => [[100, 40], [1, 8], [0, 50]],
+            19 => [[20, 'paczkomat'], [100, 'allegrobox'], [10, 'sklep'], [120, 'kurier']],
+            20 => [[100, 'książki'], [500, 'elektronika'], [100000, 'samochody'], [1, 'żywność'], [0, 'odzież']],
+            21 => [$task_21_1, $task_21_2, $task_21_3, $task_21_4, $task_21_5],
         ];
     }
 
