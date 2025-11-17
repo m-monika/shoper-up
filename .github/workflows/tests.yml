@@ -25,8 +25,11 @@ jobs:
       - name: Detect changed zadanie files
         id: changes
         run: |
-          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }} HEAD | grep '^tasks/zadanie_.*\.php$' || true)
-          echo "CHANGED_FILES=$CHANGED_FILES" >> $GITHUB_ENV
+          {
+            echo "CHANGED_FILES<<EOF"
+            git diff --name-only origin/${{ github.base_ref }} HEAD | grep '^tasks/zadanie_.*\.php$' || true
+            echo "EOF"
+          } >> "$GITHUB_ENV"
 
       - name: Run tests for changed files
         if: env.CHANGED_FILES != ''
