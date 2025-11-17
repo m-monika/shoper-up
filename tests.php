@@ -132,9 +132,11 @@ class ShoperUpTests
                 "Cena brutto wynosi 0 zł.",
             ],
             21 => [
-                "Znaleziono 5 produktów:\nKlawiatura | 300 zł\nLaptop | 3000 zł\nMonitor | 2500 zł\nMysz | 250 zł\nSłuchawki | 700 zł",
-                "Znaleziono 5 produktów:\nHerbata | 12 zł\nChleb | 10 zł\nBanany | 8 zł\nMleko | 5 zł\nWoda | 3 zł",
-                "Znaleziono 4 produktów:\nSpodnie | 120 zł\nKurtka | 300 zł\nCzapka | 14 zł\nButy | 250 zł",
+                "Liczba produktów: 5\nKlawiatura | 300 zł\nLaptop | 3000 zł\nMonitor | 2500 zł\nMysz | 250 zł\nSłuchawki | 700 zł",
+                "Liczba produktów: 5\nHerbata | 12 zł\nChleb | 10 zł\nBanany | 8 zł\nMleko | 5 zł\nWoda | 3 zł",
+                "Liczba produktów: 4\nSpodnie | 120 zł\nKurtka | 300 zł\nCzapka | 14 zł\nButy | 250 zł",
+                "Liczba produktów: 4\nCzapka | 14 zł\nSpodnie | 120 zł\nButy | 250 zł\nKurtka | 300 zł",
+                "Nieprawidłowy parametr.",
             ],
         ];
         $task_14_1 = [
@@ -211,6 +213,26 @@ class ShoperUpTests
             'name',
             'desc',
         ];
+        $task_21_4 = [
+            [
+                'Czapka' => 14,
+                'Spodnie' => 120,
+                'Buty' => 250,
+                'Kurtka' => 300,
+            ],
+            null,
+            'desc',
+        ];
+        $task_21_5 = [
+            [
+                'Czapka' => 14,
+                'Spodnie' => 120,
+                'Buty' => 250,
+                'Kurtka' => 300,
+            ],
+            'category',
+            null,
+        ];
         $this->tasksParams = [
             7 => [[100, 200], [200, 100], [100, 100]],
             8 => [["admin", true], ["admin", false], ["user", true], ["user", false]],
@@ -236,7 +258,7 @@ class ShoperUpTests
             18 => [[100, 40], [1, 8], [0, 50]],
             19 => [[20, 'paczkomat'], [100, 'allegrobox'], [10, 'sklep'], [120, 'kurier']],
             20 => [[100, 'książki'], [500, 'elektronika'], [100000, 'samochody'], [1, 'żywność'], [0, 'odzież']],
-            21 => [$task_21_1, $task_21_2, $task_21_3],
+            21 => [$task_21_1, $task_21_2, $task_21_3, $task_21_4, $task_21_5],
         ];
     }
 

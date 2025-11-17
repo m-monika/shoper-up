@@ -10,6 +10,9 @@ sortowanie może być rosnące lub malejące:
 - asc: rosnąco
 - desc: malejąco
 
+Jeśli któryś z parametrów do sortowania ($key, $sort) nie został podany, wyświetlamy produkty tak, jak zostały podane.
+Jeśli któryś z parametrów do sortowania ($key, $sort) nie pasuje do zdefiniowanych, wyświetlamy informację o błędzie: Nieprawidłowy parametr.
+
 Zmienne:
 $key - klucz, po którym sortujemy (name/price)
 $sort - rodzaj sortowania (asc/desc)
@@ -29,7 +32,7 @@ $sort = 'asc';
 
 Wyświetl wszystko w formacie:
 
-Znaleziono 5 produktów:
+Liczba produktów: 5
 Klawiatura | 300 zł
 Laptop | 3000 zł
 Monitor | 2500 zł
