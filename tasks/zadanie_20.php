@@ -4,7 +4,7 @@
 Napisz program, który obliczy cenę brutto na podstawie stawki VAT zależnej od kategorii produktu. Użyj instrukcji match.
 Stawki VAT (zmyślone) dla kategorii:
 - elektronika: 22%
-- odzieź: 22%
+- odzież: 22%
 - żywność: 8%
 - książki: 5%
 - czasopisma: 5%
@@ -17,7 +17,7 @@ $category - kategoria produktu
 Przykład:
 
 $net = 100;
-$category = 'odzieź';
+$category = 'odzież';
 
 Cena brutto wynosi 122 zł.
 
