@@ -1,27 +1,17 @@
 <?php
 
-/*
-Napisz program, który obliczy cenę brutto na podstawie stawki VAT zależnej od kategorii produktu. Użyj instrukcji match.
-Stawki VAT (zmyślone) dla kategorii:
-- elektronika: 22%
-- odzież: 22%
-- żywność: 8%
-- książki: 5%
-- czasopisma: 5%
-- pozostałe: 23%
-
-Zmienne:
-$net - cena netto
-$category - kategoria produktu
-
-Przykład:
-
-$net = 100;
-$category = 'odzież';
-
-Cena brutto wynosi 122 zł.
-
-*/
-
 $net = $params[0]; // tej linijki nie ruszamy :)
 $category = $params[1]; // tej linijki nie ruszamy :)
+
+$productVat = match ($category) {
+	'elektronika' => 0.22,
+	'odzież' => 0.22,
+	'żywność' => 0.08,
+	'książki' => 0.05,
+	'czasopisma' => 0.05,
+	default => 0.23,
+};
+
+$grossAmount = $net * (1 + $productVat);
+
+echo 'Cena brutto wynosi ' . $grossAmount . ' zł.';
