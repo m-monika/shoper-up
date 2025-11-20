@@ -17,4 +17,14 @@ Najlepsza oferta: Sklep C — 1190 zł
 
 $shops = $params[0]; // tej linijki nie ruszamy :)
 
-echo "Najlepsza oferta: Sklep C — 1190 zł";
+$bestPrice = null;
+$bestShop = null;
+
+
+foreach ($shops as $shop){
+    if ($bestShop === null || $shop['price'] < $bestPrice){
+      $bestShop = $shop['store'];
+      $bestPrice = $shop['price'];
+        }
+}
+echo 'Najlepsza oferta: ' . $bestShop . " — " . $bestPrice . " zł";
