@@ -9,9 +9,11 @@ Przykład:
 Dla number = 5:
 5 4 3 2 1
 
+
+
 */
 
 $number = $params[0]; // tej linijki nie ruszamy :)
 
-echo "5 4 3 2 1";
-
+for ($i = $number; $i != 0; $i--)
+    echo $i . " ";
