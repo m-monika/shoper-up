@@ -27,7 +27,7 @@ $sum = 0;
 
 do {
     $sum += $price;
-    echo "Produkt dodany do koszyka. Aktualna suma koszyka: " . $sum " zł" . PHP_EOL;
+    echo "Produkt dodany do koszyka. Aktualna suma koszyka: " . $sum ." zł" . PHP_EOL;
 } while ($freeDeliveryThreshold >= $sum);
 
 echo "Osiągnięto darmową wysyłkę. Łączna wartość zamówienia: " . $sum  . " zł";
