@@ -34,3 +34,28 @@ Koszt dostawy wynosi 9 zł.
 
 $sum = $params[0]; // tej linijki nie ruszamy :)
 $shipping = $params[1]; // tej linijki nie ruszamy :)
+
+switch ($shipping){
+    case 'paczkomat':
+        if($sum > 39){
+            echo "Koszt dostawy wynosi 0 zł.";
+        }else{
+            echo "Koszt dostawy wynosi 9 zł.";
+        }
+        break;
+    case 'kurier':
+        if($sum > 49){
+            echo "Koszt dostawy wynosi 0 zł.";
+        }else{
+            echo "Koszt dostawy wynosi 15 zł.";
+        }
+        break;
+    case'sklep':
+            echo "Koszt dostawy wynosi 0 zł.";
+        break;
+    case'poczta':
+            echo "Koszt dostawy wynosi 20 zł.";
+        break;
+    default:
+    echo "Nieprawidłowa metoda dostawy.";
+}
