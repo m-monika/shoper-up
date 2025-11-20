@@ -25,3 +25,15 @@ Cena brutto wynosi 122 zł.
 
 $net = $params[0]; // tej linijki nie ruszamy :)
 $category = $params[1]; // tej linijki nie ruszamy :)
+
+$vat = match ($category){
+    'elektronika' => 22,
+    'odzież' => 22,
+    'żywność' => 8,
+    'książki' => 5,
+    'czasopisma' => 5,
+    default => 23,
+};
+
+$brutto = $net * $vat / 100 + $net;
+echo "Cena brutto wynosi ".$brutto." zł.";
