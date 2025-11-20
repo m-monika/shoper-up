@@ -18,7 +18,14 @@ Najlepsza oferta: Sklep C — 1190 zł
 $shops = $params[0]; // tej linijki nie ruszamy :)
 
 foreach ($shops as $store => $price) {
-  $shopsCount = count($shops);
+  $minPrice = null;
+  $shopName = null;
+  foreach ($shops as $storeInfo) {
+      if ($minPrice === null || $minPrice > $storeInfo['price']){
+           $minPrice = $storeInfo['price'];
+           $shopName = $storeInfo['store'];
+      }
+  }
     for ($i = 0; $i < $shopsCount; $i++) {
       for ($j = $i + 1; $j < $shopsCount; $j++ ) {
         if ($shops[$i]['price'] > $shops[$j]['price']) {
