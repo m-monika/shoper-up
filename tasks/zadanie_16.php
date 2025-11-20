@@ -46,7 +46,14 @@ $product = $params[1]; // tej linijki nie ruszamy :)
 $id = $params[2]; // tej linijki nie ruszamy :)
 $qty = $params[3]; // tej linijki nie ruszamy :)
 
+array_push($products, $product);
+$lp = 1;
 
-echo "Lp. 1 | Laptop | 1 szt. | 3000 zł";
-echo "\nLp. 2 | Monitor | 4 szt. | 2800 zł";
-echo "\nLp. 3 | Klawiatura | 2 szt. | 100 zł";
+foreach ($products as $key => $value) {
+    if ($value['id'] === $id) {
+        $value['qty'] += $qty;
+    }
+    $brutto = $value['qty'] * $value['price'];
+    echo "Lp. $lp | {$value['name']} | {$value['qty']} szt. | $brutto zł\n";
+    $lp++;
+}
