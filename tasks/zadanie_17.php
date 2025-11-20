@@ -25,7 +25,7 @@ $stock = $params[0]; // tej linijki nie ruszamy :)
 $i = $stock;
 
 while ($i > 0){
-    echo "Produkt sprzedany, pozostało w magazynie: " . $i-- . " szt". PHP_EOL;
+    echo "Produkt sprzedany, pozostało w magazynie: " . --$i . " szt". PHP_EOL;
     if ($i === 0){
         echo "Produkt wyprzedany.";
         break;
