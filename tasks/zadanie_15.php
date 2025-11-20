@@ -24,7 +24,8 @@ foreach ($shops as $store => $price) {
       if ($minPrice === null || $minPrice > $storeInfo['price']){
            $minPrice = $storeInfo['price'];
            $shopName = $storeInfo['store'];
-      }
-  }
-}
+          }
+        }
+      };
+
 echo "Najlepsza oferta: " . $shopName . " — " . $minPrice . " zł";
