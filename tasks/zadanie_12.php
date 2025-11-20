@@ -15,5 +15,5 @@ Dla number = 5:
 
 $number = $params[0]; // tej linijki nie ruszamy :)
 
-for ($i = $number; $i != 0; $i--)
+for ($i = $number; $i > 0; $i--)
     echo $i . " ";
