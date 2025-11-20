@@ -21,3 +21,12 @@ Produkt wyprzedany.
 */
 
 $stock = $params[0]; // tej linijki nie ruszamy :)
+
+$i = $stock;
+while ($i > 0) {
+  $i--;
+  echo 'Produkt sprzedany, pozostało w magazynie: ' . $i . 'szt.' . PHP_EOL;
+  
+};
+
+echo "Produkt wyprzedany.";
