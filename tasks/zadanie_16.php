@@ -54,7 +54,7 @@ $lpCount = 1;
 foreach ($products as $key => $value) {
 
     if ($value["id"] == $id) {
-        $value["qty"] = $qty;
+        $value["qty"] = $value["qty"] + $qty;
     }
 
     $fullPrice = $value["price"] * $value["qty"];
