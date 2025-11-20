@@ -27,6 +27,6 @@ $fullAmount = 0;
 do {
     $fullAmount = $fullAmount + $price;
     echo "Produkt dodany do koszyka. Aktualna suma koszyka: " . $fullAmount . " zł" . PHP_EOL;
-} while ($fullAmount <= $freeDeliveryThreshold);
+} while ($fullAmount < $freeDeliveryThreshold);
 
 echo "Osiągnięto darmową wysyłkę. Łączna wartość zamówienia: " . $fullAmount . " zł";
