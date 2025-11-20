@@ -24,7 +24,7 @@ foreach ($shops as $key => $value) {
   $currentName = $value["store"];
   $currentPrice = $value["price"];
 
-  if ($lowestPrice == false or $bestStore == false) {
+  if ($lowestPrice === null || $bestStore === null) {
     $lowestPrice = $currentPrice;
     $bestStore = $currentName;
   }
