@@ -44,3 +44,57 @@ Słuchawki | 700 zł
 $products = $params[0]; // tej linijki nie ruszamy :)
 $key = $params[1]; // tej linijki nie ruszamy :)
 $sort = $params[2]; // tej linijki nie ruszamy :)
+
+$errorCheck_ = 0;
+$keyCheck_ = empty($key);
+$sortCheck_ = empty($sort);
+$liczbaProd_ = count($products);
+
+switch ($key) {
+     case 'name':
+         switch ($sort){
+             case 'asc':
+                 ksort($products);
+                 break;
+             case 'desc':
+                 krsort($products);
+                 break;
+             default:
+                if ($sortCheck_ == FALSE){
+                $errorCheck_ = 1;
+             }
+                 break;
+         }
+         break;
+     case 'price':
+         switch ($sort){
+             case 'asc':
+                 asort($products);
+                 break;
+             case 'desc':
+                 arsort($products);
+                 break;
+             default:
+             if ($sortCheck_ == FALSE){
+                $errorCheck_ = 1;
+             }
+                 break;
+         }
+         break;
+     default:
+         if ($keyCheck_ == FALSE){
+            $errorCheck_ = 1;
+         }
+         break;
+ }
+ 
+
+ if ($errorCheck_ == 1){
+     echo "Nieprawidłowy parametr.";
+ } else if ($errorCheck_ == 0){
+     echo "Liczba produktów: ".$liczbaProd_."\n";
+     foreach ($products as $key_ => $value_){
+         echo "$key_ | $value_ zł\n";
+     }
+
+}
