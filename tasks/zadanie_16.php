@@ -55,7 +55,7 @@ if (is_array($product) && !empty($product)) {
 if (!empty($id)) {
     foreach($products as $basketProducts => $productsValue) { 
         if ($productsValue['id'] == $id) {
-            $products[$basketProducts]['qty'] = $qty;
+            $products[$basketProducts]['qty'] += $qty;
         }
     }
 }
@@ -64,7 +64,7 @@ foreach($products as $productValue) {
     echo "Lp. " . $lp . ' | ' . 
     $productValue['name'] . " | " . 
     $productValue['qty'] . " szt." . " | " .
-    ($productValue['price'] * $productValue['qty']) . " zł" . " | " .  PHP_EOL . "<br>";
+    ($productValue['price'] * $productValue['qty']) . " zł" .  PHP_EOL;
     $lp++;
 }
     
