@@ -47,6 +47,24 @@ $id = $params[2]; // tej linijki nie ruszamy :)
 $qty = $params[3]; // tej linijki nie ruszamy :)
 
 
-echo "Lp. 1 | Laptop | 1 szt. | 3000 zł";
-echo "\nLp. 2 | Monitor | 4 szt. | 2800 zł";
-echo "\nLp. 3 | Klawiatura | 2 szt. | 100 zł";
+$lp = 1;
+if (is_array($product) && !empty($product)) {
+        $products[] = $product;
+}
+
+if (!empty($id)) {
+    foreach($products as $basketProducts => $productsValue) { 
+        if ($productsValue['id'] == $id) {
+            $products[$basketProducts]['qty'] = $qty;
+        }
+    }
+}
+
+foreach($products as $productValue) {
+    echo "Lp. " . $lp . ' | ' . 
+    $productValue['name'] . " | " . 
+    $productValue['qty'] . " szt." . " | " .
+    ($productValue['price'] * $productValue['qty']) . " zł" . " | " .  PHP_EOL . "<br>";
+    $lp++;
+}
+    
