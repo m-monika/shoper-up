@@ -69,5 +69,5 @@ $productCount = count($products);
 echo "Liczba produktów: " . $productCount . PHP_EOL;
 
 foreach ($products as $key => $value) {
-    echo $key . " | " . $value . PHP_EOL;
+    echo $key . " | " . $value . " zł" . PHP_EOL;
 }
