@@ -40,26 +40,14 @@ Mysz | 250 zł
 Słuchawki | 700 zł
 
 */
-/*
+
 $products = $params[0]; // tej linijki nie ruszamy :)
 $key = $params[1]; // tej linijki nie ruszamy :)
 $sort = $params[2]; // tej linijki nie ruszamy :)
-*/
 
-$products = [
-    'Laptop' => 3000,
-    'Monitor' => 2500,
-    'Klawiatura' => 300,
-    'Mysz' => 250,
-    'Słuchawki' => 700,
-];
+if ($key == 'name') {
 
-$key = 'price';
-$sort = 'asc';
-
-if ($key === 'name') {
-
-    if ($sort === 'asc') {
+    if ($sort == 'asc') {
         ksort($products);
     } else {
         krsort($products);
@@ -67,7 +55,7 @@ if ($key === 'name') {
 
 } else {
 
-    if ($sort === 'asc') {
+    if ($sort == 'asc') {
         asort($products);
     } else {
 
