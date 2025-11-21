@@ -40,28 +40,43 @@ Mysz | 250 zł
 Słuchawki | 700 zł
 
 */
-
 $products = $params[0]; // tej linijki nie ruszamy :)
 $key = $params[1]; // tej linijki nie ruszamy :)
 $sort = $params[2]; // tej linijki nie ruszamy :)
 
-if ($key == 'name') {
+$fail = "Nieprawidłowy parametr.";
 
-    if ($sort == 'asc') {
+if ($key == false && $sort == false) {
+}
+elseif ($key == 'name') {
+
+    if ($sort == false) {
+    }
+    elseif ($sort == 'asc') {
         ksort($products);
-    } else {
+    } elseif ($sort == 'desc') {
         krsort($products);
+    } else {
+        echo $fail;
+        exit();
+    }
+
+} elseif ($key == 'price') {
+
+    if ($sort == false) {
+    }
+    elseif ($sort == 'asc') {
+        asort($products);
+    } elseif ($sort == 'desc') {
+        arsort($products);
+    } else {
+        echo $fail;
+        exit();
     }
 
 } else {
-
-    if ($sort == 'asc') {
-        asort($products);
-    } else {
-
-        arsort($products);
-    }
-
+    echo $fail;
+    exit();
 }
 
 $productCount = count($products);
