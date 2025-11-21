@@ -43,7 +43,34 @@ SUMA BRUTTO: 4400 zł
 
 $products = $params[0]; // tej linijki nie ruszamy :)
 
+$lp = 0;
 
-echo "Lp. 1 | Laptop | 1 szt. | 3000 zł | VAT 23% | brutto: 3000 zł\n";
-echo "Lp. 2 | Monitor | 2 szt. | 700 zł | VAT 23% | brutto: 1400 zł\n";
-echo "\nSUMA BRUTTO: 4400 zł";
+
+foreach ($products as $key => $value){
+	
+    if (is_array($value)) {
+    	 
+    	 	$name = "";
+        	$qty = 0;
+        	$vat = 0;
+        	$price = 0;
+        	
+        	
+        foreach ($value as $key2 => $value2 ){
+        
+        	$amount	= $qty * $price ;
+        	$sum = $sum + $amount;
+        	
+            if ($key2 == "name") {
+                $name = $value2;
+            }elseif ($key2 == "price") {
+                $price = $value2;
+            }elseif ($key2 == "qty") {
+                $qty = $value2;
+            }elseif ($key2 == "vat") {
+                $vat =$value2;
+            }
+        
+        } echo "Lp. " . ++$lp . " | " . $name . " | " . $qty . " szt. | " . $price . " zł | VAT " . $vat . " | brutto: " . $amount . " zł" . PHP_EOL;
+    }
+    } echo "SUMA BRUTTO:" . $sum;
