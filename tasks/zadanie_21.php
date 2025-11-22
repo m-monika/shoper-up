@@ -9,7 +9,7 @@ $validSort = ['asc', 'desc'];
 $isSorted = false;
 
 if (empty($key) || empty($sort)) {
-	
+	print_r($products);
 } elseif (!in_array($key, $validKey) || !in_array($sort, $validSort)) {
     echo 'Nieprawidłowy parametr.\n';
     exit;
