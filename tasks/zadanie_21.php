@@ -8,10 +8,10 @@ $validKey = ['name', 'price'];
 $validSort = ['asc', 'desc'];
 $isSorted = false;
 
-if (empty($key) || empty($sort)) {
-	print_r($products);
+if (empty($key) && empty($sort)) {
+
 } elseif (!in_array($key, $validKey) || !in_array($sort, $validSort)) {
-    echo 'Nieprawidłowy parametr.\n';
+    echo "Nieprawidłowy parametr.\n";
     exit;
 } else {
 	if ($key === 'name') {
