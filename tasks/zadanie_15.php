@@ -31,4 +31,4 @@ foreach ($shops as $key => $value){
   	$shopname = $store;
       
     } 
-  }echo "Najlepsza oferta: " . $shopname . " - " . $lowestprice . " zł" ;
+  }echo "Najlepsza oferta: " . $shopname . " — " . $lowestprice . " zł" ;
