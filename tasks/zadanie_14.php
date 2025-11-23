@@ -44,6 +44,7 @@ SUMA BRUTTO: 4400 zł
 $products = $params[0]; // tej linijki nie ruszamy :)
 
 $lp = 0;
+$sum = 0;
 
 
 foreach ($products as $key => $value){
