@@ -53,7 +53,7 @@ foreach ($products as $key => $value){
     	 
     	 	$name = $value['name'];
         	$qty = $value['qty'];
-        	$vat = 0;
+        	$vat = $value['vat'];
         	$price = 0;
         	
         	
