@@ -46,7 +46,6 @@ $key = $params[1]; // tej linijki nie ruszamy :)
 $sort = $params[2]; // tej linijki nie ruszamy :)
 
 $result = true;
-$i=1;
 
 if ($key == "name"){
     switch ($sort){
@@ -78,6 +77,9 @@ if ($key == "name"){
             $result = false;
             break;
     }
+}else{
+    echo "Nieprawidłowy parametr.";
+            $result = false;
 }
 
 if ($result){
