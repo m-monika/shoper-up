@@ -60,6 +60,6 @@ foreach ($products as $key => $value){
         $sum = $sum + $amount;
         	
         
-         echo "Lp. " . ++$lp . " | " . $name . " | " . $qty . " szt. | " . $price . " zł | VAT " . $vat . " | brutto: " . $amount . " zł" . PHP_EOL;
+         echo "Lp. " . ++$lp . " | " . $name . " | " . $qty . " szt. | " . $price . " zł | VAT " . $vat . "% | brutto: " . $amount . " zł" . PHP_EOL;
     }
   } echo PHP_EOL . "SUMA BRUTTO: " . $sum . " zł";
