@@ -77,6 +77,8 @@ if ($key == "name"){
             $result = false;
             break;
     }
+}elseif ($key == ""){
+        $result = true;
 }else{
     echo "Nieprawidłowy parametr.";
             $result = false;
