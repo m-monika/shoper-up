@@ -51,7 +51,7 @@ foreach ($products as $key => $value){
 	
     if (is_array($value)) {
     	 
-    	 	$name = "";
+    	 	$name = $value['name'];
         	$qty = $value['qty'];
         	$vat = 0;
         	$price = 0;
