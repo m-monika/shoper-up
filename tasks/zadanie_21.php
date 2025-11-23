@@ -44,3 +44,46 @@ Słuchawki | 700 zł
 $products = $params[0]; // tej linijki nie ruszamy :)
 $key = $params[1]; // tej linijki nie ruszamy :)
 $sort = $params[2]; // tej linijki nie ruszamy :)
+
+$result = true;
+$i=1;
+
+if ($key == "name"){
+    switch ($sort){
+        case "asc":
+            ksort($products);
+            break;
+        case "desc":
+            krsort($products);
+            break;
+        case "":
+            break;
+        default:
+            echo "Nieprawidłowy parametr.";
+            $result = false;
+            break;
+    }
+}elseif ($key == "price"){
+    switch ($sort){
+        case "asc":
+            asort($products);
+            break;
+        case "desc":
+            arsort($products);
+            break;
+        case "":
+            break;
+        default:
+            echo "Nieprawidłowy parametr.";
+            $result = false;
+            break;
+    }
+}
+
+if ($result){
+    echo "Liczba produktów: " . count($products). PHP_EOL;
+    
+    foreach ($products as $key2 => $value) {
+    echo $key2 . " | " . $value . " zł" . PHP_EOL;
+    }
+}
