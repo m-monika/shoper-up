@@ -57,7 +57,8 @@ foreach ($products as $key => $value){
         	$price = $value['price'];
         	
         	
-        foreach ($value as $key2 => $value2 ){
+       $amount	= $qty * $price ;
+       $sum = $sum + $amount;
         
         	$amount	= $qty * $price ;
         	$sum = $sum + $amount;
