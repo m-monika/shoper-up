@@ -28,4 +28,6 @@ foreach ($shops as $store => $price) {
         }
       };
 
+      // testtest
+
 echo "Najlepsza oferta: " . $shopName . " — " . $minPrice . " zł";
