@@ -25,6 +25,6 @@ $shops = $params[0]; // tej linijki nie ruszamy :)
            $minPrice = $storeInfo['price'];
            $shopName = $storeInfo['store'];
       }
-  };
+  }
 
 echo "Najlepsza oferta: " . $shopName . " — " . $minPrice . " zł";
