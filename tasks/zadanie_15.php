@@ -17,15 +17,14 @@ Najlepsza oferta: Sklep C — 1190 zł
 
 $shops = $params[0]; // tej linijki nie ruszamy :)
 
-foreach ($shops as $store => $price) {
-  $minPrice = null;
-  $shopName = null;
+
   foreach ($shops as $storeInfo) {
+    $minPrice = null;
+    $shopName = null;
       if ($minPrice === null || $minPrice > $storeInfo['price']){
            $minPrice = $storeInfo['price'];
            $shopName = $storeInfo['store'];
-          }
-        }
-      };
+      }
+  };
 
 echo "Najlepsza oferta: " . $shopName . " — " . $minPrice . " zł";
