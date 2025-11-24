@@ -21,3 +21,16 @@ Osiągnięto darmową wysyłkę. Łączna wartość zamówienia: 120 zł
 
 $freeDeliveryThreshold = $params[0]; // tej linijki nie ruszamy :)
 $price = $params[1]; // tej linijki nie ruszamy :)
+
+
+while ($price < $freeDeliveryThreshold) {
+    echo "Produkt dodany do koszyka. Aktualna suma koszyka: $price zł";
+    $i = $price;
+    $price += $i;
+    PHP_EOL;
+    if ($price >= $freeDeliveryThreshold) {
+        echo "Produkt dodany do koszyka. Aktualna suma koszyka: $price zł.
+        Osiągnięto darmową wysyłkę. Łączna wartośc zamówienia: $price zł";
+    break;
+}
+}
