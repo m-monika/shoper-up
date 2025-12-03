@@ -1,9 +1,10 @@
 <?php
 
 /*
-Napisz program z wykorzystaniem funkcji, która dla każdego klienta z listy utworzy wiadomość. Wiadomość jest różna dla klientów VIP i zwykłych.
+Napisz program zawierający funkcję, która tworzy wiadomość dla danego klienta. Wiadomość jest różna dla klientów VIP i zwykłych.
 VIP: Cześć [imię]! Mamy super ofertę specjalnie dla VIP-ów! Odwiedź nasz sklep!
 zwykły: Witaj [imię], sprawdź naszą ofertę! Odwiedź nasz sklep!
+Program przyjmuje tablicę klientów i dla każdego tworzy wiadomość.
 
 Zmienne:
 $clients - tablica z danymi klientów

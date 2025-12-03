@@ -1,7 +1,7 @@
 <?php
 
 /*
-Napisz program - funkcję, która sprawdza czy podany kod pocztowy jest poprawny.
+Napisz program zawierający funkcję, która sprawdza czy podany kod pocztowy jest poprawny.
 Program przyjmuje tablicę kodów i dla każdego wypisuje: "Kod poprawny" / "Kod niepoprawny"
 Poprawny format kodu pocztowego: 11-111
 
