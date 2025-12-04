@@ -44,39 +44,29 @@ $products = $params[0]; // tej linijki nie ruszamy :)
 $key = $params[1]; // tej linijki nie ruszamy :)
 $sort = $params[2]; // tej linijki nie ruszamy :)
 
+
 $fail = "Nieprawidłowy parametr.";
 
-if ($key == false && $sort == false) {
-}
-elseif ($key == 'name') {
-
-    if ($sort == false) {
-    }
-    elseif ($sort == 'asc') {
-        ksort($products);
-    } elseif ($sort == 'desc') {
-        krsort($products);
-    } else {
+    if (empty($key) == false && $key != 'name' && $key != 'price' || empty($sort) == false && $sort != 'asc' && $sort != 'desc') {
         echo $fail;
         exit();
+    }
+
+if ($key == 'name'){ 
+
+    if ($sort == 'asc') {
+            ksort($products);
+    } elseif ($sort == 'desc') {
+            krsort($products);
     }
 
 } elseif ($key == 'price') {
 
-    if ($sort == false) {
-    }
-    elseif ($sort == 'asc') {
+    if ($sort == 'asc') {
         asort($products);
     } elseif ($sort == 'desc') {
         arsort($products);
-    } else {
-        echo $fail;
-        exit();
     }
-
-} else {
-    echo $fail;
-    exit();
 }
 
 $productCount = count($products);
