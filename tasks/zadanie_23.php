@@ -29,3 +29,26 @@ Kod niepoprawny
 */
 
 $postcodes = $params[0]; // tej linijki nie ruszamy :)
+
+function checkPostcode( string $check) : bool
+{
+    if (strlen($check) !== 6){
+        return false;
+
+    }elseif (substr($check, 2, 1) !== "-"){
+        return false;
+        
+    }else{
+        return true;
+    }
+}
+
+foreach ($postcodes as $check) {
+       if (checkPostcode($check)){
+        echo "Kod poprawny" .PHP_EOL;
+       
+    }else{
+        echo "Kod niepoprawny" .PHP_EOL;
+       }
+        
+}
