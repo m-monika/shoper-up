@@ -36,10 +36,10 @@ function wiad(array $client): string
 //30 minut szukałem czemu mi to działa na odwrót i brakowało mi negacji "!" do empty >.<
 {
     if (!empty($client['vip'])) {
-        return "Czesc {$client['name']}! Mamy super ofertę specjalnie dla klentów VIP! Odwiedź nasz sklep!";
+        return "Cześć {$client['name']}! Mamy super ofertę specjalnie dla klentów VIP! Odwiedź nasz sklep!";
     }
 
-    return "Witaj {$client['name']}, sprawdz nasza oferte! Odwiedz nasz sklep!";
+    return "Witaj {$client['name']}, sprawdź naszą ofertę! Odwiedź nasz sklep!";
 }
 
 foreach ($clients as $client) {
