@@ -138,6 +138,25 @@ class ShoperUpTests
                 "Liczba produktów: 4\nCzapka | 14 zł\nSpodnie | 120 zł\nButy | 250 zł\nKurtka | 300 zł",
                 "Nieprawidłowy parametr.",
             ],
+            22 => [
+                "Cześć Ala! Mamy super ofertę specjalnie dla klentów VIP! Odwiedź nasz sklep!\nWitaj Jacek, sprawdź naszą ofertę! Odwiedź nasz sklep!\nWitaj Ola, sprawdź naszą ofertę! Odwiedź nasz sklep!",
+            ],
+            23 => [
+                "Kod poprawny\nKod niepoprawny\nKod niepoprawny\nKod poprawny\nKod niepoprawny",
+            ],
+            24 => [
+                "Laptop: 5000,00 zł\nKlawiatura: 400,00 zł\nMonitor: 4000,00 zł",
+                "Mysz: 350,00 zł",
+                "",
+            ],
+            25 => [
+                "Monitor 27: 5000,00 zł\nLaptop: 3000,00 zł\nKlawiatura USB: 250,00 zł\nMysz bezprzewodowa: 200,00 zł\nKabel HDMI: 30,00 zł",
+                "Mysz bezprzewodowa: 200,00 zł\nKlawiatura USB: 250,00 zł\nLaptop: 3000,00 zł\nMonitor 27: 5000,00 zł",
+                "Kabel HDMI: 30,00 zł\nKlawiatura USB: 250,00 zł\nMonitor 27: 5000,00 zł\nLaptop: 3000,00 zł",
+            ],
+            26 => [
+                "--- TWOJE ZAKUPY ---\n2x Chleb ... 8,00 PLN\n3x Mleko ... 4,00 PLN\n1x Czekolada ... 5,00 PLN\n--------------------\nDO ZAPŁATY: 33,00\n--------------------",
+            ],
         ];
         $task_14_1 = [
             ["name" => "Laptop", "price" => 3000, "qty" => 1, "vat" => 23],
@@ -233,6 +252,74 @@ class ShoperUpTests
             'category',
             null,
         ];
+        $task_24_1 = [
+            [
+                ['name' => 'Laptop', 'price' => 500000],
+                ['name' => 'Klawiatura', 'price' => 40000],
+                ['name' => 'Mysz', 'price' => 35000],
+                ['name' => 'Monitor', 'price' => 400000],
+            ], 40000, 'gte',
+        ];
+        $task_24_2 = [
+            [
+                ['name' => 'Laptop', 'price' => 500000],
+                ['name' => 'Klawiatura', 'price' => 40000],
+                ['name' => 'Mysz', 'price' => 35000],
+                ['name' => 'Monitor', 'price' => 400000],
+            ], 35000, 'lte',
+        ];
+        $task_24_3 = [
+            [
+                ['name' => 'Laptop', 'price' => 500000],
+                ['name' => 'Klawiatura', 'price' => 40000],
+                ['name' => 'Mysz', 'price' => 35000],
+                ['name' => 'Monitor', 'price' => 400000],
+            ], 100000, 'eq',
+        ];
+        $task_25_1 = [
+            [
+                ['name' => 'Kabel HDMI', 'price' => 3000],
+                ['name' => 'Klawiatura USB', 'price' => 25000],
+                ['name' => 'Mysz bezprzewodowa', 'price' => 20000],
+                ['name' => 'Monitor 27', 'price' => 500000],
+                ['name' => 'Laptop', 'price' => 300000],
+            ], 'desc',
+        ];
+        $task_25_2 = [
+            [
+                ['name' => 'Klawiatura USB', 'price' => 25000],
+                ['name' => 'Mysz bezprzewodowa', 'price' => 20000],
+                ['name' => 'Monitor 27', 'price' => 500000],
+                ['name' => 'Laptop', 'price' => 300000],
+            ], 'asc',
+        ];
+        $task_25_3 = [
+            [
+                ['name' => 'Kabel HDMI', 'price' => 3000],
+                ['name' => 'Klawiatura USB', 'price' => 25000],
+                ['name' => 'Monitor 27', 'price' => 500000],
+                ['name' => 'Laptop', 'price' => 300000],
+            ], 'asd',
+        ];
+        $task_26_1 = [
+            [
+                [
+                    'name' => 'Chleb',
+                    'price' => 800,
+                    'qty' => 2,
+                ],
+                [
+                    'name' => 'Mleko',
+                    'price' => 400,
+                    'qty' => 3,
+                ],
+                [
+                    'name' => 'Czekolada',
+                    'price' => 500,
+                    'qty' => 1,
+                ]
+            ]
+        ];
         $this->tasksParams = [
             7 => [[100, 200], [200, 100], [100, 100]],
             8 => [["admin", true], ["admin", false], ["user", true], ["user", false]],
@@ -259,6 +346,15 @@ class ShoperUpTests
             19 => [[20, 'paczkomat'], [100, 'allegrobox'], [10, 'sklep'], [120, 'kurier']],
             20 => [[100, 'książki'], [500, 'elektronika'], [100000, 'samochody'], [1, 'żywność'], [0, 'odzież']],
             21 => [$task_21_1, $task_21_2, $task_21_3, $task_21_4, $task_21_5],
+            22 => [[[
+                ['name' => 'Ala', 'vip' => true],
+                ['name' => 'Jacek', 'vip' => false],
+                ['name' => 'Ola'],
+            ]]],
+            23 => [[['27-035', '22222', 'asd', '44-432', '444-77']]],
+            24 => [$task_24_1, $task_24_2, $task_24_3],
+            25 => [$task_25_1, $task_25_2, $task_25_3],
+            26 => [$task_26_1],
         ];
     }
 
