@@ -31,3 +31,19 @@ Witaj Jacek, sprawdź naszą ofertę! Odwiedź nasz sklep!
 */
 
 $clients = $params[0]; // tej linijki nie ruszamy :)
+
+function wiad(array $client): string
+//30 minut szukałem czemu mi to działa na odwrót i brakowało mi negacji "!" do empty >.<
+{
+    if (!empty($client['vip'])) {
+        return "Cześć {$client['name']}! Mamy super ofertę specjalnie dla klentów VIP! Odwiedź nasz sklep!";
+    }
+
+    return "Witaj {$client['name']}, sprawdź naszą ofertę! Odwiedź nasz sklep!";
+}
+
+foreach ($clients as $client) {
+    echo wiad($client) . "\n";
+}
+
+
