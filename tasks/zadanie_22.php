@@ -31,3 +31,19 @@ Witaj Jacek, sprawdź naszą ofertę! Odwiedź nasz sklep!
 */
 
 $clients = $params[0]; // tej linijki nie ruszamy :)
+
+function isVip(array $client): bool
+{
+    return isset($client['vip']) && $client['vip'] === true;
+}
+
+foreach ($clients as $client) {
+
+    $name = $client['name'];
+
+    if (isVip($client)) {
+        echo "Cześć $name! Mamy super ofertę specjalnie dla klentów VIP! Odwiedź nasz sklep!" . PHP_EOL;
+    } else {
+        echo "Witaj $name, sprawdź naszą ofertę! Odwiedź nasz sklep!" . PHP_EOL;
+    }
+}
