@@ -31,3 +31,14 @@ Witaj Jacek, sprawdź naszą ofertę! Odwiedź nasz sklep!
 */
 
 $clients = $params[0]; // tej linijki nie ruszamy :)
+
+function welcomeMessage (array $client) : string{
+    if(isset($client['vip']) && $client['vip'] === true){
+        return "Cześć " . $client['name'] . "! Mamy super ofertę specjalnie dla klentów VIP! Odwiedź nasz sklep!";
+    }else{
+        return "Witaj " . $client['name'] . ", sprawdź naszą ofertę! Odwiedź nasz sklep!";
+    }
+}
+foreach ($clients as $client){
+    echo welcomeMessage($client) . "\n";
+}
