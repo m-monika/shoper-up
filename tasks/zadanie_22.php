@@ -32,7 +32,7 @@ Witaj Jacek, sprawdź naszą ofertę! Odwiedź nasz sklep!
 
 $clients = $params[0]; // tej linijki nie ruszamy :)
 
-function welcomeMessage ($client) : string{
+function welcomeMessage (array $client) : string{
     if(isset($client['vip']) && $client['vip'] === true){
         return "Cześć " . $client['name'] . "! Mamy super ofertę specjalnie dla klentów VIP! Odwiedź nasz sklep!";
     }else{
