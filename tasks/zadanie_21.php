@@ -44,3 +44,19 @@ Słuchawki | 700 zł
 $products = $params[0]; // tej linijki nie ruszamy :)
 $key = $params[1]; // tej linijki nie ruszamy :)
 $sort = $params[2]; // tej linijki nie ruszamy :)
+
+$counter = count($products);
+
+$productsSortBy = match([$key, $sort]) {
+    ['name', 'asc'] => ksort($products),
+    ['name', 'desc'] => krsort($products),
+    ['price', 'asc'] => asort($products),
+    ['price', 'desc'] => arsort($products),
+};
+
+echo "Liczba produktów: " . $counter . PHP_EOL;
+
+foreach($products as $productName => $productPrice) {
+    echo  
+    $productName . " | " . $productPrice . " zł" .  PHP_EOL;
+}
