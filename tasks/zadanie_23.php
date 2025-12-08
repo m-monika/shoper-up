@@ -30,7 +30,7 @@ Kod niepoprawny
 
 $postcodes = $params[0]; // tej linijki nie ruszamy :)
 
-function postcodeVerify (array $postcode): string
+function postcodeVerify (string $postcode): string
 {
     if (
         // sprawdź czy w sumie string składa się z 6 znaków
@@ -45,11 +45,11 @@ function postcodeVerify (array $postcode): string
         is_numeric(substr($postcode, -3, 3))
     ) 
     {
-        return "Kod poprawny";
+        return "Kod poprawny" . PHP_EOL;
     }
     else 
     {
-        return "Kod niepoprawny";
+        return "Kod niepoprawny" . PHP_EOL;
     }
 }
 
