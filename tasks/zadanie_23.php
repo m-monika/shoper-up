@@ -12,7 +12,7 @@ $postcodes - tablica kodów pocztowych do sprawdzenia
 Przykład:
 
 $postcodes = [
-    '27-035',
+    '',
     '22222',
     'asd',
     '44-432',
@@ -29,3 +29,30 @@ Kod niepoprawny
 */
 
 $postcodes = $params[0]; // tej linijki nie ruszamy :)
+
+function postcodeVerify (array $postcode): string
+{
+    if (
+        // sprawdź czy w sumie string składa się z 6 znaków
+        strlen($postcode) === 6 &&
+        // może być stringiem albo intem
+        gettype($postcode) === "string" &&
+        // pierwsze dwa znaki musza byc liczba
+        is_numeric(substr($postcode, -6, 2)) &&
+        // nastepny znak to myslnik
+        substr($postcode, -4, 1) === "-" &&
+        // kolejne trzy znaki muszą byc liczba
+        is_numeric(substr($postcode, -3, 3))
+    ) 
+    {
+        return "Kod poprawny";
+    }
+    else 
+    {
+        return "Kod niepoprawny";
+    }
+}
+
+foreach ($postcodes as $postcode) {
+    echo postcodeVerify($postcode);
+}
