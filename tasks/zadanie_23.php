@@ -29,3 +29,29 @@ Kod niepoprawny
 */
 
 $postcodes = $params[0]; // tej linijki nie ruszamy :)
+
+function validatePostCodes(array $postcodes): void {
+
+    $ok = "Kod poprawny" . PHP_EOL;
+    $fail = "Kod niepoprawny" . PHP_EOL;
+
+    foreach ($postcodes as $value) {
+
+        if (strlen($value) != 6) {
+            echo $fail;
+            continue;
+        }
+
+        if (is_numeric(substr($value, -6, 2)) == true && 
+            is_numeric(substr($value, -3, 3)) == true && 
+            (substr($value, -4, 1) == "-")) 
+            {
+            echo $ok;
+            continue;
+            } else {
+            echo $fail;
+        }
+        }
+    }
+
+validatePostCodes($postcodes);
