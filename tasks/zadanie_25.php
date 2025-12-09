@@ -48,3 +48,12 @@ Kabel HDMI: 30,00 zł
 
 $products = $params[0]; // tej linijki nie ruszamy :)
 $order = $params[1]; // tej linijki nie ruszamy :)
+
+if($order ==='asc'){
+    usort($products, fn($a, $b) => $a['price'] <=> $b['price']);
+}elseif($order ==='desc'){
+    usort($products, fn($a, $b) => $b['price'] <=> $a['price']);
+}
+foreach($products as $product){
+    echo $product['name'] . ": " . number_format($product['price'] / 100,2,',','') . " zł\n" ;
+}
