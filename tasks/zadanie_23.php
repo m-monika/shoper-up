@@ -29,3 +29,29 @@ Kod niepoprawny
 */
 
 $postcodes = $params[0]; // tej linijki nie ruszamy :)
+
+function codeValid(string $code) : bool{
+    
+    if (strlen($code) !==6){
+        return false;
+    }
+    if ($code[2] !== '-'){
+        return false;
+    }
+
+    $firstPart = substr($code, 0, 2);
+    $secPart = substr($code, 3, 3);
+    
+    if(!is_numeric($firstPart) || !is_numeric($secPart)){
+        return false;
+    }
+    return true;
+}
+
+foreach ($postcodes as $code){
+   if (codeValid($code)) {
+    echo "Kod poprawny\n";
+    }else {
+        echo "Kod niepoprawny\n";
+    }
+}
