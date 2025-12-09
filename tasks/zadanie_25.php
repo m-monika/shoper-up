@@ -3,14 +3,11 @@ $products = $params[0]; // tej linijki nie ruszamy :)
 $order = $params[1]; // tej linijki nie ruszamy :)
 
 $sortComparator = function (array $a, array $b) use ($order): int {
-    $priceA = $a['price'];
-    $priceB = $b['price'];
-    $comparison = $priceA <=> $priceB;
-    if ($order === 'asc') {
-        return $comparison;
-    } else {
-        return -$comparison;
-    }
+	if ($order !== 'asc' && $order !== 'desc') {
+		return 0;
+	}
+    $comparison = $a['price'] <=> $b['price'];
+    return ($order === 'desc') ? -$comparison : $comparison;
 };
 
 usort($products, $sortComparator);
