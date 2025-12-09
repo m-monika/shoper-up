@@ -1,46 +1,33 @@
 <?php
 
-/*
-Napisz program, który wyświetla listę produktów z możliwością filtrowania po cenie (używając array_filter):
-- cena większa lub równa x zł
-- cena mniejsza lub równa x zł
-
-Zmienne:
-$products - tablica z danymi produktów (ceny w groszach)
-$filterPrice - cena, po której filtrujemy (w groszach)
-$filterMode - rodzaj filtrowania: większa lub równa (gte) / mniejsza lub równa (lte)
-
-
-Przykład:
-
-$products = [
-    [
-        'name' => 'Laptop',
-        'price' => 500000,
-    ],
-    [
-        'name' => 'Klawiatura',
-        'price' => 40000,
-    ],
-    [
-        'name' => 'Mysz',
-        'price' => 35000,
-    ],
-    [
-        'name' => 'Monitor',
-        'price' => 400000,
-    ],
-];
-
-$filterPrice = 200000;
-$filterMode = 'gte';
-
-Wynik:
-
-Laptop: 5000,00 zł
-Monitor: 4000,00 zł
-*/
-
 $products = $params[0]; // tej linijki nie ruszamy :)
 $filterPrice = $params[1]; // tej linijki nie ruszamy :)
 $filterMode = $params[2]; // tej linijki nie ruszamy :)
+
+$filterCallback = function (array $product) use ($filterPrice, $filterMode): bool {
+    $currentPrice = $product['price'];
+    switch ($filterMode) {
+        case 'gte':
+            return $currentPrice >= $filterPrice;
+        case 'lte':
+            return $currentPrice <= $filterPrice;
+        default:
+            return false;
+    }
+};
+
+$filteredProducts = array_filter($products, $filterCallback);
+
+if (empty($filteredProducts)) {
+    echo "Brak produktów.\n";
+} else {
+    foreach ($filteredProducts as $product) {
+        $priceInZloty = $product['price'] / 100;
+        $formattedPrice = number_format($priceInZloty, 2, ',', '');
+        echo sprintf(
+            "%s: %s zł\n", 
+            $product['name'], 
+            $formattedPrice
+        );
+    }
+}
