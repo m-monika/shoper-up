@@ -18,16 +18,16 @@ $filterCallback = function (array $product) use ($filterPrice, $filterMode): boo
 
 $filteredProducts = array_filter($products, $filterCallback);
 
-if (empty($filteredProducts)) {
-    echo "Brak produktów.\n";
-} else {
+if (!empty($filteredProducts)) {
     foreach ($filteredProducts as $product) {
         $priceInZloty = $product['price'] / 100;
-        $formattedPrice = number_format($priceInZloty, 2, ',', '');
+        $formattedPrice = number_format($priceInZloty,  2, ',', '');
         echo sprintf(
             "%s: %s zł\n", 
             $product['name'], 
             $formattedPrice
         );
     }
+} else {
+    return 0;
 }
