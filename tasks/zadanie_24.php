@@ -44,3 +44,16 @@ Monitor: 4000,00 zł
 $products = $params[0]; // tej linijki nie ruszamy :)
 $filterPrice = $params[1]; // tej linijki nie ruszamy :)
 $filterMode = $params[2]; // tej linijki nie ruszamy :)
+
+$filterArray = array_filter($products, function($product) use ($filterPrice, $filterMode) {
+    if($filterMode === 'gte'){
+        return $product['price'] >= $filterPrice;
+    }elseif($filterMode === 'lte'){
+        return $product['price'] <= $filterPrice;
+    }else{
+        return false;
+    }
+});
+foreach($filterArray as $product){
+    echo $product['name'] . ": " . number_format($product["price"]/100, 2, ',', '') . " zł\n";
+}
