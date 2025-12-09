@@ -51,7 +51,12 @@ Przykład:
 przekazany w formie:
 $clientsJson = '[{"first_name":"  ADAM ","last_name":"Nowak","email":"Adam.Nowak@example.com","phone":"500-123-456"},{"first_name":"Ewa","last_name":"","email":"bledny-email","phone":"600123456","type":1},{"first_name":"Piotr","last_name":"Kowalski","email":"piotr.k@example.com","phone":"+48 700 123 456","type":2},{"first_name":"Pawe\u0142","last_name":"NOWAK ","email":"pawelnowakk@example.com","phone":"+90 700 123 456","type":1}]';
 
-Oczekiwany rezultat (raport) o następującej strukturze (json):
+Oczekiwany rezultat (raport) składający się z części:
+- summary - zawiera informacje o całkowitej liczbie przetworzonych rekordów oraz o liczbie rekordów przetworzonych pozytywnie i negatywnie
+- details - zawiera wyniki dla każdego wiersza:
+    status oraz znormalizowane dane klienta (w przypadku walidacji pozytywnej)
+    status, listę błędów oraz dane wejściowe klienta (w przypadku walidacji negatywnej)
+o następującej strukturze (json):
 {
   "summary": {
     "total": 4,
