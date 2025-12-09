@@ -44,3 +44,60 @@ Słuchawki | 700 zł
 $products = $params[0]; // tej linijki nie ruszamy :)
 $key = $params[1]; // tej linijki nie ruszamy :)
 $sort = $params[2]; // tej linijki nie ruszamy :)
+
+$counter = count($products);
+
+if (
+//jeżeli key puste, ale sort = asc/desc
+    empty($key) && ($sort == 'asc' || $sort == 'desc')
+//jeżeli key = name/price, ale sort puste
+    || ($key == 'name' || $key == 'price') && empty($sort)
+//jeżeli oba puste
+    || (empty($key) && empty($sort))
+) 
+{
+    echo "Liczba produktów: " . $counter . PHP_EOL;
+    foreach ($products as $name => $price) {
+        echo $name . " | " . $price . " zł" . PHP_EOL;
+    }
+}
+elseif (!empty($key) && ($sort != 'asc' && $sort != 'desc'))
+{
+    echo "Nieprawidłowy parametr.";
+}
+elseif (!empty($sort) && ($key != 'name' && $key != 'price')) 
+{
+    echo "Nieprawidłowy parametr.";
+}
+elseif ($key == 'name' && $sort == 'asc' ) 
+{
+    ksort($products);
+    echo "Liczba produktów: " . $counter . PHP_EOL;
+    foreach ($products as $name => $price) {
+        echo $name . " | " . $price . " zł" . PHP_EOL;
+    }
+} 
+elseif ($key == 'price' && $sort == 'asc' ) 
+{
+    asort($products);
+    echo "Liczba produktów: " . $counter . PHP_EOL;
+    foreach ($products as $name => $price) {
+        echo $name . " | " . $price . " zł" . PHP_EOL;
+    }
+} 
+elseif ($key == 'name' && $sort == 'desc' ) 
+{
+    krsort($products);
+    echo "Liczba produktów: " . $counter . PHP_EOL;
+    foreach ($products as $name => $price) {
+        echo $name . " | " . $price . " zł" . PHP_EOL;
+    }
+} 
+elseif ($key == 'price' && $sort == 'desc' ) 
+{
+    arsort($products);
+    echo "Liczba produktów: " . $counter . PHP_EOL;
+    foreach ($products as $name => $price) {
+        echo $name . " | " . $price . " zł" . PHP_EOL;
+    }
+}
