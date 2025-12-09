@@ -14,8 +14,8 @@ foreach ($cart as $item) {
 	$productTotalGr = $priceUnitGr * $qty;
 	$totalPriceGr += $productTotalGr; //dalej w groszach
 	
-	$productTotalZl = $productTotalGr / 100; //w koncu zł
-	$formattedPrice = number_format($productTotalZl,  2, ',', '');
+	$priceUnitZl = $priceUnitGr / 100;
+	$formattedPrice = number_format($priceUnitZl,  2, ',', '');
 	
 	$line = sprintf(
         "%dx %s ... ", 
@@ -23,7 +23,7 @@ foreach ($cart as $item) {
         $name
     );
     
-    $receiptLines[] = $line . $$productTotalZl/$qty . ' PLN';
+    $receiptLines[] = $line . $formattedPrice . ' PLN';
 }
 
 echo "--- TWOJE ZAKUPY ---" . PHP_EOL;
