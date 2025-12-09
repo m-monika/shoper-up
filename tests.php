@@ -157,6 +157,10 @@ class ShoperUpTests
             26 => [
                 "--- TWOJE ZAKUPY ---\n2x Chleb ... 8,00 PLN\n3x Mleko ... 4,00 PLN\n1x Czekolada ... 5,00 PLN\n--------------------\nDO ZAPŁATY: 33,00\n--------------------",
             ],
+            27 => [
+                "SuperUSER (x@shoper.pl) został zarejestrowany",
+            ],
+            28 => ['{"summary":{"total":4,"success":2,"error":2},"details":[{"status":"success","data":{"first_name":"Adam","last_name":"Nowak","email":"adam.nowak@example.com","phone":"+48500123456","type":"standard"}},{"status":"error","errors":{"email":"Invalid field","last_name":"Invalid field"},"data":{"first_name":"Ewa","last_name":"","email":"bledny-email","phone":"600123456","type":1}},{"status":"success","data":{"first_name":"Piotr","last_name":"Kowalski","email":"piotr.k@example.com","phone":"+48700123456","type":"vip"}},{"status":"error","errors":{"phone":"Invalid field"},"data":{"first_name":"Pawe\u0142","last_name":"NOWAK ","email":"pawelnowakk@example.com","phone":"+90 700 123 456","type":1}}]}'],
         ];
         $task_14_1 = [
             ["name" => "Laptop", "price" => 3000, "qty" => 1, "vat" => 23],
@@ -320,6 +324,13 @@ class ShoperUpTests
                 ]
             ]
         ];
+        $task_27 = [[
+            'email' => '  x@SHOPER.PL',
+            'username' => 'SuperUSER',
+            'password1' => 'admin12345',
+            'password2' => 'admin12345',
+        ]];
+        $task_28 = ['[{"first_name":"  ADAM ","last_name":"Nowak","email":"Adam.Nowak@example.com","phone":"500-123-456"},{"first_name":"Ewa","last_name":"","email":"bledny-email","phone":"600123456","type":1},{"first_name":"Piotr","last_name":"Kowalski","email":"piotr.k@example.com","phone":"+48 700 123 456","type":2},{"first_name":"Pawe\u0142","last_name":"NOWAK ","email":"pawelnowakk@example.com","phone":"+90 700 123 456","type":1}]'];
         $this->tasksParams = [
             7 => [[100, 200], [200, 100], [100, 100]],
             8 => [["admin", true], ["admin", false], ["user", true], ["user", false]],
@@ -355,6 +366,8 @@ class ShoperUpTests
             24 => [$task_24_1, $task_24_2, $task_24_3],
             25 => [$task_25_1, $task_25_2, $task_25_3],
             26 => [$task_26_1],
+            27 => [$task_27],
+            28 => [$task_28],
         ];
     }
 
