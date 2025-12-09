@@ -23,7 +23,7 @@ foreach ($cart as $item) {
         $name
     );
     
-    $receiptLines[] = $line . $formattedPrice . ' PLN';
+    $receiptLines[] = $line . $$productTotalZl/$qty . ' PLN';
 }
 
 echo "--- TWOJE ZAKUPY ---" . PHP_EOL;
