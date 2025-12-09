@@ -6,7 +6,7 @@ Twoim zadaniem jest normalizacja tych danych oraz wykonanie walidacji przy użyc
 
 Normalizacja:
 - username - usuwamy białe znaki z początku i końca (trim)
-- email - usuwamy białe znaki z początku i końca, małe litery
+- email - usuwamy białe znaki z początku i końca, duże litery zamieniamy na małe
 
 Walidacja:
 - username - min. 3 znaki
@@ -37,5 +37,4 @@ Niepoprawne dane
 
 */
 
-//var_dump($params);die;
 $newUser = $params[0]; // tej linijki nie ruszamy :)
