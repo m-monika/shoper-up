@@ -39,3 +39,12 @@ DO ZAPŁATY: 33,00
 */
 
 $cart = $params[0]; // tej linijki nie ruszamy :)
+
+$sum =0;
+echo '---' . ' TWOJE ZAKUPY ' . '---' . "\n";
+foreach ($cart as $product) {
+    echo $product['qty'] . 'x ' . $product['name'] . " ... " . number_format($product['price'] /100, 2,',', '') . " PLN" . "\n";
+    $sum += $product['price'] * $product['qty'];
+}
+$separator = "--------------------";
+echo $separator . "\n" . "DO ZAPŁATY: " . number_format($sum /100, 2,',', '') . "\n" . $separator;
