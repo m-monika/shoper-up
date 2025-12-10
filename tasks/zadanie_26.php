@@ -39,3 +39,28 @@ DO ZAPŁATY: 33,00
 */
 
 $cart = $params[0]; // tej linijki nie ruszamy :)
+
+function receiptGenerator(array $cart): void {
+
+    $finalPriceCalc = fn(int $price): string => number_format($price * 0.01, 2, ',') . ' PLN';
+
+    $showSeparator = function(): void {
+        echo("--------------------" . PHP_EOL);
+    };
+
+    $total = 0;
+
+    echo "--- TWOJE ZAKUPY ---" . PHP_EOL;
+
+    foreach ($cart as $item) {
+        $total = $total + $item['price'];
+        echo $item['qty'] . 'x ' . $item['name'] . ' ... ' . $finalPriceCalc($item['price']) . PHP_EOL;
+    }
+
+    $showSeparator();
+    echo 'DO ZAPŁATY: ' . number_format($total * 0.01, 2, ',') . PHP_EOL;
+    $showSeparator();
+
+}
+
+receiptGenerator($cart);
