@@ -53,7 +53,7 @@ function receiptGenerator(array $cart): void {
     echo "--- TWOJE ZAKUPY ---" . PHP_EOL;
 
     foreach ($cart as $item) {
-        $total = $total + $item['price'];
+        $total = $total + $item['price'] * $item['qty'];
         echo $item['qty'] . 'x ' . $item['name'] . ' ... ' . $finalPriceCalc($item['price']) . PHP_EOL;
     }
 
