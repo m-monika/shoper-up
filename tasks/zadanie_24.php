@@ -70,5 +70,5 @@ foreach ($filterProducts as $product) {
     $name = $product['name'];
     $price = $product['price'];
 
-    echo $name . ': ' . number_format($price / 100, 2, ',', ' ') . " zł" . PHP_EOL;
+    echo $name . ': ' . number_format($price / 100, 2, ',', '') . " zł" . PHP_EOL;
 }
