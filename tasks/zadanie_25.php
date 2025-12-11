@@ -54,8 +54,6 @@ function sortProducts(array $productsArray, string $orderType): void {
 
     $finalPriceCalc = fn(int $price): string => number_format($price * 0.01, 2, ',', '') . ' zł';
 
-    echo 'Wynik:' . PHP_EOL . PHP_EOL;
-
     if ($orderType == 'desc') {
         usort($productsArray, fn($a, $b) => $b['price'] <=> $a['price']);
     } elseif ($orderType == 'asc') {
