@@ -38,3 +38,24 @@ Niepoprawne dane
 */
 
 $newUser = $params[0]; // tej linijki nie ruszamy :)
+
+    $newUser['username'] = trim($newUser['username']);
+    $newUser['email'] = trim(strtolower($newUser['email']));
+
+    $test = true;
+if(filter_var($newUser['email'], FILTER_VALIDATE_EMAIL) === false){
+        $test = false;
+}
+
+if(strlen($newUser['username']) <= 3){
+    $test = false;
+}
+if(strlen($newUser['password1'] <= 10) && $newUser['password1'] !== $newUser['password2']){
+    $test = false;
+}
+if($test === true){
+    echo "SuperUSER (" . $newUser['email'] . ") został zarejestrowany";
+}elseif($test === false){
+    echo "Niepoprawne dane";
+}
+
