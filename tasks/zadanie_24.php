@@ -8,7 +8,7 @@ Napisz program, który wyświetla listę produktów z możliwością filtrowania
 Zmienne:
 $products - tablica z danymi produktów (ceny w groszach)
 $filterPrice - cena, po której filtrujemy (w groszach)
-$filterMode - rodzaj filtrowania: większa lub równa (gte) / mniejsza lub równa (lte)
+$filterMode - rodzaj filtrowania: większa lub równa (gte) / mniejsza lub równa (lte) jak nic to nie zwracać nic
 
 
 Przykład:
@@ -44,3 +44,26 @@ Monitor: 4000,00 zł
 $products = $params[0]; // tej linijki nie ruszamy :)
 $filterPrice = $params[1]; // tej linijki nie ruszamy :)
 $filterMode = $params[2]; // tej linijki nie ruszamy :)
+
+
+$filteredArray = array_filter($products, function ($product) use ($filterPrice, $filterMode) {
+
+    if ($filterMode == 'gte' && $product['price'] >= $filterPrice) {
+    return true;
+    } elseif ($filterMode == 'lte' && $product['price'] <= $filterPrice) {
+    return true;
+    } else {
+    return false;
+    }});
+
+if (function_exists('finalPriceCalc') == false) {
+function finalPriceCalc(int $price): string {
+    return number_format($price * 0.01, 2, ",", "") . ' zł';
+}}
+
+if ($filteredArray) {
+
+    foreach ($filteredArray as $value) {
+        echo $value['name'] . ': ' . finalPriceCalc($value['price']) . PHP_EOL;
+    }
+}
