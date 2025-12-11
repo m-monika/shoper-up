@@ -56,9 +56,10 @@ $filteredArray = array_filter($products, function ($product) use ($filterPrice, 
     return false;
     }});
 
+if (function_exists('finalPriceCalc') == false) {
 function finalPriceCalc(int $price): string {
     return number_format($price * 0.01, 2, ",", "") . ' zł';
-} 
+}}
 
 if ($filteredArray) {
 
