@@ -38,3 +38,64 @@ Niepoprawne dane
 */
 
 $newUser = $params[0]; // tej linijki nie ruszamy :)
+
+function normalizeUsername(string $username): string {
+    return trim($username);
+}
+
+function normalizeEmail(string $email): string {
+    $trimmedEmail = trim($email);
+    return strtolower($trimmedEmail);
+}
+
+function validateUsername(string $username): bool {
+    if (strlen($username) >= 3) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function validateEmail(string $email): bool {
+    $validatedEmail = filter_var($email, FILTER_VALIDATE_EMAIL);
+    if ($validatedEmail) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function validatePassowrd(string $password): bool {
+    if (strlen($password) >= 10) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function comparePasswords(string $pass1, string $pass2): bool {
+    if ($pass1 == $pass2) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+$email = $newUser['email'];
+$username = $newUser['username'];
+$pass1 = $newUser['password1'];
+$pass2 = $newUser['password2'];
+
+$username = normalizeUsername($username);
+$email = normalizeEmail($email);
+
+if (!comparePasswords($pass1, $pass2)) {
+    echo 'Niepoprawne dane';
+    exit();
+}
+
+if (validateUsername($username) && validateEmail($email) && validatePassowrd($pass1)) {
+    echo $username . ' (' . $email . ') został zarejestrowany';
+} else {
+    echo 'Niepoprawne dane';
+}

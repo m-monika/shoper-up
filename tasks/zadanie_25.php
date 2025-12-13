@@ -35,7 +35,7 @@ $products = [
     ],
 ];
 
-$order = 'desc';
+$order = 'desc'; or asc
 
 Wynik:
 
@@ -48,3 +48,24 @@ Kabel HDMI: 30,00 zł
 
 $products = $params[0]; // tej linijki nie ruszamy :)
 $order = $params[1]; // tej linijki nie ruszamy :)
+
+if (function_exists('sortProducts') == false) {
+
+function sortProducts(array $productsArray, string $orderType): void {
+
+    $finalPriceCalc = fn(int $price): string => number_format($price * 0.01, 2, ',', '') . ' zł';
+
+    if ($orderType == 'desc') {
+        usort($productsArray, fn($a, $b) => $b['price'] <=> $a['price']);
+    } elseif ($orderType == 'asc') {
+        usort($productsArray, fn($a, $b) => $a['price'] <=> $b['price']);
+    }
+
+    foreach ($productsArray as $product) {
+        echo $product['name'] . ': ';
+        echo $finalPriceCalc($product['price']) . PHP_EOL;
+    } 
+}
+}
+
+sortProducts($products, $order);
