@@ -45,31 +45,34 @@ $products = $params[0]; // tej linijki nie ruszamy :)
 $filterPrice = $params[1]; // tej linijki nie ruszamy :)
 $filterMode = $params[2]; // tej linijki nie ruszamy :)
 
-function productFiltered (string $filterMode, array $products, int $filterPrice) {
-    if ($filterMode === 'gte') {
-        return array_filter($products, function($product) use ($filterPrice, $filterMode) {
+if (function_exists('productFiltered') == false) {
+    function productFiltered (string $filterMode, array $products, int $filterPrice): array {
+    return array_filter($products, function($product) use ($filterPrice, $filterMode) {
+        if ($filterMode === 'gte') {
             return $product['price'] >= $filterPrice;
-        });
-    } elseif ($filterMode === 'lte') {
-        return array_filter($products, function($product) use ($filterPrice, $filterMode) {
+        } elseif ($filterMode === 'lte') {
             return $product['price'] <= $filterPrice;
-        });
-    }
+        } else {
+            return false;
+        }
+    });
+}
 }
 
-function showProduct (array $product): string {
-    return $product['name'] . ": " . $product['price'] . " zł" . PHP_EOL;
+if(function_exists('formatPrice') == false) {
+    function formatPrice (int $productPrice): string {
+        return number_format($productPrice / 100, 2, ',', '');
+}
 }
 
-function currencyChange (array $product):array {
-    $product['price'] = $product['price'] / 100;
-    return $product;
+if (function_exists('showProduct') == false) { 
+    function showProduct (array $product): string {
+        return $product['name'] . ": " . formatPrice($product['price']) . " zł" . PHP_EOL;
+}
 }
 
 $filteredProducts = productFiltered($filterMode, $products, $filterPrice);
 
-
 foreach ($filteredProducts as $product) {
-    (float) $product = currencyChange($product);
     echo showProduct($product);    
 }
