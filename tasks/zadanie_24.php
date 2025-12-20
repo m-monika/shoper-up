@@ -53,22 +53,17 @@ $filterProducts = array_filter($products, function($product) use ($filterPrice, 
         return $product['price'] >= $filterPrice;
     }
 
-    if ($filterMode === 'lte') {
+    elseif ($filterMode === 'lte') {
         return $product['price'] <= $filterPrice;
     }
-
-    return true;
+    else{
+    return false;
+    }
 });
-
-if ($filterMode === 'gte') {
-    usort($filterProducts, fn($a, $b) => $a['price'] <=> $b['price']);
-} elseif ($filterMode === 'lte') {
-    usort($filterProducts, fn($a, $b) => $b['price'] <=> $a['price']);
-}
 
 foreach ($filterProducts as $product) {
     $name = $product['name'];
     $price = $product['price'];
 
-    echo $name . ': ' . number_format($price / 100, 2, ',', ' ') . " zł" . PHP_EOL;
+    echo $name . ': ' . number_format($price / 100, 2, ',', '') . " zł" . PHP_EOL;
 }
