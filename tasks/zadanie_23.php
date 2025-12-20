@@ -32,15 +32,11 @@ $postcodes = $params[0]; // tej linijki nie ruszamy :)
 
 function checkPostcode( string $check) : bool
 {
-    if (strlen($check) !== 6){
-        return false;
-
-    }elseif (substr($check, 2, 1) !== "-"){
-        return false;
-        
-    }else{
-        return true;
-    }
+if ((is_numeric(substr($check, 0, 2))) && (is_numeric(substr($check, 3, 3))) && (substr($check, 2, 1) == "-") && (strlen($check) == 6)){
+    return true;
+}else{
+    return false;
+}
 }
 
 foreach ($postcodes as $check) {
