@@ -48,3 +48,22 @@ Kabel HDMI: 30,00 zł
 
 $products = $params[0]; // tej linijki nie ruszamy :)
 $order = $params[1]; // tej linijki nie ruszamy :)
+
+if (!function_exists('sortProducts')) {
+function sortProducts(array $products, string $order) : array
+{
+if ($order === 'asc') {
+    usort($products, fn($a, $b) => $a['price'] <=> $b['price']);
+} elseif ($order === 'desc') {
+    usort($products, fn($a, $b) => $b['price'] <=> $a['price']);
+}
+    return $products;
+}}
+
+$products = sortProducts($products, $order);
+foreach ($products as $product){
+    $name = $product['name'];
+    $price = $product['price'];
+    
+    echo $name. ": " .number_format($price / 100, 2, ',', '') . " zł" .PHP_EOL;
+}
