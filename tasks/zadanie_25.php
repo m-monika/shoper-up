@@ -50,8 +50,8 @@ $products = $params[0]; // tej linijki nie ruszamy :)
 $order = $params[1]; // tej linijki nie ruszamy :)
 
 
-if(function_exists('sortProducts') == false) {
-    function sortProducts (array $products, string $order): array {
+if(function_exists('sortProduct') == false) {
+    function sortProduct (array $products, string $order): array {
 
         if ($order == 'desc') {
             usort($products, fn($firstProduct, $secondProduct) => $secondProduct['price'] <=> $firstProduct['price']);
@@ -61,6 +61,8 @@ if(function_exists('sortProducts') == false) {
             return $products;
         } elseif (empty($order)) {
             echo 'Coś poszło nie tak.';
+        } elseif ($order != 'desc' && $order != 'asc') {
+            return $products;
         }
     }
 }
@@ -71,13 +73,13 @@ if(function_exists('formatPrice') == false) {
 }
 }
 
-if(function_exists('showPriducts') == false) {
+if(function_exists('showProducts') == false) {
     function showProducts (array $sortedProducts): string {
-        return $sortedProducts['name'] . ": " . formatPrice($sortedProducts['price']) . " zł" . PHP_EOL . "<br>";
+        return $sortedProducts['name'] . ": " . formatPrice($sortedProducts['price']) . " zł" . PHP_EOL;
     }
 }
 
-$sortedProducts = sortProducts($products, $order);
+$sortedProducts = sortProduct($products, $order);
 
 foreach ($sortedProducts as $product) {
     echo showProducts($product);
