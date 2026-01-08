@@ -414,7 +414,7 @@ if (function_exists('validateType') == false) {
 }
 
 if (function_exists('validateData') == false) {
-    function validateData (array $normalizedSystemY): string {
+    function validateData (array $normalizedSystemY): array {
 
         $systemY = [];
         $summary = [];
@@ -423,7 +423,7 @@ if (function_exists('validateData') == false) {
 
             $temporaryClient = [
                 'status' => null,
-                'error' => null,
+                'errors' => null,
                 'data' => null,
             ];
             
@@ -431,7 +431,7 @@ if (function_exists('validateData') == false) {
             if ($result['status'] === 'error') {
                 
                 $temporaryClient['status'] = $result['status'];
-                $temporaryClient['error'][$result['key']] = $result['error'];
+                $temporaryClient['errors'][$result['key']] = $result['error'];
                 $temporaryClient['data']['first_name'] = $result['value'];
                 
             } else {
@@ -443,7 +443,7 @@ if (function_exists('validateData') == false) {
             if ($result['status'] === 'error') {
                 
                 $temporaryClient['status'] = $result['status'];
-                $temporaryClient['error'][$result['key']] = $result['error'];
+                $temporaryClient['errors'][$result['key']] = $result['error'];
                 $temporaryClient['data']['last_name'] = $result['value'];
                 
             } else {
@@ -455,7 +455,7 @@ if (function_exists('validateData') == false) {
             if ($result['status'] === 'error') {
                 
                 $temporaryClient['status'] = $result['status'];
-                $temporaryClient['error'][$result['key']] = $result['error'];
+                $temporaryClient['errors'][$result['key']] = $result['error'];
                 $temporaryClient['data']['email'] = $result['value'];
                 
             } else {
@@ -466,7 +466,7 @@ if (function_exists('validateData') == false) {
             $result = validatePhone($clientData);
             if ($result['status'] === 'error') {
                 $temporaryClient['status'] = $result['status'];
-                $temporaryClient['error'][$result['key']] = $result['error'];
+                $temporaryClient['errors'][$result['key']] = $result['error'];
                 $temporaryClient['data']['phone'] = $result['value'];
             } else {
                 $temporaryClient['status'] = $result['status'];
@@ -476,15 +476,15 @@ if (function_exists('validateData') == false) {
             $result = validateType($clientData);
             if ($result['status'] === 'error') {
                 $temporaryClient['status'] = $result['status'];
-                $temporaryClient['error'][$result['key']] = $result['error'];
+                $temporaryClient['errors'][$result['key']] = $result['error'];
                 $temporaryClient['data']['type'] = $result['value'];
             } else {
                 $temporaryClient['status'] = $result['status'];
                 $temporaryClient['data']['type'] = $result['value'];
             }
 
-            if($temporaryClient['error'] === null) {
-                unset($temporaryClient['error']);
+            if($temporaryClient['errors'] === null) {
+                unset($temporaryClient['errors']);
             } else {
                 $temporaryClient['status'] = 'error';
             }
