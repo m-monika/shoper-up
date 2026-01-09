@@ -166,7 +166,7 @@ if (function_exists('normalizeLastName') == false) {
                 'status' => 'error',
                 'key' => 'last_name',
                 'error' => 'Invalid field',
-                'value' => null
+                'value' => $lastName
             ];
         }
     }
@@ -189,7 +189,7 @@ if (function_exists('normalizeEmail') == false) {
                 'status' => 'error',
                 'key' => 'email',
                 'error' => 'Invalid field',
-                'value' => null
+                'value' => $email
             ];
         }
     }
@@ -223,7 +223,7 @@ if (function_exists('normalizePhone') == false) {
                 'status' => 'error',
                 'key' => 'phone',
                 'error' => 'Invalid field',
-                'value' => null,
+                'value' => $phone,
             ];
         } else {
             return [
@@ -262,7 +262,10 @@ if (function_exists('normalizeData') == false) {
 
         foreach ($systemX as $client => $clientData) {
 
-            $temporaryClient = [];
+            $temporaryClient = [
+                'original' => $clientData,
+                'data' => [],
+            ];
             
             $result = normalizeFirstName($clientData);
             $temporaryClient['data']['first_name'] = $result['value'];
@@ -270,11 +273,9 @@ if (function_exists('normalizeData') == false) {
             $result = normalizeLastName($clientData);
             $temporaryClient['data']['last_name'] = $result['value'];
             
-
             $result = normalizeEmail($clientData);
             $temporaryClient['data']['email'] = $result['value'];
             
-
             $result = normalizePhone($clientData);
             $temporaryClient['data']['phone'] = $result['value'];
 
@@ -346,7 +347,7 @@ if (function_exists('validateEmail') == false) {
             return [
                 'status' => 'error',
                 'key' => 'email',
-                'value' => $emailValidated,
+                'value' => $normalizedSystemY['data']['email'],
                 'error' => 'Invalid field',
             ];
         }
@@ -387,6 +388,13 @@ if (function_exists('validatePhone') == false) {
                 'error' => 'Invalid field',
                 'value' => $phone,
             ];
+        } else {
+            return [
+                'status' => 'error',
+                'key' => 'phone',
+                'error' => 'Invalid field',
+                'value' => $phone,
+            ];
         }
     }
 }
@@ -406,7 +414,7 @@ if (function_exists('validateType') == false) {
             return [
                 'status' => 'error',
                 'key' => 'type',
-                'error' => 'Nieprawidłowy typ usługi',
+                'error' => 'Invalid field',
                 'value' => $type,
             ];
         }
@@ -414,81 +422,55 @@ if (function_exists('validateType') == false) {
 }
 
 if (function_exists('validateData') == false) {
-    function validateData (array $normalizedSystemY): array {
+    function validateData (array $normalizedSystemX): array {
 
         $systemY = [];
         $summary = [];
 
-        foreach ($normalizedSystemY as $client => $clientData) {
+        foreach ($normalizedSystemX as $client => $clientData) {
 
             $temporaryClient = [
                 'status' => null,
                 'errors' => null,
                 'data' => null,
             ];
-            
-            $result = validateFirstName($clientData);
-            if ($result['status'] === 'error') {
-                
-                $temporaryClient['status'] = $result['status'];
-                $temporaryClient['errors'][$result['key']] = $result['error'];
-                $temporaryClient['data']['first_name'] = $result['value'];
-                
-            } else {
-                $temporaryClient['status'] = $result['status'];
-                $temporaryClient['data']['first_name'] = $result['value'];
+
+            $errors = [];
+
+            $validation = [
+                validateFirstName($clientData),
+                validateEmail($clientData),
+                validateLastName($clientData),
+                validatePhone($clientData),
+                validateType($clientData),
+            ];
+
+            foreach($validation as $result) {
+                if($result['status'] === 'error') {
+                    $errors[$result['key']] = $result['error'];
+                }
             }
 
-            $result = validateLastName($clientData);
-            if ($result['status'] === 'error') {
-                
-                $temporaryClient['status'] = $result['status'];
-                $temporaryClient['errors'][$result['key']] = $result['error'];
-                $temporaryClient['data']['last_name'] = $result['value'];
-                
-            } else {
-                $temporaryClient['status'] = $result['status'];
-                $temporaryClient['data']['last_name'] = $result['value'];
-            }
-
-            $result = validateEmail($clientData);
-            if ($result['status'] === 'error') {
-                
-                $temporaryClient['status'] = $result['status'];
-                $temporaryClient['errors'][$result['key']] = $result['error'];
-                $temporaryClient['data']['email'] = $result['value'];
-                
-            } else {
-                $temporaryClient['status'] = $result['status'];
-                $temporaryClient['data']['email'] = $result['value'];
-            }
-
-            $result = validatePhone($clientData);
-            if ($result['status'] === 'error') {
-                $temporaryClient['status'] = $result['status'];
-                $temporaryClient['errors'][$result['key']] = $result['error'];
-                $temporaryClient['data']['phone'] = $result['value'];
-            } else {
-                $temporaryClient['status'] = $result['status'];
-                $temporaryClient['data']['phone'] = $result['value'];
-            }
-
-            $result = validateType($clientData);
-            if ($result['status'] === 'error') {
-                $temporaryClient['status'] = $result['status'];
-                $temporaryClient['errors'][$result['key']] = $result['error'];
-                $temporaryClient['data']['type'] = $result['value'];
-            } else {
-                $temporaryClient['status'] = $result['status'];
-                $temporaryClient['data']['type'] = $result['value'];
-            }
-
-            if($temporaryClient['errors'] === null) {
-                unset($temporaryClient['errors']);
-            } else {
+            if(!empty($errors)) {
+                $temporaryClient['data'] = [
+                    //normalized data
+                    'first_name' => $clientData['data']['first_name'],
+                    //but sometimes not :(
+                    'last_name' => $clientData['original']['last_name'],
+                    'email' => $clientData['original']['email'],
+                    'phone' => $clientData['original']['phone'],
+                    'type' => $clientData['original']['type'],
+                ];
                 $temporaryClient['status'] = 'error';
-            }
+                $temporaryClient['errors'] = $errors;
+            } 
             
+            if (empty($errors)) {
+                $temporaryClient['status'] = 'success';
+                $temporaryClient['data'] = $clientData['data'];
+                unset($temporaryClient['errors']);
+            }
+
             $systemY[$client] = $temporaryClient;
 
             $summary = [
