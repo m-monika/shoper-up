@@ -67,6 +67,6 @@ function sortByPrice($a, $b)
 usort($products, 'sortByPrice');
 
 foreach ($products as $product) {
-    $priceInZl = number_format($product['price'] / 100, 2, ',', '');
-    echo $product['name'] . ': ' . $priceInZl . " zł\n";
+    $priceInZlotowka = number_format($product['price'] / 100, 2, ',', '');
+    echo $product['name'] . ': ' . $priceInZlotowka . " zł\n";
 }
