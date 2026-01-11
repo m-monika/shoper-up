@@ -48,3 +48,25 @@ Kabel HDMI: 30,00 zł
 
 $products = $params[0]; // tej linijki nie ruszamy :)
 $order = $params[1]; // tej linijki nie ruszamy :)
+
+function sortByPrice($a, $b)
+{
+    global $order;
+
+    if ($order === 'asc') {
+        return $a['price'] - $b['price'];
+    }
+
+    if ($order === 'desc') {
+        return $b['price'] - $a['price'];
+    }
+
+    return 0;
+}
+
+usort($products, 'sortByPrice');
+
+foreach ($products as $product) {
+    $priceInZl = number_format($product['price'] / 100, 2, ',', '');
+    echo $product['name'] . ': ' . $priceInZl . " zł\n";
+}
