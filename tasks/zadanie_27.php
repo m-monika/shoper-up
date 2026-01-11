@@ -38,3 +38,42 @@ Niepoprawne dane
 */
 
 $newUser = $params[0]; // tej linijki nie ruszamy :)
+
+function normalizeUser($user)
+{
+    $user['username'] = trim($user['username']);
+    $user['email'] = strtolower(trim($user['email']));
+
+    return $user;
+}
+
+function isValidUsername($username)
+{
+    return strlen($username) >= 3;
+}
+
+function isValidEmail($email)
+{
+    return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
+}
+
+function isValidPassword($password1, $password2)
+{
+    if (strlen($password1) < 10) {
+        return false;
+    }
+
+    return $password1 === $password2;
+}
+
+$newUser = normalizeUser($newUser);
+
+$usernameOk = isValidUsername($newUser['username']);
+$emailOk = isValidEmail($newUser['email']);
+$passwordOk = isValidPassword($newUser['password1'], $newUser['password2']);
+
+if ($usernameOk && $emailOk && $passwordOk) {
+    echo $newUser['username'] . " (" . $newUser['email'] . ") został zarejestrowany\n";
+} else {
+    echo "Niepoprawne dane\n";
+}
