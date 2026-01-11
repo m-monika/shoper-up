@@ -52,9 +52,9 @@ foreach ($cart as $item) {
     echo $item['qty'] . "x " . $item['name'] . " ... " . $pricePln . " PLN\n";
 }
 
-echo "-----------------\n";
+echo "--------------------\n";
 
 $totalPln = number_format($suma / 100, 2, ',', ' ');
 echo "DO ZAPŁATY: " . $totalPln . "\n";
 
-echo "-----------------\n";
+echo "--------------------\n";
