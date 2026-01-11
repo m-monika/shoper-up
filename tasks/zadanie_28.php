@@ -119,3 +119,384 @@ zwrócony w formie:
 */
 
 $clientsJson = $params[0]; // tej linijki nie ruszamy :)
+
+$systemX = json_decode($clientsJson, true);
+
+if (function_exists('normalizeFirstName') == false) {
+    function normalizeFirstName (?array $systemX): ?array {
+
+        $firstName = $systemX['first_name'];
+        $firstName = trim($systemX['first_name']);
+        $firstName = mb_strtolower($firstName);
+        $firstName = ucfirst($firstName);
+
+        return [
+            'status' => 'success',
+            'key' => 'first_name',
+            'value' => $firstName
+        ];
+
+        if($firstName === null) {
+            return [
+                'status' => 'error',
+                'key' => 'first_name',
+                'error' => 'Invalid field',
+                'value' => null
+            ];
+        }
+    }
+}
+
+
+if (function_exists('normalizeLastName') == false) {
+    function normalizeLastName (?array $systemX): ?array {
+
+        $lastName = trim($systemX['last_name']);
+        $lastName = mb_strtolower($lastName);
+        $lastName = ucfirst($lastName);
+
+        return [
+                'status' => 'success',
+                'key' => 'last_name',
+                'value' => $lastName
+        ];
+
+        if ($lastName === null) {
+            return [
+                'status' => 'error',
+                'key' => 'last_name',
+                'error' => 'Invalid field',
+                'value' => $lastName
+            ];
+        }
+    }
+}
+
+if (function_exists('normalizeEmail') == false) {
+    function normalizeEmail (?array $systemX): ?array {
+
+        $email = $systemX['email'];
+        $email = trim($systemX['email']);
+        $email = strtolower($email);
+
+        return [
+            'status' => 'success',
+            'key' => 'email',
+            'value' => $email
+        ];
+        if($email === null) {
+            return [
+                'status' => 'error',
+                'key' => 'email',
+                'error' => 'Invalid field',
+                'value' => $email
+            ];
+        }
+    }
+}
+
+if (function_exists('normalizePhone') == false) {
+    function normalizePhone (?array $systemX): ?array {
+        
+        $phone = $systemX['phone'];
+        $phone = str_replace([" ", "-"], "", $phone);
+        $phone = trim($phone);
+
+        if ((strlen($phone) === 9) &&
+            is_numeric($phone)) {
+            $phone = '+48' . $phone;
+            return [
+                'status' => 'success',
+                'key' => 'phone',
+                'value' => $phone,
+            ];
+        } elseif ((strlen($phone) === 12) &&
+        str_starts_with($phone, '+48') &&
+        is_numeric(substr($phone, -9))) {
+            return [
+                'status' => 'success',
+                'key' => 'phone',
+                'value' => $phone,
+            ];
+        } elseif ($phone === null) {
+            return [
+                'status' => 'error',
+                'key' => 'phone',
+                'error' => 'Invalid field',
+                'value' => $phone,
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'key' => 'phone',
+                'error' => 'Invalid field',
+                'value' => $phone,
+            ];
+        }
+    }
+}
+
+if(function_exists('normalizeType') == false) {
+    function normalizeType (array $systemX): array {
+
+        $type = 'standard';
+
+        if(array_key_exists('type', $systemX)){ 
+            if($systemX['type'] === 2) {
+                $type = 'vip';
+            }
+        }
+
+        return [
+            'status' => 'success',
+            'key' => 'type',
+            'value' => $type,
+        ];
+    }
+}
+
+if (function_exists('normalizeData') == false) {
+    function normalizeData (array $systemX): array {
+
+        $normalizedSystemY = [];
+
+        foreach ($systemX as $client => $clientData) {
+
+            $temporaryClient = [
+                'original' => $clientData,
+                'data' => [],
+            ];
+            
+            $result = normalizeFirstName($clientData);
+            $temporaryClient['data']['first_name'] = $result['value'];
+            
+            $result = normalizeLastName($clientData);
+            $temporaryClient['data']['last_name'] = $result['value'];
+            
+            $result = normalizeEmail($clientData);
+            $temporaryClient['data']['email'] = $result['value'];
+            
+            $result = normalizePhone($clientData);
+            $temporaryClient['data']['phone'] = $result['value'];
+
+            $result = normalizeType($clientData);
+            $temporaryClient['data']['type'] = $result['value'];
+
+            $normalizedSystemY[$client] = $temporaryClient;
+        }
+        
+        return $normalizedSystemY;
+        
+    } 
+}
+
+$normalizedSystemY = normalizeData($systemX);
+
+if (function_exists('validateFirstName') == false) {
+    function validateFirstName (array $normalizedSystemY): array {
+        
+        if (strlen($normalizedSystemY['data']['first_name']) < 2) {
+            return [
+                'status' => 'error',
+                'key' => 'first_name',
+                'error' => 'Invalid field',
+                'value' => $normalizedSystemY['data']['first_name'],
+            ];
+        } else {
+            return [
+                'status' => 'success',
+                'key' => 'first_name',
+                'value' => $normalizedSystemY['data']['first_name'],
+            ];
+        }
+    }
+}
+
+if (function_exists('validateLastName') == false) {
+    function validateLastName (array $normalizedSystemY): array {
+        if (strlen($normalizedSystemY['data']['last_name']) < 2) {
+            return [
+                'status' => 'error',
+                'key' => 'last_name',
+                'error' => 'Invalid field',
+                'value' => $normalizedSystemY['data']['last_name'],
+            ];
+        } else {
+            return [
+                'status' => 'success',
+                'key' => 'last_name',
+                'value' => $normalizedSystemY['data']['last_name'],
+            ];
+        }
+    }
+}
+
+if (function_exists('validateEmail') == false) {
+    function validateEmail (array $normalizedSystemY): array {
+
+        $emailSanitized = filter_var($normalizedSystemY['data']['email'], FILTER_SANITIZE_EMAIL);
+        $emailValidated = filter_var($emailSanitized, FILTER_VALIDATE_EMAIL);
+
+        if($emailSanitized && $emailValidated) {
+            return [
+                'status' => 'success',
+                'key' => 'email',
+                'value' => $emailValidated,
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'key' => 'email',
+                'value' => $normalizedSystemY['data']['email'],
+                'error' => 'Invalid field',
+            ];
+        }
+    }
+}
+
+if (function_exists('validatePhone') == false) {
+    function validatePhone (array $normalizedSystemY): array {
+
+        $phone = $normalizedSystemY['data']['phone'];
+
+        if((strlen($phone) === 12) &&
+            str_starts_with($phone, '+48') &&
+            is_numeric(substr($phone, -9)))
+        {
+            return [
+                'status' => 'success',
+                'key' => 'phone',
+                'value' => $phone,
+            ];
+        } elseif ((strlen($phone) > 9) &&
+        !str_starts_with($phone, '+48') &&
+        is_numeric(substr($phone, -9))) {
+            return [
+                'status' => 'error',
+                'key' => 'phone',
+                'error' => 'Invalid field',
+                'value' => $phone,
+            ];
+        } elseif ((strlen($phone) > 12) &&
+        str_starts_with($phone, '+48') &&
+        is_numeric(substr($phone, -9))
+        ) 
+        {
+            return [
+                'status' => 'error',
+                'key' => 'phone',
+                'error' => 'Invalid field',
+                'value' => $phone,
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'key' => 'phone',
+                'error' => 'Invalid field',
+                'value' => $phone,
+            ];
+        }
+    }
+}
+
+if (function_exists('validateType') == false) {
+    function validateType (array $normalizedSystemY): array {
+
+        $type = $normalizedSystemY['data']['type'];
+
+        if($type === 'standard' || $type === 'vip') {
+            return [
+                'status' => 'success',
+                'key' => 'type',
+                'value' => $type,
+            ];
+        } else {
+            return [
+                'status' => 'error',
+                'key' => 'type',
+                'error' => 'Invalid field',
+                'value' => $type,
+            ];
+        }
+    }
+}
+
+if (function_exists('validateData') == false) {
+    function validateData (array $normalizedSystemX): array {
+
+        $systemY = [];
+        $summary = [];
+
+        foreach ($normalizedSystemX as $client => $clientData) {
+
+            $temporaryClient = [
+                'status' => null,
+                'errors' => null,
+                'data' => null,
+            ];
+
+            $errors = [];
+
+            $validation = [
+                validateFirstName($clientData),
+                validateEmail($clientData),
+                validateLastName($clientData),
+                validatePhone($clientData),
+                validateType($clientData),
+            ];
+
+            foreach($validation as $result) {
+                if($result['status'] === 'error') {
+                    $errors[$result['key']] = $result['error'];
+                }
+            }
+
+            if(!empty($errors)) {
+                $temporaryClient['data'] = [
+                    //normalized data
+                    'first_name' => $clientData['data']['first_name'],
+                    //but sometimes not :(
+                    'last_name' => $clientData['original']['last_name'],
+                    'email' => $clientData['original']['email'],
+                    'phone' => $clientData['original']['phone'],
+                    'type' => $clientData['original']['type'],
+                ];
+                $temporaryClient['status'] = 'error';
+                $temporaryClient['errors'] = $errors;
+            } 
+            
+            if (empty($errors)) {
+                $temporaryClient['status'] = 'success';
+                $temporaryClient['data'] = $clientData['data'];
+                unset($temporaryClient['errors']);
+            }
+
+            $systemY[$client] = $temporaryClient;
+
+            $summary = [
+                'total' => count($systemY),
+                'success' => 0,
+                'error' => 0,
+            ];
+
+            foreach($systemY as $client) {
+                if($client['status'] === 'success') {
+                    $summary['success']++;
+                } else {
+                    $summary['error']++;
+                }
+            }
+
+            $final = [
+                'summary' => $summary,
+                'details' => $systemY,
+            ];
+        }
+
+        return $final;
+    }
+}
+
+$systemY = validateData($normalizedSystemY);
+$systemY = json_encode($systemY);
+echo $systemY;
