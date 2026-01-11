@@ -29,3 +29,32 @@ Kod niepoprawny
 */
 
 $postcodes = $params[0]; // tej linijki nie ruszamy :)
+
+function isValidPostcode($postcode): bool
+{
+    if (strlen($postcode) != 6) {
+        return false;
+    }
+
+    if ($postcode[2] != '-') {
+        return false;
+    }
+
+    if (!is_numeric($postcode[0]) || !is_numeric($postcode[1])) {
+        return false;
+    }
+
+    if (!is_numeric($postcode[3]) || !is_numeric($postcode[4]) || !is_numeric($postcode[5])) {
+        return false;
+    }
+
+    return true;
+}
+
+foreach ($postcodes as $postcode) {
+    if (isValidPostcode($postcode)) {
+        echo "Kod poprawny\n";
+    } else {
+        echo "Kod niepoprawny\n";
+    }
+}
