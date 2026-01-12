@@ -32,18 +32,16 @@ Witaj Jacek, sprawdź naszą ofertę! Odwiedź nasz sklep!
 
 $clients = $params[0]; // tej linijki nie ruszamy :)
 
-function vipCheck(string $name, bool $vip): string
+function createMessage(string $name, bool $isVip): string
 {
-    return $vip === true ?
+    return $isVip ?
       "Cześć $name! Mamy super ofertę specjalnie dla klentów VIP! Odwiedź nasz sklep!\n" : 
       "Witaj $name, sprawdź naszą ofertę! Odwiedź nasz sklep!\n";
 }
 
-foreach ($clients as $key => $value) {
-    if (isset($value['name']) && isset($value['vip'])) {
-        echo vipCheck($value['name'], $value['vip']);
-    } else {
-        echo "Witaj {$value['name']}, sprawdź naszą ofertę! Odwiedź nasz sklep!\n";
-    }
-    
+foreach ($clients as $client) {
+    $name = isset($client['name']) ? $client['name'] : 'nieznajomy';
+    $isVip = isset($client['vip']) && $client['vip'] === true;
+
+    echo createMessage($name, $isVip);
 }
