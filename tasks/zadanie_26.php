@@ -39,3 +39,37 @@ DO ZAPŁATY: 33,00
 */
 
 $cart = $params[0]; // tej linijki nie ruszamy :)
+
+function printInvoice(array $products): string
+{
+    $allProducts = "";
+    foreach ($products as $key => $product) {
+        $name = $product['name'];
+        $qty = $product['qty'];
+        $price = (float)($product['price'] / 100);
+        $formattedPrice = number_format($price, 2, ',', '');
+        $allProducts .= "{$qty}x {$name} ... {$formattedPrice} PLN\n";
+    }
+
+    $allProductsPrice = number_format(countCartPrice($products), 2, ',', ' ');
+
+    //struktura paragonu
+    $invoice = "--- TWOJE ZAKUPY ---\n";
+    $invoice .= $allProducts;
+    $invoice .= "--------------------\n";
+    $invoice .= "DO ZAPŁATY: $allProductsPrice\n";
+    $invoice .= "--------------------";
+
+    return $invoice;
+}
+
+function countCartPrice(array $products): float
+{
+    $sum = 0;
+    foreach ($products as $key => $product) {
+        $sum += $product['qty'] * $product['price'];
+    }
+    return $sum / 100;
+}
+
+echo printInvoice($cart);
