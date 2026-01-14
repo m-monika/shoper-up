@@ -119,3 +119,104 @@ zwrócony w formie:
 */
 
 $clientsJson = $params[0]; // tej linijki nie ruszamy :)
+
+$clients = json_decode($clientsJson, true);
+
+$report = [
+    "summary" => [
+        "total" => count($clients),
+        "success" => 0,
+        "error" => 0
+    ],
+    "details" => []
+];
+
+function normalizeName($value): string {
+    $value = trim($value);
+    $value = strtolower($value);
+    return ucfirst($value);
+}
+
+function normalizeEmail($email): string {
+    return strtolower(trim($email));
+}
+
+function normalizePhone($phone): string {
+    $digits = "";
+    for ($i = 0; $i < strlen($phone); $i++) {
+        if (is_numeric($phone[$i])) {
+            $digits .= $phone[$i];
+        }
+    }
+
+    if (substr($digits, 0, 2) === "48") {
+        return "+".$digits;
+    }
+
+    return "+48".$digits;
+}
+
+function normalizeType($type): string {
+    if ($type == 2) return "vip";
+    return "standard";
+}
+
+function validateName($value): bool {
+    return strlen($value) >= 2;
+}
+
+function validateEmail($email): bool {
+    return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
+}
+
+function validatePhone($phone): bool {
+    if (substr($phone, 0, 3) !== "+48") return false;
+    if (strlen($phone) !== 12) return false;
+
+    for ($i = 3; $i < 12; $i++) {
+        if (!is_numeric($phone[$i])) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function validateType($type): bool {
+    return $type === "standard" || $type === "vip";
+}
+
+foreach ($clients as $client) {
+
+    $original = $client;
+
+    $client["first_name"] = normalizeName($client["first_name"] ?? "");
+    $client["last_name"] = normalizeName($client["last_name"] ?? "");
+    $client["email"] = normalizeEmail($client["email"] ?? "");
+    $client["phone"] = normalizePhone($client["phone"] ?? "");
+    $client["type"] = normalizeType($client["type"] ?? null);
+
+    $errors = [];
+    if (!validateEmail($client["email"])) $errors["email"] = "Invalid field";
+    if (!validateName($client["first_name"])) $errors["first_name"] = "Invalid field";
+    if (!validateName($client["last_name"])) $errors["last_name"] = "Invalid field";
+    if (!validatePhone($client["phone"])) $errors["phone"] = "Invalid field";
+    if (!validateType($client["type"])) $errors["type"] = "Invalid field";
+
+    if (count($errors) === 0) {
+        $report["summary"]["success"]++;
+        $report["details"][] = [
+            "status" => "success",
+            "data" => $client
+        ];
+    } else {
+        $report["summary"]["error"]++;
+        $report["details"][] = [
+            "status" => "error",
+            "errors" => $errors,
+            "data" => $original
+        ];
+    }
+}
+
+echo json_encode($report);
