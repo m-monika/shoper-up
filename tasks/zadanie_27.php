@@ -38,3 +38,34 @@ Niepoprawne dane
 */
 
 $newUser = $params[0]; // tej linijki nie ruszamy :)
+
+
+function userValidation(array $userData): string
+{
+    $email = trim($userData['email']);
+    $email = strtolower($email);
+
+    $username = trim($userData['username']);
+
+    $password = $userData['password1'];
+    $repeatedPassword = $userData['password2'];
+
+    $errorMessage = 'Niepoprawne dane';
+    $successMessage = "{$username} ({$email}) został zarejestrowany";
+
+    if (strlen($username) < 3) {
+        return $errorMessage;
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return $errorMessage;
+    }
+
+    if ($password != $repeatedPassword || strlen($password) < 10) {
+        return $errorMessage;
+    }
+
+    return $successMessage;
+}
+
+echo userValidation($newUser);
