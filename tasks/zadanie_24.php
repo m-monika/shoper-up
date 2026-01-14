@@ -44,3 +44,36 @@ Monitor: 4000,00 zł
 $products = $params[0]; // tej linijki nie ruszamy :)
 $filterPrice = $params[1]; // tej linijki nie ruszamy :)
 $filterMode = $params[2]; // tej linijki nie ruszamy :)
+
+
+if (!function_exists('getFilteredProducts')) {
+    function getFilteredProducts(array $products, float $filterPrice, string $filterMode): array
+    {
+        if ($filterMode === 'gte') {
+
+            $higherPrice = array_filter($products, function($product) use ($filterPrice){
+            return $product['price'] >= $filterPrice;
+            });
+
+            return $higherPrice;
+
+        } elseif ($filterMode === 'lte') {
+
+            $lowerPrice = array_filter($products, function($product) use ($filterPrice){
+            return $product['price'] <= $filterPrice;
+            });
+
+            return $lowerPrice;
+        } else {
+            return [];
+        }
+    }
+}
+
+$results = getFilteredProducts($products, $filterPrice, $filterMode);
+
+foreach ($results as $key => $result) {
+    $decimalPrice = $result['price'] / 100;
+    $formattedPrice = number_format($decimalPrice, 2, ',', '');
+    echo "{$result['name']}: {$formattedPrice} zł\n";
+}
