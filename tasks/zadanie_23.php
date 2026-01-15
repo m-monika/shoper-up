@@ -29,3 +29,30 @@ Kod niepoprawny
 */
 
 $postcodes = $params[0]; // tej linijki nie ruszamy :)
+
+function formatChecker(string $data): bool
+{
+    if ((strlen($data) == 6) && (ctype_digit($data[0]) && ctype_digit($data[1]) 
+        && ctype_digit($data[3]) && ctype_digit($data[4]) 
+        && ctype_digit($data[5]) && $data[2] === '-')) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function postalCodesChecker(array $codes): array
+{
+    $code_status = [];
+
+    foreach ($codes as $code) {
+        $code_status[] = formatChecker($code) ? 'Kod poprawny' : 'Kod niepoprawny';
+    }
+
+    return $code_status;
+}
+
+$results = postalCodesChecker($postcodes);
+foreach ($results as $result) {
+    echo $result . "\n";
+}
