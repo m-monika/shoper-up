@@ -191,17 +191,20 @@ foreach ($clients as $client) {
     $type = fixtype($client['type']);
 
   
-    if (!chceckname($first_name)) {
-        $errors['first_name'] = "Invalid field";
-    }
-    if (!chceckname($last_name)) {
-        $errors['last_name'] = "Invalid field";
-    }
     if (!checkemail($email)) {
-        $errors['email'] = "Invalid field";
+    $errors['email'] = "Invalid field";
     }
+
+    if (!chceckname($last_name)) {
+    $errors['last_name'] = "Invalid field";
+    }
+
+    if (!chceckname($first_name)) {
+    $errors['first_name'] = "Invalid field";
+    }
+
     if ($phone == null) {
-        $errors['phone'] = "Invalid field";
+    $errors['phone'] = "Invalid field";
     }
 
    if (count($errors) == 0) {
