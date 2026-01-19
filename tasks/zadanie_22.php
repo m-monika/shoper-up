@@ -31,3 +31,17 @@ Witaj Jacek, sprawdź naszą ofertę! Odwiedź nasz sklep!
 */
 
 $clients = $params[0]; // tej linijki nie ruszamy :)
+
+function createMessage(string $name, bool $isVip): string
+{
+    return $isVip ?
+      "Cześć $name! Mamy super ofertę specjalnie dla klentów VIP! Odwiedź nasz sklep!\n" : 
+      "Witaj $name, sprawdź naszą ofertę! Odwiedź nasz sklep!\n";
+}
+
+foreach ($clients as $client) {
+    $name = isset($client['name']) ? $client['name'] : 'nieznajomy';
+    $isVip = isset($client['vip']) && $client['vip'] === true;
+
+    echo createMessage($name, $isVip);
+}
