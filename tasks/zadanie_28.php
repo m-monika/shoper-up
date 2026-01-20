@@ -125,11 +125,10 @@ $clientsJson = $params[0]; // tej linijki nie ruszamy :)
 
  function fixname(string $name) : string
  {
-  $name = strtolower(trim($name));
-  return ucfirst($name);
+  return ucfirst(strtolower(trim($name)));
  }
 
- function chceckname (string $name) : bool
+ function chceckname(string $name) : bool
  {
   return strlen(trim($name)) >= 2;
  }
@@ -188,7 +187,7 @@ foreach ($clients as $client) {
     $last_name = fixname($client['last_name']);
     $email = fixemail($client['email']);
     $phone = checkphone($client['phone']);
-    $type = fixtype($client['type']);
+    $type = fixtype($client['type'] ?? null);
 
   
     if (!checkemail($email)) {
