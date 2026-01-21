@@ -119,3 +119,116 @@ zwrócony w formie:
 */
 
 $clientsJson = $params[0]; // tej linijki nie ruszamy :)
+
+
+ $clients = json_decode($clientsJson, true);
+
+ function fixname(string $name) : string
+ {
+  return ucfirst(strtolower(trim($name)));
+ }
+
+ function chceckname(string $name) : bool
+ {
+  return strlen(trim($name)) >= 2;
+ }
+  
+function fixemail(string $email) : string
+{
+  $email = strtolower(trim($email));
+  return $email;
+}
+
+function checkemail(string $email): bool 
+{ 
+  return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
+}
+
+function checkphone(string $phone) : ?string
+{
+  $phone = trim($phone);
+  $phone = str_replace("-", "", $phone);
+  $phone = str_replace(" ", "", $phone);
+
+  if (strlen($phone) == 12){
+    if (substr($phone, 0,3) == "+48" && is_numeric(substr($phone, 3,9))){
+    return $phone;
+    }
+
+  }elseif (strlen($phone) == 9 && is_numeric($phone)){
+      return "+48" . $phone;
+  }
+
+  return null;
+}
+
+function fixtype(?int $type) : string
+{
+  if ($type == 2){
+    return "vip";
+  }else{
+    return "standard";
+  }
+}
+
+$raport = [
+    "summary" => [
+        "total" => count($clients),
+        "success" => 0,
+        "error" => 0
+    ],
+    "details" => []
+];
+
+foreach ($clients as $client) {
+    $errors = [];
+
+    $first_name = fixname($client['first_name']);
+    $last_name = fixname($client['last_name']);
+    $email = fixemail($client['email']);
+    $phone = checkphone($client['phone']);
+    $type = fixtype($client['type'] ?? null);
+
+  
+    if (!checkemail($email)) {
+    $errors['email'] = "Invalid field";
+    }
+
+    if (!chceckname($last_name)) {
+    $errors['last_name'] = "Invalid field";
+    }
+
+    if (!chceckname($first_name)) {
+    $errors['first_name'] = "Invalid field";
+    }
+
+    if ($phone == null) {
+    $errors['phone'] = "Invalid field";
+    }
+
+   if (count($errors) == 0) {
+        $raport['summary']['success'] += 1;
+
+        $raport['details'][] = [
+            'status' => "success",
+            'data' => [
+                'first_name' => $first_name,
+                'last_name' => $last_name,
+                'email' => $email,
+                'phone' => $phone,
+                'type' => $type
+            ]
+        ];
+    } else {
+        $raport['summary']['error'] += 1;
+
+        $raport['details'][] = [
+            'status' => "error",
+            'errors' => $errors,
+            'data' => $client
+        ];
+    }
+}
+
+
+echo json_encode($raport);
