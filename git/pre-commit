@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Sprawdź czy kontener php-shoper-up jest uruchomiony
+if ! docker compose ps | grep -q 'php-shoper-up.*Up'; then
+  echo "Kontener php-shoper-up nie jest uruchomiony. Uruchom go poleceniem: docker compose up -d php-shoper-up"
+  echo "Commit kontynuowany bez uruchamiania fixera."
+  exit 0
+fi
+
+# Uruchom PHP CS Fixer w kontenerze na właściwym katalogu
+if docker compose ps | grep -q 'php-shoper-up.*Up'; then
+  echo "Uruchamiam PHP CS Fixer..."
+  docker compose exec -T php-shoper-up /app/semestr2/vendor/bin/php-cs-fixer fix /app/semestr2/app --config=/app/semestr2/.php-cs-fixer.dist.php --verbose --allow-risky=yes --show-progress=bar
+  # Wylistuj zmienione pliki
+  CHANGED_FILES=$(git status --porcelain semestr2/app | grep '^ M' | awk '{print $2}')
+  if [ -n "$CHANGED_FILES" ]; then
+    echo "Zmienione pliki przez PHP CS Fixer:"
+    for file in $CHANGED_FILES; do
+      echo "--- $file ---"
+      git diff --color=always $file
+    done
+    # Dodaj zmienione pliki przez fixer do commita
+    git add $CHANGED_FILES
+    echo "PHP CS Fixer naprawił błędy w kodzie. Dodano zmienione pliki do commita. Kontynuuję commit."
+  fi
+else
+  echo "Nie można uruchomić PHP CS Fixer: kontener php-shoper-up nie działa."
+fi
