@@ -59,15 +59,32 @@ Darmowe narzędzie do edytowania kodu
 
 Po instalacji otwieramy `Terminal` / `PowerShell`
 
-```bash
+```bash title="Terminal"
 cd shoper-up
-docker compose up
+./start.sh
+```
+
+```bash title="PowerShell"
+cd shoper-up
+.\start.ps1
 ```
 
 [localhost:8000](http://localhost:8000)
 
 ## Zadania
 
+### Semestr 2
+
+```bash title="Terminal"
+cd shoper-up
+./tests.sh NUMER_ZADANIA
+```
+```bash title="PowerShell"
+cd shoper-up
+.\tests.ps1 NUMER_ZADANIA
+```
+
+### Semestr 1
 Zadania umieszczamy w katalogu `tasks` pod nazwą `zadanie_NUMER_ZADANIA.php`.
 
 Weryfikujemy zadanie poprzez uruchomienie Docker'a, a następnie sprawdzenie zadania poprzez wpisanie:
