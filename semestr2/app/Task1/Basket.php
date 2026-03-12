@@ -5,13 +5,25 @@ declare(strict_types=1);
 namespace App\Task1;
 
 class Basket
-{
+{   
+    private array $products = [];
     public function addProduct(array $product): void
     {
+        $this->products[] = $product;
     }
 
     public function getSum(): float
     {
-        return 0.0;
+        $sum = 0;
+
+        foreach ($this->products as $product){
+            $sum += $product['price'] * $product['qty'];
+        }
+        
+        return $sum;
     }
+
 }
+
+
+
