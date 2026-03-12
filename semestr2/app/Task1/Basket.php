@@ -6,12 +6,24 @@ namespace App\Task1;
 
 class Basket
 {
+    private array $products = [];
+
     public function addProduct(array $product): void
     {
+        $this->products[] = $product;
     }
 
     public function getSum(): float
     {
-        return 0.0;
+        $sum = 0.0;
+
+        foreach ($this->products as $product) {
+            $price = $product['price'] ?? 0;
+            $qty = $product['qty'] ?? 0;
+
+            $sum += $price * $qty;
+        }
+
+        return (float) $sum;
     }
 }
