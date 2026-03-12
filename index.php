@@ -1,5 +1,8 @@
 <?php
 
+require_once('Product.php');
+require_once('Basket.php');
+
 $product1 = new Product("Laptop", 1500.00);
 $product2 = new Product("Smartphone", 500.00);
 $product3 = new Product("Headphones", 200.00);
