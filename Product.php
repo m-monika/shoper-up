@@ -1,5 +1,5 @@
 <?php
-//asdjaksjdas
+
 class Product {
     private string $name;
     private float $price;
