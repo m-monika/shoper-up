@@ -13,3 +13,4 @@ $basket->addProduct($product2);
 $basket->addProduct($product3);
 
 echo "Total: " . $basket->getSum() . " PLN\n";
+
