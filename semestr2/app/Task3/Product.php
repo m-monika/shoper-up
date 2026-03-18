@@ -11,8 +11,8 @@ class Product
         return '';
     }
 
-    public function getFormattedPrice(): Money
+    public function getFormattedPrice(): string
     {
-        return new Money();
+        return '';
     }
 }
