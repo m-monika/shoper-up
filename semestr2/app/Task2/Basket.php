@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-require_once 'Product.php';
-
 namespace App\Task2;
 
 class Basket
