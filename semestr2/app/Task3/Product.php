@@ -6,11 +6,14 @@ namespace App\Task3;
 
 class Product
 {
-    public function __construct(private string $name, private Money $price){}
+    public function __construct(private string $name, private Money $price)
+    {
+    }
 
     public function getName(): string
     {
-        return $this->name;;
+        return $this->name;
+        ;
     }
 
     public function getFormattedPrice(): string
