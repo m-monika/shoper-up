@@ -6,8 +6,11 @@ namespace App\Task4;
 
 class Address
 {
+    public function __construct(private string $street, private string $city, private string $zipCode){}
+
     public function getFullAddress(): string
     {
-        return '';
+        $fullAddress = "$this->street, $this->zipCode $this->city";
+        return $fullAddress;
     }
 }
