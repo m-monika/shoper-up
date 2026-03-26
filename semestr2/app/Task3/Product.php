@@ -13,7 +13,7 @@ class Product
     public function getName(): string
     {
         return $this->name;
-        
+
     }
 
     public function getFormattedPrice(): string
