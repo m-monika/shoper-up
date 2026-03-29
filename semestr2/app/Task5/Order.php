@@ -7,23 +7,31 @@ namespace App\Task5;
 class Order
 {
     private array $items = [];
+    public function __construct(private string $number = ""){}
 
     public function addItem(OrderItem $item): void
     {
+        $this->items[] = $item;
     }
 
     public function getShippingCost(): int
     {
-        return 0;
+        return $this->calculateItemsTotal() >= 15000 ? 0 : 1500;
     }
 
     public function calculateItemsTotal(): int
     {
-        return 0;
+        $total = 0;
+
+        foreach ($this->items as $item) {
+            $total += $item->getTotalPrice();
+        }
+
+        return $total;
     }
 
     public function calculateGrandTotal(): int
     {
-        return 0;
+      return $this->calculateItemsTotal() + $this->getShippingCost();
     }
 }
