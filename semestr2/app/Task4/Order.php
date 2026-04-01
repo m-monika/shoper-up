@@ -6,8 +6,10 @@ namespace App\Task4;
 
 class Order
 {
+    public function __construct(public string $number, public Address $billingAddress, public Address $shippingAddress) {}
+
     public function isBillingSameAsShipping(): bool
     {
-        return false;
+        return $this->billingAddress == $this->shippingAddress;
     }
 }
