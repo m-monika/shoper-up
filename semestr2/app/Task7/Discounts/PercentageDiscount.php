@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Task7\Discounts;
 
-class PercentageDiscount
+class PercentageDiscount implements DiscountStrategyInterface
 {
     private float $percentage;
 
