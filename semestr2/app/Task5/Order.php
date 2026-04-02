@@ -7,7 +7,9 @@ namespace App\Task5;
 class Order
 {
     private array $items = [];
-    public function __construct(private string $number = ""){}
+    public function __construct(private string $number = '')
+    {
+    }
 
     public function addItem(OrderItem $item): void
     {
@@ -32,6 +34,6 @@ class Order
 
     public function calculateGrandTotal(): int
     {
-      return $this->calculateItemsTotal() + $this->getShippingCost();
+        return $this->calculateItemsTotal() + $this->getShippingCost();
     }
 }
