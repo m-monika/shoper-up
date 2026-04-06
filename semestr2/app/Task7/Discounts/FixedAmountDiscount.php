@@ -1,10 +1,8 @@
 <?php
-
 declare(strict_types=1);
-
 namespace App\Task7\Discounts;
 
-class FixedAmountDiscount
+class FixedAmountDiscount implements DiscountStrategyInterface
 {
     private float $discountAmount;
 
