@@ -15,7 +15,15 @@ class FixedAmountCoupon implements CouponInterface
 
     public function applyDiscount(float $totalAmount): float
     {
+
         $result = $totalAmount - $this->discountAmount;
+
         return $result < 0 ? 0 : $result;
+    
+    }
+
+    public function discountGetter(): float
+    {
+        return $this->discountAmount;
     }
 }
