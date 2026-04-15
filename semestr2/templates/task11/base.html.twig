@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>{% block title %}{% endblock %} - ShoperUp!</title>
+    {% block css %}
+        <style>
+            body {
+                background-color: #777777;
+            }
+        </style>
+    {% endblock %}
+</head>
+<body>
+    <div id="content">{% block content %}{% endblock %}</div>
+
+    <div id="footer">{% block footer %}{% endblock %}</div>
+</body>
+</html>
