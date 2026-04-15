@@ -3,12 +3,13 @@
 W pliku `semestr2/task11.php`:
 
 1. Załaduj plik `vendor/autoload.php`
-2. Zaimportuj klasę z `App\Task11\Product` używając `use`
-3. Stwórz tablicę produktów dodając obiekty klasy `Product` (id + nazwa + opis + cena)
+2. Zaimportuj klasy z `App\Task11\Product` i `App\Task11\ProductCollection` używając `use`
+3. Stwórz kolekcję produktów i dodaj do niej obiekty klasy `Product` (id + nazwa + opis + cena)
 4. Dodaj obsługę `twig` i wyrenderuj szablon `semestr2/templates/task11/products.html.twig`, który pokaże produkty (lista lub tabela)
 5. Kliknięcie w produkt powinno kierować na nowy widok karty produktu: `semestr2/templates/task11/product.html.twig`, który:
    * pokazuje szczegóły produktu (nazwa, opis, cena)
    * zawiera link "Powrót", który kieruje z powrotem do listy produktów
+   * jeśli produkt o danym id nie istnieje, wyrenderuj szablon `semestr2/templates/task11/error.html.twig` z komunikatem błędu
 6. Widoki powinny dziedziczyć ze wspólnego szablonu `semestr2/templates/task11/base.html.twig`, który definiuje bloki (które można lub trzeba nadpisać w poszczególnych widokach:
    * `title`
    * `css`
