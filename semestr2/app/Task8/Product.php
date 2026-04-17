@@ -6,10 +6,10 @@ namespace App\Task8;
 
 class Product
 {
-    private string $name;
-    private float $price;
+    //private string $name;
+    //private float $price;
 
-    public function __construct(string $name, float $price)
+    public function __construct(private string $name, private float $price)
     {
         $this->name = $name;
         $this->price = $price;
