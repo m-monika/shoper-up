@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <title>Koszyk - ShoperUp!</title>
-</head>
-<body>
 
+<header>
+    {% include('header.html.twig' ) %}
+</header>
+
+<body>
+    {% for product in basket %}
+        <li>{{ product.name }}: {{ product.price|number_format(2, ',', '') }} zł</li>
+    {% else %}
+        <p>Koszyk jest pusty. </p>
+    {% endfor %}
 </body>
+
+<footer>
+{% include('footer.html.twig' ) %}
+</footer>
+
 </html>
