@@ -2,9 +2,9 @@
 
 1. Stwórz moduł własny na sklepie, a następnie poniżej w sekcji Rozwiązanie wpisz nazwę modułu oraz link do strony sklepu na którym ten moduł został umieszczony.
 2. Moduł powinien mieć: TWIG, konfiguracje, JS oraz tłumaczenia.
-3. Poniżej podano GOTOWĄ konfigurację modułu. (nie zmieniaj jej ;) )
-4. Dopisz tłumaczenia do każdego labela w języku polskim oraz angielskim.
-5. Dopisz Twig tak, aby wyświetlił wszystkie dodane obrazki razem z tytułem, opisem i przyciskiem który będzie kierował na podany link.
+3. Poniżej podano **GOTOWĄ** konfigurację modułu. (nie zmieniaj jej ;) )
+4. Dopisz tłumaczenia do każdego labela w języku `polskim` oraz `angielskim`.
+5. Dopisz `Twig` tak, aby wyświetlił wszystkie dodane obrazki razem z tytułem, opisem i przyciskiem który będzie kierował na podany link.
 
 ## Konfiguracja modułu
 

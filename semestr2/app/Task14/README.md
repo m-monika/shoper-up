@@ -2,6 +2,8 @@
 
 1. Stwórz moduł własny na sklepie, a następnie poniżej w sekcji Rozwiązanie wpisz nazwę modułu oraz link do strony sklepu na którym ten moduł został umieszczony.
 2. Moduł powinien mieć: TWIG, konfiguracje, JS oraz tłumaczenia.
+3. Dodaj własną konfigurację w `Ustawienia szablonu (Skinstore)`.
+4. W `SVE` uzupełnij wartości dla nowo dodanej konfiguracji.
 3. Moduł powinien używać zmiennej **systemConfig** oraz **themeConfig**.
 
 ## Inspiracje:

@@ -3,7 +3,7 @@
 1. Stwórz moduł własny na sklepie, a następnie poniżej w sekcji Rozwiązanie wpisz nazwę modułu oraz link do strony sklepu na którym ten moduł został umieszczony.
 2. Moduł powinien mieć: TWIG, konfiguracje, JS oraz tłumaczenia.
 3. Moduł powinien używać DWÓCH macr: 1 shoperowe, a jedno stworzone samodzielnie.
-4. Macro stworzone zamodzielnie może zawierać samo słowo "test" - nie musi być "skomplikowane", ważne, aby było użyte w module.
+4. Macro stworzone samodzielnie może zawierać samo słowo "test" - nie musi być "skomplikowane", ważne, aby było użyte w module.
 
 ## Inspiracje:
 

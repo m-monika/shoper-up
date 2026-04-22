@@ -3,11 +3,11 @@
 1. Stwórz moduł własny na sklepie, a następnie poniżej w sekcji Rozwiązanie wpisz nazwę modułu oraz link do strony sklepu na którym ten moduł został umieszczony.
 2. Moduł powinien mieć: TWIG, konfiguracje, JS oraz tłumaczenia.
 3. **ZMIEŃ** poniższą konfigurację modułu.
-4. W konfiguracji dodaj po `Slide description` [checkbox](https://storefront.developers.shoper.pl/sve/elements/checkbox/) `Add button?`.
-5. W konfiguracji przesuń kontrolki `Button text` oraz `Target URL` aby były [dziećmi](https://storefront.developers.shoper.pl/sve/configuration/#children) kontrolki `Add button?`.
-6. W konfiguracji dodaj [relację](https://storefront.developers.shoper.pl/sve/configuration/#relations) że `Button text` oraz `Target URL` pojawią się tylko jeśli `Add button?` będzie zaznaczone.
+4. W konfiguracji dodaj po `Slide description` [checkbox](https://storefront.developers.shoper.pl/sve/elements/checkbox/) o nazwie `Add button?`.
+5. W konfiguracji przesuń kontrolki `Button text` oraz `Target URL`, aby były [dziećmi](https://storefront.developers.shoper.pl/sve/configuration/#children) kontrolki `Add button?`.
+6. W konfiguracji dodaj [relację](https://storefront.developers.shoper.pl/sve/configuration/#relations) tak aby `Button text` oraz `Target URL` pojawiały się tylko jeśli `Add button?` będzie zaznaczone.
 4. Dopisz tłumaczenia do każdego labela w języku polskim oraz angielskim.
-5. Dopisz Twig tak, aby wyświetlił wszystkie dodane obrazki razem z tytułem, opisem i przyciskiem który będzie kierował na podany link (o ile zaznaczone `Add button`).
+5. Dopisz `Twig` tak, aby wyświetlił wszystkie dodane obrazki razem z tytułem, opisem i przyciskiem który będzie kierował na podany link (o ile zaznaczone `Add button`).
 
 ## Konfiguracja modułu
 
