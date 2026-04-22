@@ -4,7 +4,7 @@
 2. Moduł powinien mieć: TWIG, konfiguracje, JS oraz tłumaczenia.
 3. Dodaj własną konfigurację w `Ustawienia szablonu (Skinstore)`.
 4. W `SVE` uzupełnij wartości dla nowo dodanej konfiguracji.
-3. Moduł powinien używać zmiennej **systemConfig** oraz **themeConfig**.
+5. Moduł powinien używać zmiennej **systemConfig** oraz **themeConfig**.
 
 ## Inspiracje:
 
