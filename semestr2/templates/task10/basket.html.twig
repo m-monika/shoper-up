@@ -2,8 +2,31 @@
 <html lang="pl">
 <head>
     <title>Koszyk - ShoperUp!</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 20px; }
+        table { border-collapse: collapse; width: 400px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f4f4f4; }
+    </style>
 </head>
 <body>
-
+    {% include('header.html.twig') %}
+    <table>
+        <thead>
+            <tr>
+                <th>Produkt</th>
+                <th>Cena</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in basket.products %}
+                <tr>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.price|number_format(2, ',', ' ') }} zł</td>
+                </tr>
+            {% endfor %}  
+        </tbody>    
+    </table>
+    {% include('footer.html.twig') %}
 </body>
 </html>
