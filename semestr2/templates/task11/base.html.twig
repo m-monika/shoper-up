@@ -5,7 +5,10 @@
     {% block css %}
         <style>
             body {
-                background-color: #777777;
+                font-family: sans-serif;
+                max-width: 600px;
+                margin: 40px auto;
+                line-height: 1.5;
             }
         </style>
     {% endblock %}
@@ -13,6 +16,6 @@
 <body>
     <div id="content">{% block content %}{% endblock %}</div>
 
-    <div id="footer">{% block footer %}{% endblock %}</div>
+    <div id="footer">{% block footer %}<h3>© Sklep internetowy 2026</h3>{% endblock %}</div>
 </body>
 </html>

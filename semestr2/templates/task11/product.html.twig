@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ product.name }} - Szczegóły produktu{% endblock %}
+
+{% block content %}
+<h1>Produkt: {{ product.name }}</h1>
+<h2>Opis: {{ product.description }}</h2>
+<h2>Cena: {{ product.price }}</h2>
+<br>
+<p><a href="{{ baseUrl }}">Powróć na listę produktów</a></p>
+{% endblock %}

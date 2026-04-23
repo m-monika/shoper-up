@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lista produktów w naszej kolekcji{% endblock %}
+
+{% block content %}
+<h1>Nasza kolekcja:</h1>
+{% for product in collection.products %}
+<p><a href="{{ baseUrl }}?id={{ product.id }}">➔ {{ product.name }}</a></p>
+{% else %}
+<p>W naszej kolekcji obecnie nie ma produktów</p>
+{% endfor %}
+{% endblock %}

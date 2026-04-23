@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nie znaleziono podanego produktu{% endblock %}
+{% block css %}    <style>h1 {
+        font-size: 16px;
+    }</style>{% endblock %}
+
+{% block content %}
+<h1><span style="color: red">Niestety nie odnaleziono produktu o tym ID</span></h1>
+<p><a href="{{ baseUrl }}">Powróć na listę produktów</a></p>
+
+{% endblock %}
