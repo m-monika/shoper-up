@@ -2,8 +2,18 @@
 <html lang="pl">
 <head>
     <title>Koszyk - ShoperUp!</title>
+    <link rel="stylesheet" href="templates/task10/style.css">
 </head>
 <body>
-
+{% include('header.html.twig') %}
+<h2>Lista produktów w koszyku</h1>
+{% for product in basket.products %}
+<p>➔ {{ product.name }} | {{ product.price|number_format(2) }} zł</p>
+{% else %}
+<p>W koszyku nie znajdują się żadne produkty :(</p>
+{% endfor %}
+<br><hr>
+<b>Wartość Twojego koszyka: {{ basket.totalprice|number_format(2) }} zł</b>
+{% include('footer.html.twig') %}
 </body>
 </html>
