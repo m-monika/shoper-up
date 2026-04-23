@@ -7,4 +7,5 @@ namespace App\Task8\Coupons;
 interface CouponInterface
 {
     public function applyDiscount(float $totalAmount): float;
+    public function discountGetter(): float;
 }
