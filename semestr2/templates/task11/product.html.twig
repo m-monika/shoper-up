@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Karta produktu
+{% endblock %}
+
+{% block css %}
+        <style>
+            body {
+                background-color: #777777;
+                font-family: Arial, sans-serif;
+            }
+
+            .button {
+                display: inline-block;
+                padding: 10px 16px;
+                background-color: #2d6cdf;
+                color: white;
+                text-decoration: none;
+                border-radius: 6px;
+            }
+
+            .product-card {
+                width: 300px;
+                padding: 16px;
+                margin: 20px auto;
+                background: #ffffff;
+                border: 1px solid #e6e6e6;
+                border-radius: 12px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+                font-family: Arial, sans-serif;
+            }
+
+            .product-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+            }
+
+            .product-name {
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 10px;
+                color: #222;
+            }
+
+            .product-price {
+                font-size: 16px;
+                font-weight: 600;
+                color: #2d6cdf;
+                margin-bottom: 8px;
+            }
+            .product-description {
+                font-size: 14px;
+                color: #555;
+                line-height: 1.4;
+            }
+        </style>
+{% endblock %}
+
+{% block content %}
+
+{% for product in collection %}
+
+    {% if product.id == id %}
+    <div class="product-card">
+        <div class="product-name"> Nazwa produktu: {{ product.name }} </div>
+        <div class="product-price"> Cena: {{ product.price }} zł </div>
+        <div class="product-description"> Opis: {{ product.description }} </div>
+    </div>
+    {% endif %}
+
+{% else %}
+    <p>Koszyk jest pusty. </p>
+{% endfor %}
+
+{% endblock %}
+
+{% block footer %}
+    <a href="{{ baseUrl }}?page=product_list" class="button"> Powrót </a>
+{% endblock %}
