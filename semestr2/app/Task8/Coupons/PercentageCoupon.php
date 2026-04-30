@@ -15,6 +15,13 @@ class PercentageCoupon implements CouponInterface
 
     public function applyDiscount(float $totalAmount): float
     {
-        return $totalAmount - ($totalAmount * $this->percentage / 100);
+        $result = $totalAmount - ($totalAmount * $this->percentage / 100);
+
+        return $result < 0 ? 0 : $result;
+    }
+
+    public function discountGetter(): float
+    {
+        return $this->percentage;
     }
 }
