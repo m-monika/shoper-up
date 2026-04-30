@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Lista produktów
+{% endblock %}
+
+{% block css %}
+        <style>
+            body {
+                background-color: #777777;
+                font-family: Arial, sans-serif;
+            }
+
+            .product-list {
+                list-style: none;
+                padding: 0;
+                margin: 20px auto;
+                max-width: 500px;
+            }
+
+            .product-item {
+                margin-bottom: 10px;
+            }
+
+            .product-item a {
+                display: block;
+                padding: 12px 14px;
+                background: #ffffff;
+                border-radius: 8px;
+                text-decoration: none;
+                color: #222;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+                transition: all 0.2s ease;
+            }
+
+            .product-item a:hover {
+                background: #2d6cdf;
+                color: white;
+                transform: translateX(4px);
+            }
+        </style>
+{% endblock %}
+
+{% block content %}
+<ul class="product-list">
+{% for product in collection %}
+    <li class="product-item"> 
+        <a href="{{ baseUrl }}?page=product&id={{product.id}}">{{ product.name }}: {{ product.price|number_format(2, ',', '') }} zł</a>
+    </li>
+{% else %}
+    <p>Koszyk jest pusty. </p>
+{% endfor %}
+</ul> 
+{% endblock %}

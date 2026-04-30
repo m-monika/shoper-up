@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produkt nie istnieje{% endblock %}
+
+{% block css %}
+        <style>
+            body {
+                background-color: #777777;
+                font-family: Arial, sans-serif;
+            }
+            .button {
+                display: inline-block;
+                padding: 10px 16px;
+                background-color: #2d6cdf;
+                color: white;
+                text-decoration: none;
+                border-radius: 6px;
+            }
+            .error-box {
+                width: 400px;
+                margin: 60px auto;
+                padding: 20px;
+                background: #fff;
+                border: 1px solid #e6e6e6;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+                text-align: center;
+                font-family: Arial, sans-serif;
+            }
+
+            .error-box h2 {
+                color: #d9534f;
+                margin-bottom: 10px;
+                font-size: 20px;
+            }
+
+            .error-box p {
+                color: #555;
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+        </style>
+{% endblock %}
+
+{% block content %}
+    <div class="error-box">
+        <h2>Wystąpił błąd</h2>
+        <p>aplikacja trafiła na niespodziewany błąd</p>
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+    <a href="{{ baseUrl }}?page=product_list" class="button"> Powrót </a>
+{% endblock %}
