@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Utwórz plik .env na podstawie .env.default jeśli nie istnieje
+if [ ! -f semestr2/.env ]; then
+  if [ -f semestr2/.env.default ]; then
+    cp semestr2/.env.default semestr2/.env
+    echo "Utworzono plik .env na podstawie .env.default"
+  else
+    echo "UWAGA: Brak pliku semestr2/.env.default – nie można utworzyć .env"
+  fi
+fi
+
 # Sprawdź czy kontener php-shoper-up jest uruchomiony
 if docker compose ps | grep -q 'php-shoper-up.*Up'; then
   echo "Zatrzymuję działający kontener php-shoper-up..."
