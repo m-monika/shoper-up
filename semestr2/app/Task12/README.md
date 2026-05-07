@@ -20,5 +20,5 @@
 
 ## Rozwiązanie:
 
-Nazwa modułu: ...
-Link do sklepu z umieszczonym modułem: ...
+Nazwa modułu: "Produkty Kontaktowe"
+Link do sklepu z umieszczonym modułem: [Link gdzie można zobaczyć moduł](https://websiteverything.site/pl/contact); [adminka sklepu](https://admin.shoper.pl/admin/shops/editsas/id/360422); szablon "Shoper-UP 1" - ID 6
