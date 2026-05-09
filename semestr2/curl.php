@@ -20,6 +20,15 @@ $response = $client->request('GET', $url, [
     ],
     'timeout' => 3,
 ]);
+
+//$response = $client->request('POST', $url, [
+//    'body' => [
+//        'username' => 'jan',
+//        'password' => 'secret',
+//    ],
+//    'timeout' => 3,
+//]);
+
 echo "Http Response Code: " . $response->getStatusCode() . '<br />';
 echo "Content:<br />";
 echo $response->getContent();
