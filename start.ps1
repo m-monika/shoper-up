@@ -1,3 +1,13 @@
+# Utwórz plik .env na podstawie .env.default jeśli nie istnieje
+if (!(Test-Path "semestr2\.env")) {
+    if (Test-Path "semestr2\.env.default") {
+        Copy-Item "semestr2\.env.default" "semestr2\.env"
+        Write-Host "Utworzono plik .env na podstawie .env.default"
+    } else {
+        Write-Host "UWAGA: Brak pliku semestr2\.env.default – nie można utworzyć .env"
+    }
+}
+
 # Sprawdź czy kontener php-shoper-up jest uruchomiony
 docker compose ps | Select-String 'php-shoper-up.*Up' | ForEach-Object {
     Write-Host "Zatrzymuję działający kontener php-shoper-up..."
