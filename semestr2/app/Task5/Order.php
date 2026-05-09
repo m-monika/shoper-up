@@ -9,8 +9,7 @@ class Order
     private array $items = [];
 
     public function addItem(OrderItem $item): void
-    {
-    }
+    {}
 
     public function getShippingCost(): int
     {
