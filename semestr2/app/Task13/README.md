@@ -12,5 +12,5 @@
 
 ## Rozwiązanie:
 
-Nazwa modułu: ...
-Link do sklepu z umieszczonym modułem: ...
+Nazwa modułu: Produkt z pomieszczeniem (Z13)
+Link do sklepu z umieszczonym modułem: [link](https://websiteverything.site/pl/n/list)
