@@ -13,5 +13,5 @@
 
 ## Rozwiązanie:
 
-Nazwa modułu: ...
-Link do sklepu z umieszczonym modułem: ...
+Nazwa modułu: "Ikona z obwódką (Z14)"
+Link do sklepu z umieszczonym modułem: [Link](https://websiteverything.site/pl/n/1)
