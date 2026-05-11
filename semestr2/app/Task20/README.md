@@ -12,5 +12,5 @@
 
 ## Rozwiązanie:
 
-Nazwa modułu: ...
-Link do sklepu z umieszczonym modułem: ...
+Nazwa modułu: "Produkt z dedykowanym opisem (Z20)"
+Link do sklepu z umieszczonym modułem: [Link](https://websiteverything.site/blog_kategoria)
