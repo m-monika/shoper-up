@@ -10,5 +10,5 @@
 
 ## Rozwiązanie:
 
-Nazwa modułu: ...
-Link do sklepu z umieszczonym modułem: ...
+Nazwa modułu: "Lista produktów powiązanych przy produkcie (Z22)"
+Link do sklepu z umieszczonym modułem: [Link](https://sklep609754.shoparena.pl/pl/p/Produkt-Premium/11688)
