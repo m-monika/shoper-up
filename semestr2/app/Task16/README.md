@@ -77,5 +77,5 @@
 
 ## Rozwiązanie:
 
-Nazwa modułu: ...
-Link do sklepu z umieszczonym modułem: ...
+Nazwa modułu: "Zadanie 16 (Z16)"
+Link do sklepu z umieszczonym modułem: [Link](https://websiteverything.site/pl/i/Formy-platnosci/10)
