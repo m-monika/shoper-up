@@ -67,5 +67,5 @@
 
 ## Rozwiązanie:
 
-Nazwa modułu: ...
-Link do sklepu z umieszczonym modułem: ...
+Nazwa modułu: "Zadanie 19 (Z19)"
+Link do sklepu z umieszczonym modułem: [PL](https://websiteverything.site/pl_PL/collection/Kolek/1) [ENG](https://websiteverything.site/en_US/collection/Collec/1)
