@@ -80,5 +80,5 @@
 
 ## Rozwiązanie:
 
-Nazwa modułu: ...
-Link do sklepu z umieszczonym modułem: ...
+Nazwa modułu: "Zadanie 17 (Z17)"
+Link do sklepu z umieszczonym modułem: [Link](https://websiteverything.site/pl/new)
