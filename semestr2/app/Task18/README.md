@@ -52,5 +52,5 @@
 
 ## Rozwiązanie:
 
-Nazwa modułu: ...
-Link do sklepu z umieszczonym modułem: ...
+Nazwa modułu: "Zadanie 18 (Z18)"
+Link do sklepu z umieszczonym modułem: [PL](https://websiteverything.site/pl/searchquery/xyz/1/full/5?url=xyz) [EN](https://websiteverything.site/en_US/searchquery/xyz/1/full/5?url=xyz)
