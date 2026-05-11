@@ -30,5 +30,5 @@ footer { background-color:@primaryColor; } /* variable from system */
 
 ## Rozwiązanie:
 
-Nazwa modułu: ...
-Link do sklepu z umieszczonym modułem: ...
+Nazwa modułu: "Obramowane Informacje Sklepowe (Z15)"
+Link do sklepu z umieszczonym modułem: [Link](https://websiteverything.site/pl/promotions)
