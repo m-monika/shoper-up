@@ -1,0 +1,25 @@
+{% extends 'task11/base.html.twig' %}
+
+{% block title %}Lista Produktów{% endblock %}
+
+{% block content %}
+    <h1>Nasze Produkty</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nazwa</th>
+                <th>Cena</th>
+                <th>Akcja</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.getName() }}</td>
+                <td>{{ product.getPrice()|number_format(2, ',', ' ') }} zł</td>
+                <td><a href="{{ baseUrl }}?id={{ product.getId() }}">Szczegóły</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

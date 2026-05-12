@@ -1,0 +1,13 @@
+{% extends 'task11/base.html.twig' %}
+
+{% block title %}Szczegóły: {{ product.getName() }}{% endblock %}
+
+{% block content %}
+    <div class="product-card">
+        <h1>{{ product.getName() }}</h1>
+        <p><strong>Opis:</strong> {{ product.getDescription() }}</p>
+        <p><strong>Cena:</strong> {{ product.getPrice()|number_format(2, ',', ' ') }} zł</p>
+        
+        <a href="{{ baseUrl }}">← Powrót do listy</a>
+    </div>
+{% endblock %}
