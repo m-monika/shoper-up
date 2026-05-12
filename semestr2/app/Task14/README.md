@@ -13,5 +13,5 @@
 
 ## Rozwiązanie:
 
-Nazwa modułu: ...
-Link do sklepu z umieszczonym modułem: ...
+Nazwa modułu: Task14
+Link do sklepu z umieszczonym modułem: (https://sklep475005.shoparena.pl/admin/configSkins/skin-visual-editor/id/5/layout/2)
