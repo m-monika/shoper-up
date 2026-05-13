@@ -1,0 +1,9 @@
+{% extends 'task11/base.html.twig' %}
+
+{% block title %}Błąd - Brak produktu{% endblock %}
+
+{% block content %}
+    <h1 class="error">Wystąpił błąd!</h1>
+    <p>{{ message }}</p>
+    <a href="{{ baseUrl }}">Wróć do strony głównej</a>
+{% endblock %}
