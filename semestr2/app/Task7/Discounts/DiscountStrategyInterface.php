@@ -6,4 +6,5 @@ namespace App\Task7\Discounts;
 
 interface DiscountStrategyInterface
 {
+    public function calculate(float $totalAmount): float;
 }
