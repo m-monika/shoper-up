@@ -8,22 +8,42 @@ use App\Task8\Coupons\CouponInterface;
 
 class Basket
 {
+    private array $products = [];
+    private ?CouponInterface $coupon = null;
+
     public function addProduct(Product $product, int $quantity): void
     {
+        foreach ($this->products as &$item) {
+            if ($item['product'] === $product) {
+                $item['quantity'] += $quantity;
+
+                return;
+            }
+        }
+
+        $this->products[] = [
+            'product' => $product,
+            'quantity' => $quantity,
+        ];
     }
 
     public function applyCoupon(CouponInterface $coupon): void
     {
+        $this->coupon = $coupon;
     }
 
     public function getProducts(): array
     {
-        return [];
+        return $this->products;
     }
 
     public function getTotalWithoutDiscount(): float
     {
         $total = 0.0;
+
+        foreach ($this->products as $item) {
+            $total += $item['product']->getPrice() * $item['quantity'];
+        }
 
         return $total;
     }
@@ -31,6 +51,10 @@ class Basket
     public function getTotalWithDiscount(): float
     {
         $total = $this->getTotalWithoutDiscount();
+
+        if ($this->coupon !== null) {
+            return $this->coupon->applyDiscount($total);
+        }
 
         return $total;
     }
