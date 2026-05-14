@@ -9,18 +9,13 @@ use App\Task6\Shipping\ShippingService;
 
 class OrderProcessor
 {
-    private PaymentGateway $paymentGateway;
-    private ShippingService $shippingService;
-
-    public function __construct(PaymentGateway $paymentGateway, ShippingService $shippingService)
-
-    {
-    $this->paymentGateway = $paymentGateway;
-    $this->shippingService = $shippingService;
+    public function __construct(
+        private PaymentGateway $paymentGateway,
+        private ShippingService $shippingService,
+    ) {
     }
 
     public function processOrder(string $orderNumber, float $amount, float $weight, string $address): array
-
     {
         $paymentResult = $this->paymentGateway->processPayment($amount);
         $shippingCost = $this->shippingService->calculateCost($weight);

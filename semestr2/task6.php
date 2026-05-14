@@ -8,9 +8,8 @@ use App\Task6\OrderProcessor;
 use App\Task6\Payment\PaymentGateway as Payment;
 use App\Task6\Shipping\ShippingService as Shipping;
 
-
-$paymentGateway = new Payment('InPost Pay to zlo wcielone');
-$shippingService = new Shipping('Poczta Polska king');
+$paymentGateway = new Payment('PayU');
+$shippingService = new Shipping('InPost');
 
 $processor = new OrderProcessor($paymentGateway, $shippingService);
 
