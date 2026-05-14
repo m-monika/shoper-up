@@ -8,7 +8,7 @@ use Symfony\Component\HttpClient\HttpClient;
 $dotenv = new Dotenv();
 $dotenv->load(__DIR__ . '/.env');
 
-$url = ($_ENV['API_URL']) . '/webapi/rest/aboutpages';
+$url = $_ENV['API_URL'] . '/webapi/rest/aboutpages';
 $token = $_ENV['API_TOKEN'];
 
 $client = HttpClient::create();
