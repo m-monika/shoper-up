@@ -14,6 +14,6 @@ class Notification
 
     public function format(): string
     {
-        return "Do: $this->recipient\n$this->message";
+        return "Do: {$this->recipient}\n{$this->message}";
     }
 }
