@@ -12,5 +12,5 @@ zaimplementuj metodę `getFinalPrice(): float`, która zwraca cenę produktu po 
 
 ## Basket
 zaimplementuj metody:
-- `getTotalPrice(): float` - oblicza łączną cenę wszystkich produktów w koszyku (uwzględniająć rabaty na poszczególnych produktach).
+- `getTotalPrice(): float` - oblicza łączną cenę wszystkich produktów w koszyku (uwzględniając rabaty na poszczególnych produktach).
 - `getFinalPrice(): float` - oblicza cenę całego koszyka po zastosowaniu rabatu na koszyk.
