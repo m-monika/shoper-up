@@ -13,5 +13,5 @@
 
 ## Rozwiązanie:
 
-Nazwa modułu: ...
-Link do sklepu z umieszczonym modułem: ...
+Nazwa modułu: System Info
+Link do sklepu z umieszczonym modułem: [Link do strony](https://websiteverything.site/)
