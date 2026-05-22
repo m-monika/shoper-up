@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}Lista produktów{% endblock %}
+{% block content %}
+   <h1>Produkty</h1>
+   <ul>
+       <li><b>ID | Nazwa | Cena</b></li>
+       {% for product in products %}
+           <li>
+               <a href="{{ baseUrl }}?id={{ product.getId() }}">
+                   {{ product.getId() }} |
+                   {{ product.getName() }} |
+                   {{ product.getPrice() | number_format(2, ',', ' ') }} zł
+               </a>
+           </li>
+       {% endfor %}
+   </ul>
+{% endblock %}
+{% block footer %}<p>Sklep 2026</p>{% endblock %}
