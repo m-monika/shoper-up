@@ -22,11 +22,20 @@ class Basket
 
     public function getTotalPrice(): float
     {
-        // TODO
+        $count = 0;
+        foreach ($this->products as $key => $product) {
+            $count += $product->getFinalPrice();
+        }
+        return $count;
     }
 
     public function getFinalPrice(): float
     {
-        // TODO
+        $count = 0;
+        foreach ($this->products as $key => $product) {
+            $productPrice = $product->getFinalPrice();
+            $count += $this->calculatePriceWithDiscount($productPrice);
+        }
+        return $count;
     }
 }
