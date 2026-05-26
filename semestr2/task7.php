@@ -49,7 +49,7 @@ echo "Po rabacie: " . $cart2->getTotalAfterDiscount() . " zł\n";
 
 //koszyk 3
 
-$noDiscount = new NoDiscount(50);
+$noDiscount = new NoDiscount();
 $cart2 = new ShoppingCart($noDiscount);
 $cart2->addItem('Laptop', 3000.00);
 $cart2->addItem('Mysz', 150.00);
