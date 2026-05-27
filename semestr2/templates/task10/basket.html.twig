@@ -2,8 +2,94 @@
 <html lang="pl">
 <head>
     <title>Koszyk - ShoperUp!</title>
+     <style>
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            background: #f5f5f5;
+
+            padding: 40px;
+
+        }
+
+        h1, h2 {
+
+            color: #333;
+
+        }
+
+        ul {
+
+            list-style: none;
+
+            padding: 20px;
+
+            background: white;
+
+            border-radius: 10px;
+
+        }
+
+        li {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            padding: 10px 0;
+
+            border-bottom: 1px solid #ddd;
+
+        }
+
+        li:last-child {
+
+            border-bottom: none;
+
+        }
+
+        footer {
+
+            margin-top: 20px;
+
+            color: gray;
+
+        }
+
+    </style>
 </head>
 <body>
+{% include 'task10/header.html.twig' %}
+
+<h1>Koszyk</h1>
+
+<ul>
+
+    {% for product in products %}
+
+        <li>
+
+            {{ product.name }} -
+
+            {{ (product.price / 100)|number_format(2, ',', ' ') }} zł
+
+        </li>
+
+    {% endfor %}
+
+</ul>
+
+<h2>
+
+    Suma:
+
+    {{ (sum / 100)|number_format(2, ',', ' ') }} zł
+
+</h2>
+
+{% include 'task10/footer.html.twig' %}
 
 </body>
 </html>
