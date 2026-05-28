@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ product.getName() }}{% endblock %}
+
+{% block content %}
+   <h1>{{ product.getName() }}</h1>
+   <p><strong>Opis:</strong> {{ product.getDescription() }}</p>
+   <p><strong>Cena:</strong> {{ product.getPrice() | number_format(2, ',', ' ') }} zł</p>
+   
+   <a href="{{ baseUrl }}">Powrót do listy produktów</a>
+
+
+{% endblock %}
+
+{% block footer %}
+   <p>Sklep 2026</p>
+{% endblock %}
