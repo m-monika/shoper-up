@@ -10,11 +10,15 @@ trait Discountable
 
     public function applyDiscount(int $percent): void
     {
-        // TODO
+        if ($percent < 0 or $percent > 100) {
+            throw new \InvalidArgumentException('Nieprawidłowy rabat');
+        } else {
+            $this->discountPercent = $percent;
+        }
     }
 
     public function calculatePriceWithDiscount(float $price): float
     {
-        // TODO
+        return $price - ($price * ($this->discountPercent * 0.01));
     }
 }
