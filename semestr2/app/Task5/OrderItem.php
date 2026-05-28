@@ -6,8 +6,9 @@ namespace App\Task5;
 
 class OrderItem
 {
+	public function __construct (private string $productName, private int $quantity, private int $price){}
     public function getTotalPrice(): int
     {
-        return 0;
+        return $this->quantity * $this->price;
     }
 }
