@@ -30,5 +30,5 @@ footer { background-color:@primaryColor; } /* variable from system */
 
 ## Rozwiązanie:
 
-Nazwa modułu: ...
-Link do sklepu z umieszczonym modułem: ...
+Nazwa modułu: Zadanie 15
+[Link do sklepu z umieszczonym modułem: ...](https://sklep695436.shoparena.pl/)
