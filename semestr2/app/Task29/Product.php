@@ -26,6 +26,6 @@ class Product
 
     public function getFinalPrice(): float
     {
-        // TODO
+        return $this->calculatePriceWithDiscount($this->price);
     }
 }
