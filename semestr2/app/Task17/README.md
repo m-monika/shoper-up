@@ -80,5 +80,5 @@
 
 ## Rozwiązanie:
 
-Nazwa modułu: ...
-Link do sklepu z umieszczonym modułem: ...
+Nazwa modułu: Zadanie 17
+[Link do sklepu z umieszczonym modułem: ...](https://sklep695436.shoparena.pl/)
