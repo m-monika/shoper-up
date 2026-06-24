@@ -13,5 +13,5 @@
 
 ## Rozwiązanie:
 
-Nazwa modułu: ...
-Link do sklepu z umieszczonym modułem: ...
+Nazwa modułu: task14
+Link do sklepu z umieszczonym modułem: wyborowyskleptestowy.online
