@@ -20,5 +20,5 @@
 
 ## Rozwiązanie:
 
-Nazwa modułu: ...
-Link do sklepu z umieszczonym modułem: ...
+Nazwa modułu: task12
+Link do sklepu z umieszczonym modułem: https://wyborowyskleptestowy.online
